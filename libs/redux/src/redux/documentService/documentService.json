@@ -1,0 +1,2133 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Document Service REST APIs",
+    "version": "1.0",
+    "title": "Boston Document Services"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/document-service",
+  "tags": [
+    { "name": "document-controller", "description": "Document Controller" },
+    {
+      "name": "document-type-controller",
+      "description": "Document Type Controller"
+    },
+    {
+      "name": "gwim-document-controller",
+      "description": "Gwim Document Controller"
+    },
+    {
+      "name": "lifecycle-product-document-controller",
+      "description": "Lifecycle Product Document Controller"
+    },
+    {
+      "name": "marketplace-product-document-controller",
+      "description": "Marketplace Product Document Controller"
+    },
+    {
+      "name": "product-export-controller",
+      "description": "Product Export Controller"
+    },
+    {
+      "name": "request-document-controller",
+      "description": "Request Document Controller"
+    }
+  ],
+  "paths": {
+    "/document": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get Documents by Metadata",
+        "description": "Get a list of DocumentTypes associated with a particular company.",
+        "operationId": "getDocumentsByMetadataUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "allParams",
+            "in": "query",
+            "description": "allParams",
+            "required": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Page«DisplayDocument»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["document-controller"],
+        "summary": "Insert a Document",
+        "description": "Insert a Document.",
+        "operationId": "insertDocumentUsingPOST",
+        "consumes": ["multipart/form-data"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/DisplayDocument" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/all/active": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get Active Documents by Metadata",
+        "description": "Get a list of DocumentTypes associated with a particular company.",
+        "operationId": "getActiveDocumentsByMetadataUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "allParams",
+            "in": "query",
+            "description": "allParams",
+            "required": true,
+            "items": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Page«DisplayDocument»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/all/active/type": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get Active Documents by Document Type",
+        "description": "Get a list of Documents associated with a particular company.",
+        "operationId": "getActiveDocumentsByTypeUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "docTypes",
+            "in": "query",
+            "description": "docTypes",
+            "required": true,
+            "type": "array",
+            "items": { "type": "string" },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Page«DisplayDocument»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/allProducts": {
+      "get": {
+        "tags": ["lifecycle-product-document-controller"],
+        "summary": "Get Documents for All Products",
+        "description": "Get Documents for All Products",
+        "operationId": "getAllProductDocumentsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ProductDocuments" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/gwim": {
+      "get": {
+        "tags": ["gwim-document-controller"],
+        "summary": "Get Document for GWIM deal by deal id and document type",
+        "description": "Get Document for GWIM deal by deal id and document type",
+        "operationId": "getDocumentByTypeUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "dealId",
+            "in": "query",
+            "description": "dealId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "documentTypeKey",
+            "in": "query",
+            "description": "documentTypeKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«DisplayDocument»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["request-document-controller"],
+        "summary": "Insert WSD RequestDocument",
+        "description": "Insert a WSD RequestDocument for given deal id or update if it already exists.",
+        "operationId": "insertWSDRequestDocumentUsingPOST",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "dealId",
+            "description": "dealId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/RequestDocument" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["gwim-document-controller"],
+        "summary": "Update a Wall Street Docs GWIM Document without specifying the key",
+        "description": "Update a Wall Street Docs Document for a GWIM deal. Previous version of the document type must exist for the specified deal id.",
+        "operationId": "updateWsdDocumentByDocumentTypeUsingPUT",
+        "consumes": ["multipart/form-data"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "dealId",
+            "description": "dealId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DisplayDocument" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/gwim/{key}": {
+      "put": {
+        "tags": ["gwim-document-controller"],
+        "summary": "Update a Wall Street Docs GWIM Document",
+        "description": "Update a Wall Street Docs Document for a GWIM deal.",
+        "operationId": "updateWsdDocumentUsingPUT",
+        "consumes": ["multipart/form-data"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "dealId",
+            "description": "dealId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DisplayDocument" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["gwim-document-controller"],
+        "summary": "Delete a Wall Street Docs GWIM Document",
+        "description": "Delete a Wall Street Docs Document for a GWIM deal.",
+        "operationId": "deleteWsdDocumentUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/marketplaceproduct": {
+      "get": {
+        "tags": ["marketplace-product-document-controller"],
+        "summary": "Get Documents for Marketplace Product",
+        "description": "Get Documents for Marketplace Product by CUSIP",
+        "operationId": "getMarketplaceProductDocumentsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "cusip",
+            "in": "query",
+            "description": "cusip",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ProductDocuments" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/product": {
+      "get": {
+        "tags": ["lifecycle-product-document-controller"],
+        "summary": "Get Documents for Product",
+        "description": "Get Documents for Product by CUSIPs",
+        "operationId": "getProductDocumentsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "cusip",
+            "in": "query",
+            "description": "cusip",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ProductDocuments" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["lifecycle-product-document-controller"],
+        "summary": "Get Documents for Product",
+        "description": "Get Documents for Product by CUSIPs",
+        "operationId": "getProductDocumentsUsingPostUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "cusips",
+            "description": "cusips",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/ProductDocuments" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request": {
+      "get": {
+        "tags": ["request-document-controller"],
+        "summary": "Get Documents by Request ID",
+        "description": "Get a list of DocumentTypes associated with a particular company.",
+        "operationId": "getDocumentsByRequestIDUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "description": "requestID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/RequestDocument" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["request-document-controller"],
+        "summary": "Insert RequestDocument",
+        "description": "Insert a RequestDocument for given request id or update if it already exists.",
+        "operationId": "insertRequestDocumentUsingPOST",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "publishFlag",
+            "in": "header",
+            "description": "publishFlag",
+            "required": false,
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "formData",
+            "name": "requestId",
+            "description": "requestId",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/RequestDocument" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request/save": {
+      "post": {
+        "tags": ["request-document-controller"],
+        "summary": "Insert RequestDocument from Url",
+        "description": "Save a document from the url and insert a RequestDocument for a given request id or update if it already exists.",
+        "operationId": "fetchDocumentFromUrlAndInsertUsingPOST",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "bearerToken",
+            "description": "bearerToken",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "in": "formData",
+            "name": "requestId",
+            "description": "requestId",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "in": "formData",
+            "name": "url",
+            "description": "url",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/RequestDocument" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request/senddoc": {
+      "post": {
+        "tags": ["request-document-controller"],
+        "summary": "Publish document properties to Cold Fusion",
+        "description": "This api is use only by postDocumentProperties(), no external users as of now",
+        "operationId": "sendDocumentToColdFusionUsingPOST",
+        "consumes": ["text/plain"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "documentProperties",
+            "description": "documentProperties",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK", "schema": { "type": "string" } },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request/type": {
+      "get": {
+        "tags": ["request-document-controller"],
+        "summary": "Get Document by request id and document type",
+        "description": "Get Document by request id and document type",
+        "operationId": "getDocumentByRequestIdAndTypeUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "documentTypeKey",
+            "in": "query",
+            "description": "documentTypeKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestId",
+            "in": "query",
+            "description": "requestId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«RequestDocument»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request/version": {
+      "get": {
+        "tags": ["request-document-controller"],
+        "summary": "Get Document Version history by Request ID",
+        "description": "Get a list of document versions for a request id.",
+        "operationId": "getDocumentVersionHistoryByRequestIDAndCompanyKeyUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "description": "requestID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/RequestDocument" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request/{key}": {
+      "delete": {
+        "tags": ["request-document-controller"],
+        "summary": "Delete a Document",
+        "description": "Delete a Document for a document key",
+        "operationId": "deleteDocumentUsingDELETE_1",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/request/{requestId}/sharedwithkeys": {
+      "post": {
+        "tags": ["request-document-controller"],
+        "summary": "Update the list of companies permitted to view the documents for a particular request",
+        "description": "The existing list of shared with keys will be replaced with the incoming list.",
+        "operationId": "updateDocumentSharedWithKeysUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "companyKeys",
+            "description": "companyKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "requestId",
+            "in": "path",
+            "description": "requestId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/type": {
+      "put": {
+        "tags": ["document-controller"],
+        "summary": "Update a Document Type",
+        "description": "Updates the type of the document while leaving other details as is",
+        "operationId": "updateDocumentTypeUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "documentTypeUpdate",
+            "description": "documentTypeUpdate",
+            "required": true,
+            "schema": { "$ref": "#/definitions/ChangeDocumentTypeForm" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DisplayDocument" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/version/update": {
+      "put": {
+        "tags": ["document-controller"],
+        "summary": "Update document version",
+        "description": "Update document version for PDF generated through document-generation-service",
+        "operationId": "updateDocumentVersionUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "docUrl",
+            "in": "query",
+            "description": "docUrl",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isAvailable",
+            "in": "query",
+            "description": "isAvailable",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "pdfUrl",
+            "in": "query",
+            "description": "pdfUrl",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/version/{key}/contents": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get a Document's contents",
+        "description": "Get a Document's latest contents as a stream",
+        "operationId": "getDocumentContentsForVersionUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Resource" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/{key}": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get Document",
+        "description": "Get the Document associated with a key.",
+        "operationId": "getDocumentUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DisplayDocument" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["document-controller"],
+        "summary": "Update a Document",
+        "description": "Update a Document.",
+        "operationId": "updateDocumentUsingPUT",
+        "consumes": ["multipart/form-data"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentForm" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DisplayDocument" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["document-controller"],
+        "summary": "Delete a Document",
+        "description": "Delete a Document associated with a Document key.",
+        "operationId": "deleteDocumentUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/{key}/contents": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get a Document's contents",
+        "description": "Get a Document's latest contents as a stream",
+        "operationId": "getDocumentContentsUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Resource" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/{key}/location": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get a Document's location",
+        "description": "Get the location of a Document's latest contents",
+        "operationId": "getDocumentLocationUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DocumentLocation" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/{key}/type": {
+      "get": {
+        "tags": ["document-controller"],
+        "summary": "Get Document Type",
+        "description": "Get the Document Type associated with a document key.",
+        "operationId": "getDocumentTypeByDocumentKeyUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DocumentType" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/documents/gwim": {
+      "get": {
+        "tags": ["gwim-document-controller"],
+        "summary": "Get Documents for GWIM deal",
+        "description": "Get Documents for GWIM deal by deal id",
+        "operationId": "getDocumentsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "dealId",
+            "in": "query",
+            "description": "dealId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/DisplayDocument" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/documents/gwim/{dealId}": {
+      "post": {
+        "tags": ["gwim-document-controller"],
+        "summary": "Update the list of companies permitted to view the documents for a particular deal",
+        "description": "The existing list of shared with keys will be replaced with the incoming list.",
+        "operationId": "updateGwimDocumentSharedWithKeysUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "companyKeys",
+            "description": "companyKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "dealId",
+            "in": "path",
+            "description": "dealId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/documenttype": {
+      "get": {
+        "tags": ["document-type-controller"],
+        "summary": "Get DocumentTypes by company key",
+        "description": "Get a list of DocumentTypes associated with a particular company.",
+        "operationId": "getDocumentTypesByCompanyUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/DocumentType" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["document-type-controller"],
+        "summary": "Insert a Document Type",
+        "description": "Insert a Document Type.",
+        "operationId": "insertDocumentTypeUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "createForm",
+            "description": "createForm",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CreateDocumentTypeForm" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/DocumentType" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/documenttype/{key}": {
+      "get": {
+        "tags": ["document-type-controller"],
+        "summary": "Get DocumentType",
+        "description": "Get the DocumentType associated with a key.",
+        "operationId": "getDocumentTypeUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DocumentType" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["document-type-controller"],
+        "summary": "Update a DocumentType",
+        "description": "Update a Document Type.",
+        "operationId": "updateDocumentTypeUsingPUT_1",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "documentType",
+            "description": "documentType",
+            "required": true,
+            "schema": { "$ref": "#/definitions/DocumentType" }
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/DocumentType" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["document-type-controller"],
+        "summary": "Delete a DocumentType",
+        "description": "Delete a DocumentType associated with a DocumentType key.",
+        "operationId": "deleteDocumentTypeUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/internal/document/request": {
+      "get": {
+        "tags": ["request-document-controller"],
+        "summary": "Get Documents by Request ID for internal use",
+        "description": "Get all documents for a request, must be called with admin or interservice token",
+        "operationId": "getDocumentsByRequestIDInternalUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "requestID",
+            "in": "query",
+            "description": "requestID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/RequestDocument" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/export": {
+      "post": {
+        "tags": ["product-export-controller"],
+        "summary": "Get Export Document for Product Data",
+        "description": "Get Export Document for provided Products Data",
+        "operationId": "getProductExportDocumentPDFUsingPOST",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/pdf"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "formData",
+            "name": "columnDelimiter",
+            "description": "columnDelimiter",
+            "required": true,
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Resource" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "ChangeDocumentTypeForm": {
+      "type": "object",
+      "properties": {
+        "documentKey": { "type": "string" },
+        "documentTypeKey": { "type": "string" }
+      },
+      "title": "ChangeDocumentTypeForm"
+    },
+    "CreateDocumentTypeForm": {
+      "type": "object",
+      "properties": {
+        "companyKey": { "type": "string" },
+        "displayKey": { "type": "string" },
+        "key": { "type": "string" }
+      },
+      "title": "CreateDocumentTypeForm"
+    },
+    "DisplayDocument": {
+      "type": "object",
+      "properties": {
+        "contentType": { "type": "string" },
+        "documentType": { "type": "string" },
+        "documentTypeKey": { "type": "string" },
+        "filename": { "type": "string" },
+        "key": { "type": "string" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "uploadedBy": { "type": "string" },
+        "uploadedTime": { "type": "string", "format": "date-time" },
+        "versionCount": { "type": "integer", "format": "int32" }
+      },
+      "title": "DisplayDocument"
+    },
+    "DocumentForm": {
+      "type": "object",
+      "properties": {
+        "checksum": { "type": "string" },
+        "checksumAlgorithm": { "type": "string" },
+        "companyKey": { "type": "string" },
+        "contentType": { "type": "string" },
+        "documentTypeKey": { "type": "string" },
+        "key": { "type": "string" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "sharedWithKeys": { "type": "array", "items": { "type": "string" } },
+        "uploadUser": { "type": "string" }
+      },
+      "title": "DocumentForm"
+    },
+    "DocumentLocation": {
+      "type": "object",
+      "properties": {
+        "bucket": { "type": "string" },
+        "contentType": { "type": "string" },
+        "filename": { "type": "string" },
+        "key": { "type": "string" },
+        "origFilename": { "type": "string" },
+        "url": { "$ref": "#/definitions/URL" }
+      },
+      "title": "DocumentLocation"
+    },
+    "DocumentType": {
+      "type": "object",
+      "properties": {
+        "companyKey": { "type": "string" },
+        "displayKey": { "type": "string" },
+        "effectiveDate": { "type": "string", "format": "date-time" },
+        "effectiveEnd": { "type": "string", "format": "date-time" },
+        "id": { "type": "integer", "format": "int32" },
+        "key": { "type": "string" },
+        "tombstone": { "type": "string", "format": "date-time" }
+      },
+      "title": "DocumentType"
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "absolute": { "type": "boolean" },
+        "absoluteFile": { "$ref": "#/definitions/File" },
+        "absolutePath": { "type": "string" },
+        "canonicalFile": { "$ref": "#/definitions/File" },
+        "canonicalPath": { "type": "string" },
+        "directory": { "type": "boolean" },
+        "executable": { "type": "boolean" },
+        "file": { "type": "boolean" },
+        "freeSpace": { "type": "integer", "format": "int64" },
+        "hidden": { "type": "boolean" },
+        "lastModified": { "type": "integer", "format": "int64" },
+        "name": { "type": "string" },
+        "parent": { "type": "string" },
+        "parentFile": { "$ref": "#/definitions/File" },
+        "path": { "type": "string" },
+        "readable": { "type": "boolean" },
+        "totalSpace": { "type": "integer", "format": "int64" },
+        "usableSpace": { "type": "integer", "format": "int64" },
+        "writable": { "type": "boolean" }
+      },
+      "title": "File"
+    },
+    "InputStream": { "type": "object", "title": "InputStream" },
+    "Optional«DisplayDocument»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«DisplayDocument»"
+    },
+    "Optional«RequestDocument»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«RequestDocument»"
+    },
+    "Pageable": {
+      "type": "object",
+      "properties": {
+        "offset": { "type": "integer", "format": "int64" },
+        "pageNumber": { "type": "integer", "format": "int32" },
+        "pageSize": { "type": "integer", "format": "int32" },
+        "paged": { "type": "boolean" },
+        "sort": { "$ref": "#/definitions/Sort" },
+        "unpaged": { "type": "boolean" }
+      },
+      "title": "Pageable"
+    },
+    "Page«DisplayDocument»": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DisplayDocument" }
+        },
+        "empty": { "type": "boolean" },
+        "first": { "type": "boolean" },
+        "last": { "type": "boolean" },
+        "number": { "type": "integer", "format": "int32" },
+        "numberOfElements": { "type": "integer", "format": "int32" },
+        "pageable": { "$ref": "#/definitions/Pageable" },
+        "size": { "type": "integer", "format": "int32" },
+        "sort": { "$ref": "#/definitions/Sort" },
+        "totalElements": { "type": "integer", "format": "int64" },
+        "totalPages": { "type": "integer", "format": "int32" }
+      },
+      "title": "Page«DisplayDocument»"
+    },
+    "ProductDocuments": {
+      "type": "object",
+      "properties": {
+        "cusip": { "type": "string" },
+        "documents": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "title": "ProductDocuments"
+    },
+    "RequestDocument": {
+      "type": "object",
+      "properties": {
+        "available": { "type": "boolean" },
+        "companyKey": { "type": "string" },
+        "contentType": { "type": "string" },
+        "documentType": { "type": "string" },
+        "documentTypeKey": { "type": "string" },
+        "documentURL": { "type": "string" },
+        "filename": { "type": "string" },
+        "key": { "type": "string" },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "requestId": { "type": "string" },
+        "uploadedBy": { "type": "string" },
+        "uploadedTime": { "type": "string", "format": "date-time" },
+        "versionCount": { "type": "integer", "format": "int32" }
+      },
+      "title": "RequestDocument"
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "description": { "type": "string" },
+        "file": { "$ref": "#/definitions/File" },
+        "filename": { "type": "string" },
+        "inputStream": { "$ref": "#/definitions/InputStream" },
+        "open": { "type": "boolean" },
+        "readable": { "type": "boolean" },
+        "uri": { "$ref": "#/definitions/URI" },
+        "url": { "$ref": "#/definitions/URL" }
+      },
+      "title": "Resource"
+    },
+    "Sort": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "sorted": { "type": "boolean" },
+        "unsorted": { "type": "boolean" }
+      },
+      "title": "Sort"
+    },
+    "URI": {
+      "type": "object",
+      "properties": {
+        "absolute": { "type": "boolean" },
+        "authority": { "type": "string" },
+        "fragment": { "type": "string" },
+        "host": { "type": "string" },
+        "opaque": { "type": "boolean" },
+        "path": { "type": "string" },
+        "port": { "type": "integer", "format": "int32" },
+        "query": { "type": "string" },
+        "rawAuthority": { "type": "string" },
+        "rawFragment": { "type": "string" },
+        "rawPath": { "type": "string" },
+        "rawQuery": { "type": "string" },
+        "rawSchemeSpecificPart": { "type": "string" },
+        "rawUserInfo": { "type": "string" },
+        "scheme": { "type": "string" },
+        "schemeSpecificPart": { "type": "string" },
+        "userInfo": { "type": "string" }
+      },
+      "title": "URI"
+    },
+    "URL": {
+      "type": "object",
+      "properties": {
+        "authority": { "type": "string" },
+        "content": { "type": "object" },
+        "defaultPort": { "type": "integer", "format": "int32" },
+        "deserializedFields": { "$ref": "#/definitions/URLStreamHandler" },
+        "file": { "type": "string" },
+        "host": { "type": "string" },
+        "path": { "type": "string" },
+        "port": { "type": "integer", "format": "int32" },
+        "protocol": { "type": "string" },
+        "query": { "type": "string" },
+        "ref": { "type": "string" },
+        "serializedHashCode": { "type": "integer", "format": "int32" },
+        "userInfo": { "type": "string" }
+      },
+      "title": "URL"
+    },
+    "URLStreamHandler": { "type": "object", "title": "URLStreamHandler" }
+  }
+}

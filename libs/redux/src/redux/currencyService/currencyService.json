@@ -1,0 +1,179 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Boston Service REST APIs",
+    "version": "1.0",
+    "title": "Boston Service"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/currency-service",
+  "tags": [
+    {
+      "name": "currency-controller",
+      "description": "Currency Controller"
+    }
+  ],
+  "paths": {
+    "/currencies": {
+      "get": {
+        "tags": [
+          "currency-controller"
+        ],
+        "summary": "Get all currencies",
+        "operationId": "getAllCurrenciesUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Currency"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "currency-controller"
+        ],
+        "summary": "Create or update a currency",
+        "operationId": "upsertCurrencyUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "currency",
+            "description": "currency",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Currency"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Currency"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/currencies/{isoCode}": {
+      "delete": {
+        "tags": [
+          "currency-controller"
+        ],
+        "summary": "Delete a currency",
+        "operationId": "deleteCurrencyUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "isoCode",
+            "in": "path",
+            "description": "isoCode",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "ConversionRate": {
+      "type": "object",
+      "required": [
+        "rate"
+      ],
+      "properties": {
+        "asOfDatetime": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2017-07-21T17:32:28Z",
+          "description": "The date-time at which this rate was last valid"
+        },
+        "rate": {
+          "type": "number",
+          "format": "double",
+          "example": 1.12,
+          "description": "The rate at which the origin currency is converted to this one"
+        }
+      },
+      "title": "ConversionRate"
+    },
+    "Currency": {
+      "type": "object",
+      "required": [
+        "isoCode"
+      ],
+      "properties": {
+        "conversionRates": {
+          "type": "object",
+          "description": "The rates at which this currency converts to other currencies",
+          "additionalProperties": {
+            "$ref": "#/definitions/ConversionRate"
+          }
+        },
+        "isoCode": {
+          "type": "string",
+          "example": "USD",
+          "description": "The unique ISO 4217 3-letter code identifying the currency"
+        }
+      },
+      "title": "Currency",
+      "description": "A currency"
+    }
+  }
+}

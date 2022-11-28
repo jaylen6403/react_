@@ -1,0 +1,23 @@
+{
+  "root": "libs/luma/confirmation",
+  "sourceRoot": "libs/luma/confirmation/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/luma/confirmation/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/luma/confirmation"],
+      "options": {
+        "jestConfig": "libs/luma/confirmation/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

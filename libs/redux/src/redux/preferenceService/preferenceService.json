@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "description": "Boston Service REST APIs",
+      "version": "1.0",
+      "title": "Boston Service"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/preference-service",
+  "tags": [
+      {
+          "name": "preference-controller",
+          "description": "Preference Controller"
+      }
+  ],
+  "paths": {
+      "/display": {
+          "get": {
+              "tags": [
+                  "preference-controller"
+              ],
+              "summary": "Get Display Config for Current User",
+              "description": "Return Display Configuration associated with the current User",
+              "operationId": "getDisplayConfigUsingGET",
+              "produces": [
+                  "application/json"
+              ],
+              "parameters": [],
+              "responses": {
+                  "200": {
+                      "description": "Ok",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "$ref": "#/definitions/Preferences"
+                          }
+                      }
+                  },
+                  "400": {
+                      "description": "Bad Request"
+                  },
+                  "401": {
+                      "description": "Unauthorized"
+                  },
+                  "403": {
+                      "description": "Forbidden"
+                  },
+                  "404": {
+                      "description": "Not Found"
+                  },
+                  "500": {
+                      "description": "Internal Server Exception"
+                  }
+              },
+              "deprecated": false
+          }
+      }
+  },
+  "definitions": {
+      "DisplayConfig": {
+          "type": "object",
+          "properties": {
+              "deskId": {
+                  "type": "number"
+              },
+              "displayExternalStructureName": {
+                  "type": "boolean"
+              },
+              "displayBloombergTicker": {
+                  "type": "boolean"
+              },
+              "displayProductSymbol": {
+                  "type": "boolean"
+              },
+              "dailySummaryOccurrence": {
+                  "type": "string"
+              },
+              "displayLegacyDashboard": {
+                  "type": "null"
+              },
+              "displayLegacyNavigation": {
+                  "type": "null"
+              },
+              "marketDataSourcePreference": {
+                  "type": "null"
+              },
+              "hideDashboardWidgets": {
+                  "type": "boolean"
+              },
+              "displayMarkToMarketSource": {
+                  "type": "boolean"
+              },
+              "enableDashboardInsights": {
+                  "type": "boolean"
+              },
+              "id": {
+                  "type": "string"
+              }
+          },
+          "title": "DisplayConfig"
+      }
+  }
+}

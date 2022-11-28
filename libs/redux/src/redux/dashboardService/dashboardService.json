@@ -1,0 +1,1221 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Boston Service REST APIs",
+    "version": "1.0",
+    "title": "Boston Service"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/dashboard-service2",
+  "tags": [
+    {
+      "name": "annuity-controller",
+      "description": "Annuity Controller"
+    },
+    {
+      "name": "cache-support-controller",
+      "description": "Cache Support Controller"
+    },
+    {
+      "name": "dashboard-controller",
+      "description": "Dashboard Controller"
+    },
+    {
+      "name": "structured-products-controller",
+      "description": "Structured Products Controller"
+    }
+  ],
+  "paths": {
+    "/annuity/events": {
+      "get": {
+        "tags": [
+          "annuity-controller"
+        ],
+        "summary": "Get Annuity Events",
+        "description": "Return the list Events associated with the current User",
+        "operationId": "getAnnuityEventsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/LifecycleCalendarEventResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/annuity/orderhistory": {
+      "get": {
+        "tags": [
+          "annuity-controller"
+        ],
+        "summary": "Get annuity transaction history",
+        "description": "Get annuity transaction history",
+        "operationId": "getOrderHistoryUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderHistoryResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/annuity/products": {
+      "get": {
+        "tags": [
+          "annuity-controller"
+        ],
+        "summary": "Get Annuities products",
+        "description": "Return the list of products associated with the current User",
+        "operationId": "getAnnuityProductsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/LifeCycleProductDataResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/caches": {
+      "get": {
+        "tags": [
+          "cache-support-controller"
+        ],
+        "summary": "Get Cache names",
+        "description": "Get the names of the supported Caches",
+        "operationId": "getCacheNamesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "details",
+            "in": "query",
+            "description": "details",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "cache-support-controller"
+        ],
+        "summary": "Clear Cache Entry",
+        "description": "Clear the requested Entry from the Cache",
+        "operationId": "clearCacheEntryUsingDELETE",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cacheName",
+            "in": "query",
+            "description": "cacheName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/caches/entries": {
+      "get": {
+        "tags": [
+          "cache-support-controller"
+        ],
+        "summary": "Get Cache Entries",
+        "description": "Get the requested Entries from the Cache",
+        "operationId": "getCacheEntriesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cacheName",
+            "in": "query",
+            "description": "cacheName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "description": "details",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "description": "key",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CacheSupportResults"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/caches/keys": {
+      "get": {
+        "tags": [
+          "cache-support-controller"
+        ],
+        "summary": "Get Cache Keys",
+        "description": "Get the Keys for the specified Cache",
+        "operationId": "getCacheKeysUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "cacheName",
+            "in": "query",
+            "description": "cacheName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "description": "details",
+            "required": false,
+            "type": "boolean",
+            "default": false
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "description": "key",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CacheSupportResults"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/pricing-tool-type": {
+      "get": {
+        "tags": [
+          "dashboard-controller"
+        ],
+        "summary": "Get Pricing Tool Type for Creation Hub Users",
+        "description": "Returns Pricing Tool Type for Creation Hub Users",
+        "operationId": "getPricingToolTypeUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/structured-products/events": {
+      "get": {
+        "tags": [
+          "structured-products-controller"
+        ],
+        "summary": "Get Portfolio Events for User",
+        "description": "Returns a list of Events associated with the current User",
+        "operationId": "getPortfolioEventsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventCardData"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/structured-products/products": {
+      "get": {
+        "tags": [
+          "structured-products-controller"
+        ],
+        "summary": "Get Portfolio Products for User",
+        "description": "Returns a list of Products associated with the current User",
+        "operationId": "getPortfolioProductsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PortfolioV2"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v2/annuity/events": {
+      "get": {
+        "tags": [
+          "annuity-controller"
+        ],
+        "summary": "Get Annuity Events",
+        "description": "Return the list Events associated with the current User",
+        "operationId": "getAnnuityEventsUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/LifecycleCalendarEventResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v2/annuity/orderhistory": {
+      "get": {
+        "tags": [
+          "annuity-controller"
+        ],
+        "summary": "Get annuity transaction history",
+        "description": "Get annuity transaction history",
+        "operationId": "getOrderHistoryUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderHistoryResponse"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v2/annuity/products": {
+      "get": {
+        "tags": [
+          "annuity-controller"
+        ],
+        "summary": "Get Annuities products",
+        "description": "Return the list of products associated with the current User",
+        "operationId": "getAnnuityProductsUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "$ref": "#/definitions/LifeCycleProductDataResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v2/structured-products/events": {
+      "get": {
+        "tags": [
+          "structured-products-controller"
+        ],
+        "summary": "Get Portfolio Events for User",
+        "description": "Returns a list of Events associated with the current User",
+        "operationId": "getPortfolioEventsUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventCardData"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v2/structured-products/products": {
+      "get": {
+        "tags": [
+          "structured-products-controller"
+        ],
+        "summary": "Get Portfolio Products for User",
+        "description": "Returns a list of Products associated with the current User",
+        "operationId": "getPortfolioProductsUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PortfolioV2"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Exception"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "CacheSupportResults": {
+      "type": "object",
+      "properties": {
+        "cacheName": {
+          "type": "string"
+        },
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "title": "CacheSupportResults"
+    },
+    "Document": {
+      "type": "object",
+      "properties": {
+        "documentName": {
+          "type": "string"
+        },
+        "documentUrl": {
+          "type": "string"
+        }
+      },
+      "title": "Document"
+    },
+    "DocumentDetails": {
+      "type": "object",
+      "properties": {
+        "documentName": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "string"
+        },
+        "documentUrl": {
+          "type": "string"
+        }
+      },
+      "title": "DocumentDetails"
+    },
+    "EventCardData": {
+      "type": "object",
+      "properties": {
+        "barrierBufferLabel": {
+          "type": "string"
+        },
+        "barrierBufferValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "basketType": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "cusip": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "eventDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "eventFutureInfo": {
+          "type": "string"
+        },
+        "eventPastInfo": {
+          "type": "string"
+        },
+        "eventProximity": {
+          "type": "string"
+        },
+        "eventType": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "markToMarket": {
+          "type": "number",
+          "format": "double"
+        },
+        "markToMarketDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "notional": {
+          "type": "number",
+          "format": "double"
+        },
+        "productIdentifier": {
+          "type": "string"
+        },
+        "productStatus": {
+          "type": "string",
+          "enum": [
+            "Live",
+            "Matured",
+            "Called",
+            "Expired",
+            ""
+          ]
+        },
+        "productSymbol": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Payment Date",
+            "Valuation Date",
+            "Maturity Date",
+            "Final Valuation Date",
+            "Pricing Date",
+            "Settlement Date",
+            "Call Date",
+            "Call Review Date",
+            "Trade Date"
+          ]
+        },
+        "underlierList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Underlier"
+          }
+        }
+      },
+      "title": "EventCardData"
+    },
+    "EventRow": {
+      "type": "object",
+      "properties": {
+        "finalPremium": {
+          "type": "number"
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "policyNumber": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "transactionDate": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "EventRow"
+    },
+    "LifeCycleProductDataResponse": {
+      "type": "object",
+      "properties": {
+        "demoFlag": {
+          "type": "boolean"
+        },
+        "lifeCycleProducts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LifecycleProduct"
+          }
+        }
+      },
+      "title": "LifeCycleProductDataResponse"
+    },
+    "LifecycleCalendarEvent": {
+      "type": "object",
+      "properties": {
+        "accountValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "carrier": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "eventType": {
+          "type": "string"
+        },
+        "policyHolder": {
+          "type": "string"
+        },
+        "policyNumber": {
+          "type": "string"
+        },
+        "premium": {
+          "type": "number",
+          "format": "double"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productType": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "LifecycleCalendarEvent"
+    },
+    "LifecycleCalendarEventResponse": {
+      "type": "object",
+      "properties": {
+        "calendarEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LifecycleCalendarEvent"
+          }
+        },
+        "demoFlag": {
+          "type": "boolean"
+        },
+        "eventTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "LifecycleCalendarEventResponse"
+    },
+    "LifecycleProduct": {
+      "type": "object",
+      "properties": {
+        "accountType": {
+          "type": "string"
+        },
+        "accountValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "carrier": {
+          "type": "string"
+        },
+        "clientName": {
+          "type": "string"
+        },
+        "documentLinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        },
+        "incomeRiderValue": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "policyNumber": {
+          "type": "string"
+        },
+        "policyStatus": {
+          "type": "string"
+        },
+        "premium": {
+          "type": "number",
+          "format": "double"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productType": {
+          "type": "string"
+        },
+        "repName": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "title": "LifecycleProduct"
+    },
+    "OrderHistoryResponse": {
+      "type": "object",
+      "properties": {
+        "brokerDealerName": {
+          "type": "string"
+        },
+        "carrierName": {
+          "type": "string"
+        },
+        "cientMiddleName": {
+          "type": "string"
+        },
+        "clientFirstName": {
+          "type": "string"
+        },
+        "clientLastName": {
+          "type": "string"
+        },
+        "clientState": {
+          "type": "string"
+        },
+        "cusip": {
+          "type": "string"
+        },
+        "eventRows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventRow"
+          }
+        },
+        "financialAdviser": {
+          "type": "string"
+        },
+        "oesBrokerDealer": {
+          "type": "string"
+        },
+        "oesVendor": {
+          "type": "string"
+        },
+        "premium": {
+          "type": "number"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productType": {
+          "type": "string"
+        },
+        "reference": {
+          "type": "string"
+        },
+        "submittedBy": {
+          "type": "string"
+        },
+        "transactionId": {
+          "type": "string"
+        },
+        "transactionType": {
+          "type": "string"
+        },
+        "vendorUniqueId": {
+          "type": "string"
+        }
+      },
+      "title": "OrderHistoryResponse"
+    },
+    "PortfolioOrder": {
+      "type": "object",
+      "properties": {
+        "accountNumber": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "orderKey": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "representativeName": {
+          "type": "string"
+        }
+      },
+      "title": "PortfolioOrder"
+    },
+    "PortfolioProductV2": {
+      "type": "object",
+      "properties": {
+        "accountNumber": {
+          "type": "string"
+        },
+        "assetClass": {
+          "type": "string"
+        },
+        "assetClassNotBlank": {
+          "type": "string"
+        },
+        "bidPrice": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "completionStatus": {
+          "type": "string"
+        },
+        "couponPaymentDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "cusip": {
+          "type": "string"
+        },
+        "documentLinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentDetails"
+          }
+        },
+        "fixingType": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "markToMarket": {
+          "type": "number",
+          "format": "double"
+        },
+        "markToMarketDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "maturityDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "nextCallDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "notionalUnwound": {
+          "type": "boolean"
+        },
+        "orderId": {
+          "type": "string"
+        },
+        "orderKey": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PortfolioOrder"
+          }
+        },
+        "paymentFrequency": {
+          "type": "string"
+        },
+        "principalBarrierObserved": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productStatus": {
+          "type": "string",
+          "enum": [
+            "Live",
+            "Matured",
+            "Called",
+            "Expired",
+            ""
+          ]
+        },
+        "productSymbol": {
+          "type": "string"
+        },
+        "productType": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "redemptionType": {
+          "type": "string"
+        },
+        "representativeName": {
+          "type": "string"
+        },
+        "returnType": {
+          "type": "string"
+        },
+        "settlementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "strikeDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "structureNameExternal": {
+          "type": "string"
+        },
+        "structureType": {
+          "type": "string"
+        },
+        "term": {
+          "type": "number",
+          "format": "double"
+        },
+        "tradeDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "underliers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Underlier"
+          }
+        }
+      },
+      "title": "PortfolioProductV2"
+    },
+    "PortfolioV2": {
+      "type": "object",
+      "properties": {
+        "portfolioName": {
+          "type": "string"
+        },
+        "portfolioProducts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PortfolioProductV2"
+          }
+        }
+      },
+      "title": "PortfolioV2"
+    },
+    "Underlier": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "Underlier"
+    }
+  }
+}

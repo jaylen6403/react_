@@ -1,0 +1,1777 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Email Service REST APIs",
+    "version": "1.0",
+    "title": "Boston Email Services"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/email-service",
+  "tags": [
+    {
+      "name": "email-service-controller",
+      "description": "Email Service Controller"
+    },
+    {
+      "name": "email-template-controller",
+      "description": "Email Template Controller"
+    }
+  ],
+  "paths": {
+    "/email": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Send an email",
+        "description": "Send an email using a template to produce the email body.",
+        "operationId": "sendUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "emailTemplate",
+            "description": "emailTemplate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmailTemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/email/forward": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Forward an email to new addresses",
+        "description": "Forward an email to new addresses",
+        "operationId": "sendNoTemplateWithAttachmentsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "emailAddresses",
+            "description": "emailAddresses",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmailAddresses"
+            }
+          },
+          {
+            "name": "emailID",
+            "in": "query",
+            "description": "emailID",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/email/range": {
+      "get": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Get all emails sent within range",
+        "description": "Get the list of all emails sent within range",
+        "operationId": "getEmailsInRangeUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EmailInfo"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/email/resend": {
+      "get": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Resend an email by id",
+        "description": "Resend an email by id",
+        "operationId": "resendEmailByIDUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "emailID",
+            "in": "query",
+            "description": "emailID",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emailNoTemplateWithAttachments": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Send an email with no template but with attachments",
+        "description": "send multipart email with all files having key files and json with key json",
+        "operationId": "sendNoTemplateWithAttachmentsUsingPOST_1",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "attachedDocumentKeys",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "bcc",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "body",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "cc",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documentVersionKeys",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "emailComponent",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "description": "files",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "file"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "in": "formData",
+            "name": "from",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "postEmailSentQueue",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "priority",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "replyToAddress",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "requireEnvInSubject",
+            "required": false,
+            "type": "boolean",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "subject",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "to",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "triggerMethod",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "triggeredBy",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emailWithAttachedDocuments": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Send an email with a template and attachments retreived from document service by key",
+        "description": "assumes that documents are stored in Luma document service ",
+        "operationId": "sendTemplateWithAttachedDocumentsUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "emailTemplate",
+            "description": "emailTemplate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmailTemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emailWithAttachments": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Send an email with attachments",
+        "description": "send multipart email with all files having key files and json with key json",
+        "operationId": "sendWithAttachmentsUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "attachedDocumentKeys",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "bcc",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "cc",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "companyKey",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "documentVersionKeys",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "emailComponent",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "description": "files",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "file"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "in": "formData",
+            "name": "from",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "model",
+            "required": false,
+            "type": "object",
+            "schema": {
+              "type": "object"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "modelString",
+            "description": "modelString",
+            "required": true,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "postEmailSentQueue",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "priority",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "replyToAddress",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "requireEnvInSubject",
+            "required": false,
+            "type": "boolean",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "subject",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "templateKey",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "to",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "in": "formData",
+            "name": "triggerMethod",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "formData",
+            "name": "triggeredBy",
+            "required": false,
+            "type": "string",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emailnotemplate": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Send an email",
+        "description": "Send an email without a template",
+        "operationId": "sendNoTemplateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "emailNoTemplate",
+            "description": "emailNoTemplate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EmailNoTemplate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/emails": {
+      "get": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Get emails based on criteria, pagination, and sorting.",
+        "operationId": "getEmailsWithPaginationUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "filterModel",
+            "description": "filterModel",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Optional«FilterModel»"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "textFilter",
+            "in": "query",
+            "description": "textFilter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Page«EmailInfo»"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Get emails based on criteria, pagination, and sorting.",
+        "operationId": "getEmailsWithPaginationPostUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "filterModel",
+            "description": "filterModel",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Optional«FilterModel»"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "textFilter",
+            "in": "query",
+            "description": "textFilter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Page«EmailInfo»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/template-recipients": {
+      "get": {
+        "tags": [
+          "email-template-controller"
+        ],
+        "summary": "Get Email Templates and Recipients by Template Key",
+        "operationId": "getEmailTemplateAndRecipientsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "templateKey",
+            "in": "query",
+            "description": "templateKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TemplateRecipients"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "email-template-controller"
+        ],
+        "summary": "Add a Recipient",
+        "operationId": "addRecipientUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "recipient",
+            "description": "recipient",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Recipient"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Recipient"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "email-template-controller"
+        ],
+        "summary": "Delete a Recipient by Template Key and Email",
+        "operationId": "deleteRecipientUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "description": "email",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "templateKey",
+            "in": "query",
+            "description": "templateKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/templates": {
+      "get": {
+        "tags": [
+          "email-template-controller"
+        ],
+        "summary": "Get email templates by templateKey & companyKey",
+        "operationId": "getEmailByTemplateKeyAndCompanyKeyUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "companyKey",
+            "in": "query",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "templateKey",
+            "in": "query",
+            "description": "templateKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Template"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/weeklyEventEmail": {
+      "post": {
+        "tags": [
+          "email-service-controller"
+        ],
+        "summary": "Send the weekly event email",
+        "description": "Sends out the weekly event email to the specified recipients",
+        "operationId": "sendWeeklyEventEmailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "eventSummary",
+            "description": "eventSummary",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/EventSummary"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "ColumnFilter": {
+      "type": "object",
+      "properties": {
+        "conditions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FilterCondition"
+          }
+        },
+        "operator": {
+          "type": "string"
+        }
+      },
+      "title": "ColumnFilter"
+    },
+    "EmailAddresses": {
+      "type": "object",
+      "properties": {
+        "bcc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "EmailAddresses"
+    },
+    "EmailAttachment": {
+      "type": "object",
+      "properties": {
+        "attachmentKey": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "example": "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        },
+        "emailInfo": {
+          "$ref": "#/definitions/EmailInfo"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "EmailAttachment"
+    },
+    "EmailInfo": {
+      "type": "object",
+      "properties": {
+        "bodyText": {
+          "type": "string"
+        },
+        "createDate": {
+          "type": "string",
+          "example": "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        },
+        "emailAttachments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmailAttachment"
+          }
+        },
+        "emailComponent": {
+          "type": "string",
+          "enum": [
+            "LIFECYCLE_MANAGEMENT",
+            "PRODUCT_MARKETPLACE",
+            "CREATION_HUB",
+            "AUTH",
+            "OTHER"
+          ]
+        },
+        "externalReference": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "internalIDForSES": {
+          "type": "string"
+        },
+        "recipientInfoSet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RecipientInfo"
+          }
+        },
+        "subject": {
+          "type": "string"
+        },
+        "triggerMethod": {
+          "type": "string",
+          "enum": [
+            "AUTO",
+            "MANUAL",
+            "OTHER"
+          ]
+        },
+        "triggeredBy": {
+          "type": "string"
+        }
+      },
+      "title": "EmailInfo"
+    },
+    "EmailNoTemplate": {
+      "type": "object",
+      "properties": {
+        "attachedDocumentKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bcc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "body": {
+          "type": "string"
+        },
+        "cc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "documentVersionKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emailComponent": {
+          "type": "string",
+          "enum": [
+            "LIFECYCLE_MANAGEMENT",
+            "PRODUCT_MARKETPLACE",
+            "CREATION_HUB",
+            "AUTH",
+            "OTHER"
+          ]
+        },
+        "from": {
+          "type": "string"
+        },
+        "postEmailSentQueue": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "replyToAddress": {
+          "type": "string"
+        },
+        "requireEnvInSubject": {
+          "type": "boolean"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "triggerMethod": {
+          "type": "string",
+          "enum": [
+            "AUTO",
+            "MANUAL",
+            "OTHER"
+          ]
+        },
+        "triggeredBy": {
+          "type": "string"
+        }
+      },
+      "title": "EmailNoTemplate"
+    },
+    "EmailTemplate": {
+      "type": "object",
+      "properties": {
+        "attachedDocumentKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "bcc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cc": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "companyKey": {
+          "type": "string"
+        },
+        "documentVersionKeys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "emailComponent": {
+          "type": "string",
+          "enum": [
+            "LIFECYCLE_MANAGEMENT",
+            "PRODUCT_MARKETPLACE",
+            "CREATION_HUB",
+            "AUTH",
+            "OTHER"
+          ]
+        },
+        "from": {
+          "type": "string"
+        },
+        "model": {
+          "type": "object"
+        },
+        "postEmailSentQueue": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "replyToAddress": {
+          "type": "string"
+        },
+        "requireEnvInSubject": {
+          "type": "boolean"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "templateKey": {
+          "type": "string"
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "triggerMethod": {
+          "type": "string",
+          "enum": [
+            "AUTO",
+            "MANUAL",
+            "OTHER"
+          ]
+        },
+        "triggeredBy": {
+          "type": "string"
+        }
+      },
+      "title": "EmailTemplate"
+    },
+    "EventSummary": {
+      "type": "object",
+      "properties": {
+        "eventTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "REDEMPTION",
+              "BARRIER_BREACH"
+            ]
+          }
+        },
+        "futureWeekEnd": {
+          "type": "string",
+          "format": "date"
+        },
+        "futureWeekStart": {
+          "type": "string",
+          "format": "date"
+        },
+        "previousWeekEnd": {
+          "type": "string",
+          "format": "date"
+        },
+        "previousWeekStart": {
+          "type": "string",
+          "format": "date"
+        },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventSummaryRecipient"
+          }
+        }
+      },
+      "title": "EventSummary"
+    },
+    "EventSummaryEventData": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "finalInterest": {
+          "type": "string"
+        },
+        "principalReturn": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "recipientEmail": {
+          "type": "string"
+        },
+        "redemptionType": {
+          "type": "string"
+        }
+      },
+      "title": "EventSummaryEventData"
+    },
+    "EventSummaryRecipient": {
+      "type": "object",
+      "properties": {
+        "futureEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventSummaryEventData"
+          }
+        },
+        "previousWeekEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventSummaryEventData"
+          }
+        },
+        "recipientTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userFullName": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        }
+      },
+      "title": "EventSummaryRecipient"
+    },
+    "FilterCondition": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "string"
+        },
+        "filterType": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "FilterCondition"
+    },
+    "FilterModel": {
+      "type": "object",
+      "properties": {
+        "columnFilters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map«string,ColumnFilter»"
+          }
+        }
+      },
+      "title": "FilterModel"
+    },
+    "Map«string,ColumnFilter»": {
+      "type": "object",
+      "title": "Map«string,ColumnFilter»",
+      "additionalProperties": {
+        "$ref": "#/definitions/ColumnFilter"
+      }
+    },
+    "Optional«FilterModel»": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "present": {
+          "type": "boolean"
+        }
+      },
+      "title": "Optional«FilterModel»"
+    },
+    "Pageable": {
+      "type": "object",
+      "properties": {
+        "offset": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "pageNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "paged": {
+          "type": "boolean"
+        },
+        "sort": {
+          "$ref": "#/definitions/Sort"
+        },
+        "unpaged": {
+          "type": "boolean"
+        }
+      },
+      "title": "Pageable"
+    },
+    "Page«EmailInfo»": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EmailInfo"
+          }
+        },
+        "empty": {
+          "type": "boolean"
+        },
+        "first": {
+          "type": "boolean"
+        },
+        "last": {
+          "type": "boolean"
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numberOfElements": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "pageable": {
+          "$ref": "#/definitions/Pageable"
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "sort": {
+          "$ref": "#/definitions/Sort"
+        },
+        "totalElements": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalPages": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "title": "Page«EmailInfo»"
+    },
+    "Recipient": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "recipientType": {
+          "type": "string"
+        },
+        "templateKey": {
+          "type": "string"
+        }
+      },
+      "title": "Recipient"
+    },
+    "RecipientInfo": {
+      "type": "object",
+      "properties": {
+        "emailAddress": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "sendStatus": {
+          "type": "string"
+        }
+      },
+      "title": "RecipientInfo"
+    },
+    "Sort": {
+      "type": "object",
+      "properties": {
+        "empty": {
+          "type": "boolean"
+        },
+        "sorted": {
+          "type": "boolean"
+        },
+        "unsorted": {
+          "type": "boolean"
+        }
+      },
+      "title": "Sort"
+    },
+    "Template": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "html": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "title": "Template"
+    },
+    "TemplateRecipients": {
+      "type": "object",
+      "properties": {
+        "company": {
+          "type": "string"
+        },
+        "recipients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Recipient"
+          }
+        },
+        "template": {
+          "type": "string"
+        },
+        "templateKey": {
+          "type": "string"
+        }
+      },
+      "title": "TemplateRecipients"
+    }
+  }
+}

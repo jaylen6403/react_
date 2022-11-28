@@ -1,0 +1,10 @@
+import type { ChipProps } from './LumaChip';
+export declare const ChipContainer: import("styled-components").StyledComponent<"div", any, Pick<ChipProps, "error">, never>;
+export declare const Chip: import("styled-components").StyledComponent<"div", any, Pick<ChipProps, "error" | "sizeVariant">, never>;
+export declare const LabelPart: import("styled-components").StyledComponent<"div", any, Pick<ChipProps, "variant" | "sizeVariant" | "entry">, never>;
+export declare const RemoveIcon: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const EntryPart: import("styled-components").StyledComponent<"label", any, Pick<ChipProps, "error" | "variant" | "state" | "disabled" | "sizeVariant">, never>;
+export declare const Input: import("styled-components").StyledComponent<"input", any, Pick<ChipProps, "error" | "sizeVariant">, never>;
+export declare const Unit: import("styled-components").StyledComponent<"label", any, Pick<ChipProps, "sizeVariant">, never>;
+export declare const ErrorMessage: import("styled-components").StyledComponent<"div", any, Pick<ChipProps, "error">, never>;
+export declare const Icon: import("styled-components").StyledComponent<"div", any, {}, never>;

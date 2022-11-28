@@ -1,0 +1,39 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@luma-fe-workspace/design-system": ["libs/design-system/src/index.ts"],
+      "@luma-fe-workspace/luma/confirmation": [
+        "libs/luma/confirmation/src/index.ts"
+      ],
+      "@luma-fe-workspace/luma/creationhub": [
+        "libs/luma/creationhub/src/index.ts"
+      ],
+      "@luma-fe-workspace/luma/dashboard": ["libs/luma/dashboard/src/index.ts"],
+      "@luma-fe-workspace/luma/globalnav": ["libs/luma/globalnav/src/index.ts"],
+      "@luma-fe-workspace/luma/lifecyclemanager": [
+        "libs/luma/lifecyclemanager/src/index.ts"
+      ],
+      "@luma-fe-workspace/luma/secondaries": [
+        "libs/luma/secondaries/src/index.ts"
+      ],
+      "@luma-fe-workspace/redux": ["libs/redux/src/index.ts"],
+      "@luma-fe-workspace/utility": ["libs/utility/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

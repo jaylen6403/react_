@@ -1,0 +1,28 @@
+{
+  "root": "apps/luma-e2e",
+  "sourceRoot": "apps/luma-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/luma-e2e/cypress.json",
+        "devServerTarget": "luma:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "luma:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/luma-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["luma"]
+}

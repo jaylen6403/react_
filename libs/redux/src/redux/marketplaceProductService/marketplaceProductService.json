@@ -1,0 +1,7182 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "Product Marketplace REST Endpoints to automate approvals",
+    "version": "1.0",
+    "title": "Marketplace Product Service"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/marketplace-product-service",
+  "tags": [
+    {
+      "name": "marketplace-account-data-controller",
+      "description": "Marketplace Account Data Controller"
+    },
+    {
+      "name": "marketplace-bulk-order-controller",
+      "description": "Marketplace Bulk Order Controller"
+    },
+    {
+      "name": "marketplace-config-controller",
+      "description": "Marketplace Config Controller"
+    },
+    {
+      "name": "marketplace-desk-document-controller",
+      "description": "Marketplace Desk Document Controller"
+    },
+    {
+      "name": "marketplace-document-cache-controller",
+      "description": "Marketplace Document Cache Controller"
+    },
+    {
+      "name": "marketplace-order-controller",
+      "description": "Marketplace Order Controller"
+    },
+    {
+      "name": "marketplace-order-execution-controller",
+      "description": "Marketplace Order Execution Controller"
+    },
+    {
+      "name": "marketplace-order-report-controller",
+      "description": "Marketplace Order Report Controller"
+    },
+    {
+      "name": "marketplace-product-controller",
+      "description": "Marketplace Product Controller"
+    },
+    {
+      "name": "marketplace-product-document-controller",
+      "description": "Marketplace Product Document Controller"
+    },
+    {
+      "name": "marketplace-product-integration-controller",
+      "description": "Marketplace Product Integration Controller"
+    },
+    {
+      "name": "product-upload-controller",
+      "description": "Product Upload Controller"
+    }
+  ],
+  "paths": {
+    "/account-data/account-info/{tradeDeskName}/{accountUploadType}": {
+      "post": {
+        "tags": [
+          "marketplace-account-data-controller"
+        ],
+        "summary": "Data ingestion endpoint for Excel files ",
+        "description": "Return details about each line processed",
+        "operationId": "uploadAccountInfoUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountUploadType",
+            "in": "path",
+            "description": "accountUploadType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/account-data/download/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-account-data-controller"
+        ],
+        "summary": "Download excel xlsx file for bulk order template",
+        "operationId": "getExistingClientAccountNumbersUsingGET",
+        "produces": [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/account-data/template/{tradeDeskName}/{accountUploadType}": {
+      "get": {
+        "tags": [
+          "marketplace-account-data-controller"
+        ],
+        "summary": "Download excel xlsx file for bulk order template",
+        "operationId": "getClientAccountNumbersUploadTemplateUsingGET",
+        "produces": [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "name": "accountUploadType",
+            "in": "path",
+            "description": "accountUploadType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bulkorders/enabled/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-bulk-order-controller"
+        ],
+        "summary": "Checks if the current user is enabled for bulk order operations for the given desk.",
+        "operationId": "checkUserAllowedBulkOrdersUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bulkorders/template/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-bulk-order-controller"
+        ],
+        "summary": "Download excel xlsx file for bulk order template",
+        "operationId": "getBulOrderTemplateUsingGET",
+        "produces": [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bulkorders/upload/{tradeDeskName}": {
+      "post": {
+        "tags": [
+          "marketplace-bulk-order-controller"
+        ],
+        "summary": "uploadBulkOrders",
+        "operationId": "uploadBulkOrdersUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/BulkOrderUploadResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/desk/refresh": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Refresh Desk document cache for given tradeDeskNames",
+        "description": "Returns true if cache refresh is success or false if failed ",
+        "operationId": "refreshMarketplaceDeskDocumentsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskNames",
+            "in": "query",
+            "description": "tradeDeskNames",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/desk/remove": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Remove Desk documents from cache for given tradeDeskNames",
+        "description": "Returns true if cache removal is success or false if failed ",
+        "operationId": "removeMarketplaceDeskDocumentsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskNames",
+            "in": "query",
+            "description": "tradeDeskNames",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/desk/removeAll": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Remove All Desk document from cache",
+        "description": "Returns true if cache refresh is success or false if failed ",
+        "operationId": "removeAllMarketplaceDeskDocumentsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/product/refresh": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Refresh Product document cache for given IDs",
+        "description": "Returns true if cache refresh is success or false if failed Returns 400 if Security IDs are not valid.",
+        "operationId": "refreshMarketplaceProductDocumentsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "securityIds",
+            "in": "query",
+            "description": "securityIds",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/product/remove": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Remove Product documents from cache for given IDs",
+        "description": "Returns true if cache removal is success or false if failed Returns 400 if Security IDs are not valid.",
+        "operationId": "removeMarketplaceProductDocumentsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "securityIds",
+            "in": "query",
+            "description": "securityIds",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/product/removeAll": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Remove All Product document from cache",
+        "description": "Returns true if cache refresh is success or false if failed ",
+        "operationId": "removeAllMarketplaceProductDocumentsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/stats": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Get marketplace document cache stats",
+        "operationId": "getMarketplaceDocumentsCacheStatsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/underlier/refresh": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Refresh marketplace underlier cache",
+        "operationId": "refreshUnderlierCacheUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "keys",
+            "in": "query",
+            "description": "keys",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/underlier/remove": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Remove underliers from cache for given keys",
+        "description": "Returns true if cache removal is success or false if failed ",
+        "operationId": "removeMarketplaceUnderliersUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "keys",
+            "in": "query",
+            "description": "keys",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cache/document/underlier/removeAll": {
+      "get": {
+        "tags": [
+          "marketplace-document-cache-controller"
+        ],
+        "summary": "Remove All underliers from cache",
+        "description": "Returns true if cache refresh is success or false if failed ",
+        "operationId": "removeAllMarketplaceUnderliersUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/desk-config/product/pricing": {
+      "post": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "saveDeskProductPricing",
+        "operationId": "saveDeskProductPricingUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "deskProductPricing",
+            "description": "deskProductPricing",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeskProductPricing"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeskProductPricing"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/desk-config/product/pricing/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getDeskProductPricingForDesk",
+        "operationId": "getDeskProductPricingForDeskUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeskProductPricing"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/issuer-config": {
+      "post": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "saveIssuerConfig",
+        "operationId": "saveIssuerConfigUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "issuerCorporateConfig",
+            "description": "issuerCorporateConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/IssuerCorporateConfig"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssuerCorporateConfig"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/issuer-config/{issuerName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getIssuerConfigForIssuerName",
+        "operationId": "getIssuerConfigForIssuerNameUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "issuerName",
+            "in": "path",
+            "description": "issuerName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/IssuerCorporateConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution": {
+      "post": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "saveOrderExecutionConfiguration",
+        "operationId": "saveOrderExecutionConfigurationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orderExecutionConfig",
+            "description": "orderExecutionConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/OrderExecutionConfig"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/OrderExecutionConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/program/stpActive/{tradeDeskId}/{programId}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getActiveOrderExecutionConfiguration",
+        "operationId": "getActiveOrderExecutionConfigurationUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "programId",
+            "in": "path",
+            "description": "programId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "tradeDeskId",
+            "in": "path",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/programs/stpActive/{tradeDeskName}/any": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getIsStpActiveForAnyProgram",
+        "operationId": "getIsStpActiveForAnyProgramUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/programs/user/stpActive/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getIsStpActiveForTradeDeskUser",
+        "operationId": "getIsStpActiveForTradeDeskUserUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/toms-active/{tradeDeskId}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getIsTomsActiveForAnyProgram",
+        "operationId": "getIsTomsActiveForAnyProgramUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskId",
+            "in": "path",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getOrderExecutionConfiguration",
+        "operationId": "getOrderExecutionConfigurationUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderExecutionConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/{tradeDeskName}/programConfigs": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getProgramConfigsForClearingType",
+        "operationId": "getProgramConfigsForClearingTypeUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "clearingExportType",
+            "in": "query",
+            "description": "clearingExportType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OrderExecutionProgramConfig"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order-execution/{tradeDeskName}/programs": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getProgramsForClearingType",
+        "operationId": "getProgramsForClearingTypeUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "clearingExportType",
+            "in": "query",
+            "description": "clearingExportType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order/save": {
+      "post": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "Save Desk Order Preferences",
+        "description": "Returns 400 if trade desk is not valid and any other boolean order preferences are null",
+        "operationId": "saveOrderPreferenceUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orderConfig",
+            "description": "orderConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeskOrderPreference"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeskOrderPreference"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/order/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "Get Desk Order Preferences",
+        "description": "DeskOrderPreference with default values will be returned if when no Order Preferences are found for the trade desk name Returns 400 if trade desk is not valid.",
+        "operationId": "getDeskOrderPreferencesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeskOrderPreference"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/tradeDesk": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "Get Trade Desk List",
+        "description": "Returns list of trade desk names Returns 500 if user is not valid",
+        "operationId": "getTradeDeskNamesUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-config": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getWholesalerConfigurations",
+        "operationId": "getWholesalerConfigurationsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WholesalerConfig"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "saveWholesalerConfiguration",
+        "operationId": "saveWholesalerConfigurationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "wholesalerConfig",
+            "description": "wholesalerConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/WholesalerConfig"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WholesalerConfig"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-config/active": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getActiveWholesalerConfigurations",
+        "operationId": "getActiveWholesalerConfigurationsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WholesalerConfig"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-config/active/names": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getActiveWholesalerNames",
+        "operationId": "getActiveWholesalerNamesUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-config/edit/{name}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getWholesalerConfiguration",
+        "operationId": "getWholesalerConfigurationUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WholesalerConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-config/new": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getWholesalerDefaultConfiguration",
+        "operationId": "getWholesalerDefaultConfigurationUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/WholesalerConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-config/{wholesalerName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "isActiveWholesaler",
+        "operationId": "isActiveWholesalerUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "wholesalerName",
+            "in": "path",
+            "description": "wholesalerName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-mapping": {
+      "post": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "saveDeskWholesalerMappingConfiguration",
+        "operationId": "saveDeskWholesalerMappingConfigurationUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "deskWholesalerMappingConfig",
+            "description": "deskWholesalerMappingConfig",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DeskWholesalerMappingConfig"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeskWholesalerMappingConfig"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-mapping/issuers": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getIssuers",
+        "operationId": "getIssuersUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/config/wholesaler-mapping/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-config-controller"
+        ],
+        "summary": "getDeskWholesalerMappingConfigurationsByTradeDesk",
+        "operationId": "getDeskWholesalerMappingConfigurationsByTradeDeskUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DeskWholesalerMappingConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/connect/syndicate": {
+      "post": {
+        "tags": [
+          "marketplace-product-integration-controller"
+        ],
+        "summary": "updateDeskProgramProductAssignmentAndPricing",
+        "operationId": "updateDeskProgramProductAssignmentAndPricingUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "syndicationRequest",
+            "description": "syndicationRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SyndicationRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/desk/document": {
+      "post": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "Insert a new desk disclosure document",
+        "description": "Returns 201 when successful.",
+        "operationId": "insertDocumentUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "displayValue",
+            "description": "displayValue",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "productType",
+            "description": "productType",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CD",
+                "NOTE",
+                "MARKET_LINKED_TRUST"
+              ]
+            },
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "tradeDeskName",
+            "description": "tradeDeskName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/DocumentDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/desk/document/all/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "List of DocumentDetail objects for the input trade desk name",
+        "description": "Empty list if returned if when no documents are found for the trade desk name",
+        "operationId": "getDeskDocumentsUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/desk/document/key/{documentKey}": {
+      "get": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "Document contents for the input key are streamed back to the caller.",
+        "description": "404 is returned if not document is located for the input key",
+        "operationId": "getDeskDocumentByKeyUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "documentKey",
+            "in": "path",
+            "description": "documentKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/desk/document/order": {
+      "post": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "Accepts an order document to be stored.",
+        "description": "Returns DocumentDetails about the stored file.",
+        "operationId": "insertOrderDocumentUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "tradeDeskId",
+            "description": "tradeDeskId",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/DocumentDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/desk/document/order/{documentKey}": {
+      "delete": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "Delete an existing desk disclosure document",
+        "description": "Returns 204 when successful.",
+        "operationId": "deleteOrderDocumentUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "documentKey",
+            "in": "path",
+            "description": "documentKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/desk/document/{documentKey}": {
+      "post": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "Update an existing desk disclosure document",
+        "description": "Returns 201 when successful.",
+        "operationId": "updateDocumentUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "displayValue",
+            "description": "displayValue",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "type": "string"
+          },
+          {
+            "name": "documentKey",
+            "in": "path",
+            "description": "documentKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "in": "formData",
+            "name": "productType",
+            "description": "productType",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "CD",
+                "NOTE",
+                "MARKET_LINKED_TRUST"
+              ]
+            },
+            "type": "string"
+          },
+          {
+            "in": "formData",
+            "name": "tradeDeskName",
+            "description": "tradeDeskName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/DocumentDetails"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [
+          "marketplace-desk-document-controller"
+        ],
+        "summary": "Delete an existing desk disclosure document",
+        "description": "Returns 204 when successful.",
+        "operationId": "deleteDocumentUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "documentKey",
+            "in": "path",
+            "description": "documentKey",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "query",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/product": {
+      "get": {
+        "tags": [
+          "marketplace-product-document-controller"
+        ],
+        "summary": "getProductDocumentPDF",
+        "operationId": "getProductDocumentPDFUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "cusip",
+            "in": "query",
+            "description": "cusip",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "documentType",
+            "in": "query",
+            "description": "documentType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productID",
+            "in": "query",
+            "description": "productID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "query",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/product/export": {
+      "post": {
+        "tags": [
+          "marketplace-product-document-controller"
+        ],
+        "summary": "getProductExportDocumentPDF",
+        "operationId": "getProductExportDocumentPDFUsingPOST",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/pdf"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "columnDelimiter",
+            "description": "columnDelimiter",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/product/links": {
+      "get": {
+        "tags": [
+          "marketplace-product-document-controller"
+        ],
+        "summary": "getProductDocumentLinks",
+        "operationId": "getProductDocumentLinksUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "productID",
+            "in": "query",
+            "description": "productID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "productType",
+            "in": "query",
+            "description": "productType",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "securityId",
+            "in": "query",
+            "description": "securityId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "query",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DocumentDetails"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/document/product/{key}": {
+      "get": {
+        "tags": [
+          "marketplace-product-document-controller"
+        ],
+        "summary": "getProductDocumentPDFByKey",
+        "operationId": "getProductDocumentPDFByKeyUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order": {
+      "post": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Saves a new Order.",
+        "description": "Returns input ProductOrder with new order id.",
+        "operationId": "saveNewOrderUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "productOrder",
+            "description": "productOrder",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductOrder"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/ProductOrder"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Updates an Order.",
+        "description": "Returns updated ProductOrder",
+        "operationId": "updateOrderUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "productOrder",
+            "description": "productOrder",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductOrder"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ProductOrder"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order-execution/clearing-export/orders": {
+      "post": {
+        "tags": [
+          "marketplace-order-execution-controller"
+        ],
+        "summary": "Get orders for clearing export",
+        "operationId": "getOrdersToExportUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "exportOrdersRequest",
+            "description": "exportOrdersRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceOrderDetail"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order-execution/clearing-export/orders/export": {
+      "post": {
+        "tags": [
+          "marketplace-order-execution-controller"
+        ],
+        "summary": "Download excel xlsx file for clearing house orders",
+        "operationId": "exportOrdersUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "exportOrdersRequest",
+            "description": "exportOrdersRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExportOrdersRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order-execution/pershing-export/permission/{tradeDeskId}": {
+      "get": {
+        "tags": [
+          "marketplace-order-execution-controller"
+        ],
+        "summary": "getPershingPermission",
+        "operationId": "getPershingPermissionUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskId",
+            "in": "path",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order-execution/stp/restart/eligible/{orderId}": {
+      "get": {
+        "tags": [
+          "marketplace-order-execution-controller"
+        ],
+        "summary": "stpEligible",
+        "operationId": "stpEligibleUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order-execution/stp/restart/{orderId}": {
+      "get": {
+        "tags": [
+          "marketplace-order-execution-controller"
+        ],
+        "summary": "restartStp",
+        "operationId": "restartStpUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order-execution/stp/status/{orderId}": {
+      "get": {
+        "tags": [
+          "marketplace-order-execution-controller"
+        ],
+        "summary": "getStpStatusForOrder",
+        "operationId": "getStpStatusForOrderUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/StpAudit"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/accountNumber/validate": {
+      "post": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Validates account number for order",
+        "operationId": "validateAccountNumberForTradeDeskUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "query",
+            "description": "accountNumber",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskId",
+            "in": "query",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/approval/basic": {
+      "post": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Saves a basic order approval result",
+        "description": "Return the Basic order approval results list",
+        "operationId": "basicOrderApprovalUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "basicOrderApproval",
+            "description": "basicOrderApproval",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BasicOrderApproval"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Map«string,object»"
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/approval/bookBuilding": {
+      "post": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Saves a book building order approval result",
+        "description": "Return the book building order approval results list",
+        "operationId": "bookBuildingOrderApprovalUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bookBuildingOrderApproval",
+            "description": "bookBuildingOrderApproval",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookBuildingOrderApproval"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Map«string,object»"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/bookBuilding/update": {
+      "put": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Updates an Order.",
+        "description": "Returns updated ProductOrder",
+        "operationId": "updateBookBuildingProductUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bookBuildingProductUpdate",
+            "description": "bookBuildingProductUpdate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/BookBuildingProductUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/cancel": {
+      "post": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Cancels product orders.",
+        "description": "Returns 500 if there's an issue with the order service client. Returns 400 if unable to get token for user.",
+        "operationId": "cancelOrdersUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "orderIds",
+            "description": "orderIds",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/cancel/{orderId}": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Cancels a product order.",
+        "description": "Returns 500 if there's an issue with the order service client. Returns 400 if unable to get token for user.",
+        "operationId": "cancelOrderUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/edit/{orderId}": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Return existing order data for the input order id",
+        "description": "Returns 400 if order id is empty.\nReturns 404 if order is not found for input order id",
+        "operationId": "getExistingOrderDataUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "orderId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/historical": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "View all orders for trade desk in date range.",
+        "operationId": "getHistoricalOrdersUsingGET_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "query",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceOrderDetail"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/historical/wholesaler": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "View all orders for trade desk in date range.",
+        "operationId": "getHistoricalOrdersUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tradeDeskName",
+            "in": "query",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "wholesalerName",
+            "in": "query",
+            "description": "wholesalerName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceOrderDetail"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/new": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Get order data for the order screen",
+        "description": "Returns 400 if product id is not valid. Returns 400 if program id is not valid for trade desk id.",
+        "operationId": "getNewOrderDataUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "productId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "programId",
+            "in": "query",
+            "description": "programId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "tradeDeskId",
+            "in": "query",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/OrderResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/new/programId": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Returns new order data for a programId",
+        "description": "Return 400 if program id is not valid",
+        "operationId": "programIdRefreshUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "productId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "programId",
+            "in": "query",
+            "description": "programId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "tradeDeskId",
+            "in": "query",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ProgramIdRefreshResponse"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/{securityId}": {
+      "delete": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "Delete Order for input Cusip/isin.",
+        "operationId": "deleteOrderUsingDELETE",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "securityId",
+            "in": "path",
+            "description": "securityId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "View all order details for trade desk.",
+        "description": "Return 400 if trade desk name not valid.",
+        "operationId": "getTradeDeskAllOrderDetailsUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceOrderDetail"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/order/{tradeDeskName}/wholesaler/{wholesalerName}": {
+      "get": {
+        "tags": [
+          "marketplace-order-controller"
+        ],
+        "summary": "View all order details for Wholesaler by trade desk.",
+        "description": "Return 400 if trade desk name not valid.",
+        "operationId": "getTradeDeskAllOrderDetailsForWholesalerUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "wholesalerName",
+            "in": "path",
+            "description": "wholesalerName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceOrderDetail"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/V2/{tradeDeskId}": {
+      "get": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Provides a list of available products that can be purchased.",
+        "description": "Returns list of Product objects. Returns 400 if trade desk is not valid.",
+        "operationId": "getProductsV2UsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskId",
+            "in": "path",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceProduct"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/V2/{tradeDeskId}/wholesaler/{wholesalerName}": {
+      "get": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Provides a list of available products that can be purchased.",
+        "description": "Returns list of Product objects. Returns 400 if trade desk is not valid.",
+        "operationId": "getProductsV2ForWholesalerUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskId",
+            "in": "path",
+            "description": "tradeDeskId",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "wholesalerName",
+            "in": "path",
+            "description": "wholesalerName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarketplaceProduct"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/expiredProducts": {
+      "put": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Remove expired products from assignment and pricing models",
+        "operationId": "removeExpiredProductsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/override": {
+      "put": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Override products",
+        "description": "Override products and return  Returns 500 if programId is invalid",
+        "operationId": "overrideProductsUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "productCustomizations",
+            "description": "productCustomizations",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductCustomizations"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/stageAndStatus": {
+      "put": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Update product stage and status",
+        "description": "Update product stage and status ",
+        "operationId": "updateProductStageAndStatusUsingPUT",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/tradeDesk/program": {
+      "get": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Get Trade Desk List",
+        "description": "Returns list of trade desks with associated programs appropriate for the requesting user. Returns 500 if user is not valid",
+        "operationId": "getTradeDeskListUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Desk"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/tradeDesk/program/wholesaler/{wholesalerName}": {
+      "get": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Get Trade Desk List for wholesaler",
+        "description": "Returns list of trade desks with associated programs appropriate for the requesting user. Returns 500 if user is not valid",
+        "operationId": "getTradeDeskListForWholesalerUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "wholesalerName",
+            "in": "path",
+            "description": "wholesalerName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Desk"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/training/completed/user": {
+      "get": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Checks if the user completed  CD training or Notes training or Annunity training",
+        "description": "Returns a boolean with the user training completing status",
+        "operationId": "checkIfUserCompletedTrainingUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/training/user": {
+      "get": {
+        "tags": [
+          "marketplace-product-controller"
+        ],
+        "summary": "Checks status of user's training",
+        "description": "Returns object with training statuses",
+        "operationId": "getUserTrainingStatusUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/upload/assignment": {
+      "put": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for existing product assignments.",
+        "operationId": "updateProductAssignments",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single ProductUploadHistory object",
+            "schema": {
+              "$ref": "#/definitions/ProductUploadHistory"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Message if file does not have valid column headers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/upload/core": {
+      "post": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for new products.",
+        "operationId": "addProducts",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single ProductUploadHistory object",
+            "schema": {
+              "$ref": "#/definitions/ProductUploadHistory"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Message if file does not have valid column headers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for existing products.",
+        "operationId": "updateProducts",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "file",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A single ProductUploadHistory object",
+            "schema": {
+              "$ref": "#/definitions/ProductUploadHistory"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Message if file does not have valid column headers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/upload/history": {
+      "get": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for new product assignments.",
+        "operationId": "getHistory",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "List of ProductUploadHistory objects",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductUploadHistory"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/upload/products/upload/assignment": {
+      "put": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for existing product assignments.",
+        "operationId": "updateProductAssignments_1",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "A single ProductUploadHistory object",
+            "schema": {
+              "$ref": "#/definitions/ProductUploadHistory"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Message if file does not have valid column headers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/upload/products/upload/core": {
+      "post": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for new products.",
+        "operationId": "addProducts_1",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "A single ProductUploadHistory object",
+            "schema": {
+              "$ref": "#/definitions/ProductUploadHistory"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Message if file does not have valid column headers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for existing products.",
+        "operationId": "updateProducts_1",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+        ],
+        "responses": {
+          "200": {
+            "description": "A single ProductUploadHistory object",
+            "schema": {
+              "$ref": "#/definitions/ProductUploadHistory"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Message if file does not have valid column headers",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/products/upload/products/upload/history": {
+      "get": {
+        "tags": [
+          "product-upload-controller"
+        ],
+        "summary": "File upload for new product assignments.",
+        "operationId": "getHistory_1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uploadType",
+            "in": "query",
+            "description": "Upload type",
+            "required": true,
+            "type": "string",
+            "allowEmptyValue": false,
+            "enum": [
+              "ADD_PRODUCTS",
+              "UPDATE_PRODUCTS",
+              "ASSIGNMENT_PRICING"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of ProductUploadHistory objects",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductUploadHistory"
+              }
+            }
+          },
+          "400": {
+            "description": "Message if uploadType param value is invalid",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/report/orders/kyc/{tradeDeskName}": {
+      "get": {
+        "tags": [
+          "marketplace-order-report-controller"
+        ],
+        "summary": "Download excel xlsx file for KYC Order Report",
+        "operationId": "getKycOrderReportUsingGET",
+        "produces": [
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+        ],
+        "parameters": [
+          {
+            "name": "tradeDeskName",
+            "in": "path",
+            "description": "tradeDeskName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "BasicOrderApproval": {
+      "type": "object",
+      "properties": {
+        "notes": {
+          "type": "string"
+        },
+        "orderApprovalResult": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "REJECTED",
+            "PENDING",
+            "NA",
+            "UNAPPROVED",
+            "ISSUER_CONFIRMED",
+            "ISSUER_UNCONFIRMED"
+          ]
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "BasicOrderApproval"
+    },
+    "BookBuildingOrderApproval": {
+      "type": "object",
+      "properties": {
+        "deskMarkup": {
+          "type": "number"
+        },
+        "deskPrice": {
+          "type": "number"
+        },
+        "firmAccountNumber": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "orderApprovalResult": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "REJECTED",
+            "PENDING",
+            "NA",
+            "UNAPPROVED",
+            "ISSUER_CONFIRMED",
+            "ISSUER_UNCONFIRMED"
+          ]
+        },
+        "orderIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "BookBuildingOrderApproval"
+    },
+    "BookBuildingProductUpdate": {
+      "type": "object",
+      "properties": {
+        "issuerName": {
+          "type": "string"
+        },
+        "newSecurityId": {
+          "type": "string"
+        },
+        "oldSecurityId": {
+          "type": "string"
+        }
+      },
+      "title": "BookBuildingProductUpdate"
+    },
+    "BulkOrderUploadCellErrors": {
+      "type": "object",
+      "properties": {
+        "coordinateString": {
+          "type": "string"
+        },
+        "errorMessages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "BulkOrderUploadCellErrors"
+    },
+    "BulkOrderUploadResponse": {
+      "type": "object",
+      "properties": {
+        "errorMessagesByCoordinate": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/BulkOrderUploadCellErrors"
+          }
+        },
+        "errorsEncountered": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "kycApproval": {
+          "type": "boolean"
+        },
+        "ordersApproved": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ordersLoaded": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ordersUnapproved": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "BulkOrderUploadResponse"
+    },
+    "Buyer": {
+      "type": "object",
+      "properties": {
+        "cdTrainingCompleted": {
+          "type": "boolean"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "notesTrainingCompleted": {
+          "type": "boolean"
+        },
+        "repId": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        }
+      },
+      "title": "Buyer"
+    },
+    "DailyNotionalReportConfig": {
+      "type": "object",
+      "required": [
+        "enabled"
+      ],
+      "properties": {
+        "emailAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "title": "DailyNotionalReportConfig"
+    },
+    "Desk": {
+      "type": "object",
+      "properties": {
+        "PostIssuerProductDeadlineDateValue": {
+          "type": "string"
+        },
+        "PostIssuerProductDeadlineTime": {
+          "type": "string"
+        },
+        "PreIssuerProductDeadlineDateValue": {
+          "type": "string"
+        },
+        "PreIssuerProductDeadlineTime": {
+          "type": "string"
+        },
+        "accountMgr": {
+          "type": "string"
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "defaultProgram": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "legalName": {
+          "type": "string"
+        },
+        "notificationSettings": {
+          "$ref": "#/definitions/NotificationSettings"
+        },
+        "productTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "programs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Program"
+          }
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "specialPricing": {
+          "type": "boolean"
+        }
+      },
+      "title": "Desk",
+      "description": "TradeDesk"
+    },
+    "DeskOrderPreference": {
+      "type": "object",
+      "required": [
+        "companyId"
+      ],
+      "properties": {
+        "allowAttachments": {
+          "type": "boolean"
+        },
+        "allowBasicOrderApproval": {
+          "type": "boolean"
+        },
+        "allowBookBuilding": {
+          "type": "boolean"
+        },
+        "allowBulkOrders": {
+          "type": "boolean"
+        },
+        "allowClientAccountNumberValidation": {
+          "type": "boolean"
+        },
+        "allowDateRedDelivered": {
+          "type": "boolean"
+        },
+        "allowFdicAcknowledgment": {
+          "type": "boolean"
+        },
+        "allowKycOrderApproval": {
+          "type": "boolean"
+        },
+        "allowMultipleOrders": {
+          "type": "boolean"
+        },
+        "allowMultipleOrdersStructuredNotes": {
+          "type": "boolean"
+        },
+        "allowProspectusAcknowledgment": {
+          "type": "boolean"
+        },
+        "allowRepId": {
+          "type": "boolean"
+        },
+        "allowState": {
+          "type": "boolean"
+        },
+        "companyId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "fdicAckMsg": {
+          "type": "string"
+        },
+        "includeAttachmentInMail": {
+          "type": "boolean"
+        },
+        "prospectusAcknowledgmentText": {
+          "type": "string"
+        },
+        "requirePmFdicAck": {
+          "type": "boolean"
+        },
+        "requirePmProspectusAcknowledgment": {
+          "type": "boolean"
+        },
+        "requireRepFdicAck": {
+          "type": "boolean"
+        },
+        "requireRepProspectusAcknowledgment": {
+          "type": "boolean"
+        },
+        "requiredPmOrderAutoApproval": {
+          "type": "boolean"
+        },
+        "requiredTradeApprovalNotesOnOrderManagement": {
+          "type": "boolean"
+        },
+        "requiredTradeApprovalOnOrderManagement": {
+          "type": "boolean"
+        }
+      },
+      "title": "DeskOrderPreference",
+      "description": "Desk Order Preference Configuration"
+    },
+    "DeskProductPricing": {
+      "type": "object",
+      "properties": {
+        "createdByUsername": {
+          "type": "string"
+        },
+        "createdTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "programProductPricings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProgramProductPricing"
+          }
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "tradeDeskName": {
+          "type": "string"
+        }
+      },
+      "title": "DeskProductPricing"
+    },
+    "DeskWholesalerMappingConfig": {
+      "type": "object",
+      "required": [
+        "productTypes",
+        "tradeDeskName"
+      ],
+      "properties": {
+        "createdByUsername": {
+          "type": "string"
+        },
+        "createdTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "lastUpdatedTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "productTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DeskWholesalerProductTypesConfig"
+          }
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "tradeDeskName": {
+          "type": "string"
+        }
+      },
+      "title": "DeskWholesalerMappingConfig"
+    },
+    "DeskWholesalerProductTypeMappingsConfig": {
+      "type": "object",
+      "properties": {
+        "dtcNumber1": {
+          "type": "string"
+        },
+        "dtcNumber2": {
+          "type": "string"
+        },
+        "dtccode": {
+          "type": "string"
+        },
+        "issuerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "issuerName": {
+          "type": "string"
+        },
+        "mpid": {
+          "type": "string"
+        },
+        "mpidNumber1": {
+          "type": "string"
+        },
+        "mpidNumber2": {
+          "type": "string"
+        },
+        "purchaseThrough": {
+          "type": "string"
+        },
+        "wholesalerMarkup": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "DeskWholesalerProductTypeMappingsConfig"
+    },
+    "DeskWholesalerProductTypesConfig": {
+      "type": "object",
+      "properties": {
+        "issuerMapping": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DeskWholesalerProductTypeMappingsConfig"
+          }
+        },
+        "productType": {
+          "type": "string",
+          "enum": [
+            "MLCD",
+            "StructuredNotes",
+            "Market Linked Trust"
+          ]
+        }
+      },
+      "title": "DeskWholesalerProductTypesConfig"
+    },
+    "DocumentDetails": {
+      "type": "object",
+      "properties": {
+        "documentCompanyKey": {
+          "type": "string"
+        },
+        "documentFileName": {
+          "type": "string"
+        },
+        "documentKey": {
+          "type": "string"
+        },
+        "documentName": {
+          "type": "string"
+        },
+        "documentType": {
+          "type": "string"
+        },
+        "documentUploadTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "documentUploadedBy": {
+          "type": "string"
+        },
+        "documentUrl": {
+          "type": "string"
+        },
+        "documentWrapperType": {
+          "type": "string",
+          "enum": [
+            "CD",
+            "NOTE",
+            "MARKET_LINKED_TRUST"
+          ]
+        }
+      },
+      "title": "DocumentDetails"
+    },
+    "ExportOrdersRequest": {
+      "type": "object",
+      "required": [
+        "clearingExportType",
+        "clientId"
+      ],
+      "properties": {
+        "clearingExportType": {
+          "type": "string",
+          "enum": [
+            "TOMS",
+            "NFS",
+            "PERSHING_INDIVIDUAL",
+            "PERSHING_CONSOLIDATED"
+          ]
+        },
+        "clientId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "clientName": {
+          "type": "string"
+        },
+        "orderIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "previewMode": {
+          "type": "boolean"
+        },
+        "programIds": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "title": "ExportOrdersRequest"
+    },
+    "File": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "absoluteFile": {
+          "$ref": "#/definitions/File"
+        },
+        "absolutePath": {
+          "type": "string"
+        },
+        "canonicalFile": {
+          "$ref": "#/definitions/File"
+        },
+        "canonicalPath": {
+          "type": "string"
+        },
+        "directory": {
+          "type": "boolean"
+        },
+        "executable": {
+          "type": "boolean"
+        },
+        "file": {
+          "type": "boolean"
+        },
+        "freeSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "lastModified": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "parentFile": {
+          "$ref": "#/definitions/File"
+        },
+        "path": {
+          "type": "string"
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "totalSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "usableSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "writable": {
+          "type": "boolean"
+        }
+      },
+      "title": "File"
+    },
+    "InputStream": {
+      "type": "object",
+      "title": "InputStream"
+    },
+    "IssuerConfig": {
+      "type": "object",
+      "required": [
+        "issuerName"
+      ],
+      "properties": {
+        "dailyNotionalReportConfig": {
+          "$ref": "#/definitions/DailyNotionalReportConfig"
+        },
+        "dtcNumber1": {
+          "type": "string"
+        },
+        "dtcNumber2": {
+          "type": "string"
+        },
+        "issuerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "issuerName": {
+          "type": "string"
+        },
+        "logoName": {
+          "type": "string"
+        },
+        "monthlyNotionalReportConfig": {
+          "$ref": "#/definitions/MonthlyNotionalReportConfig"
+        },
+        "mpidNumber1": {
+          "type": "string"
+        },
+        "mpidNumber2": {
+          "type": "string"
+        }
+      },
+      "title": "IssuerConfig"
+    },
+    "IssuerCorporateConfig": {
+      "type": "object",
+      "required": [
+        "corporateEntityName",
+        "status"
+      ],
+      "properties": {
+        "corporateEntityName": {
+          "type": "string"
+        },
+        "createdByUsername": {
+          "type": "string"
+        },
+        "createdTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dailyNotionalReportConfig": {
+          "$ref": "#/definitions/DailyNotionalReportConfig"
+        },
+        "endTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "issuerList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/IssuerConfig"
+          }
+        },
+        "logoName": {
+          "type": "string"
+        },
+        "monthlyNotionalReportConfig": {
+          "$ref": "#/definitions/MonthlyNotionalReportConfig"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE"
+          ]
+        }
+      },
+      "title": "IssuerCorporateConfig"
+    },
+    "Map«string,object»": {
+      "type": "object",
+      "title": "Map«string,object»",
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "MarketplaceOrderDetail": {
+      "type": "object",
+      "properties": {
+        "accountAvailableCash": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        },
+        "accountNumberOverride": {
+          "type": "boolean"
+        },
+        "accountRiskTolerance": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "advisorProvidedLiquidNetworth": {
+          "type": "number",
+          "format": "double"
+        },
+        "buyerCID": {
+          "type": "string"
+        },
+        "buyerName": {
+          "type": "string"
+        },
+        "clientHouseholdConcentrationLimit": {
+          "type": "string"
+        },
+        "clientIndivOrderConcentrationLimit": {
+          "type": "string"
+        },
+        "commissionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "commissionType": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "cusip": {
+          "type": "string"
+        },
+        "custodian": {
+          "type": "string"
+        },
+        "debitBalanceResolution": {
+          "type": "string"
+        },
+        "deskDeadlineDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "deskDeadlineTime": {
+          "type": "string"
+        },
+        "deskMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "deskPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "fdicAcknowledgment": {
+          "type": "string"
+        },
+        "firmAccount": {
+          "type": "string"
+        },
+        "hhAccountValue": {
+          "type": "string"
+        },
+        "hhConcentrationEvaluatedRatio": {
+          "type": "string"
+        },
+        "hhFullPrincipalRisk": {
+          "type": "string"
+        },
+        "hhPartialPrincipalRisk": {
+          "type": "string"
+        },
+        "householdConcentrationLimit": {
+          "type": "number"
+        },
+        "indicationType": {
+          "type": "string"
+        },
+        "indivConcentrationEvaluatedRatio": {
+          "type": "string"
+        },
+        "individualOrderLimit": {
+          "type": "number"
+        },
+        "investableLiquidAssets": {
+          "type": "string"
+        },
+        "isBasicApproval": {
+          "type": "boolean"
+        },
+        "isBuyClosed": {
+          "type": "boolean"
+        },
+        "isBuyEnabled": {
+          "type": "boolean"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "lastExportedTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "managedAccount": {
+          "type": "string"
+        },
+        "maturityDate": {
+          "type": "string"
+        },
+        "orderApprovalDate": {
+          "type": "string"
+        },
+        "orderApprovalNotes": {
+          "type": "string"
+        },
+        "orderApprovalStatus": {
+          "type": "string"
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orderNotes": {
+          "type": "string"
+        },
+        "orderStatus": {
+          "type": "string"
+        },
+        "orderTakenDate": {
+          "type": "string"
+        },
+        "orderTakenTime": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "string"
+        },
+        "postPurchaseCashBalance": {
+          "type": "number"
+        },
+        "productFaceValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "productRank": {
+          "type": "string"
+        },
+        "productStatus": {
+          "type": "string"
+        },
+        "productType": {
+          "type": "string"
+        },
+        "programId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "prospectusDelivered": {
+          "type": "string"
+        },
+        "prospectusFormDeliveredDate": {
+          "type": "string"
+        },
+        "prospectusFormDeliveredTime": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "receiptDate": {
+          "type": "string"
+        },
+        "receiptTime": {
+          "type": "string"
+        },
+        "registeredRep": {
+          "type": "string"
+        },
+        "registeredRepPhone": {
+          "type": "string"
+        },
+        "registrationType": {
+          "type": "string"
+        },
+        "repConcession": {
+          "type": "number",
+          "format": "double"
+        },
+        "repDeadlineDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "repDeadlineTime": {
+          "type": "string"
+        },
+        "repId": {
+          "type": "string"
+        },
+        "repPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "settlementDate": {
+          "type": "string"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "standardPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "stpStatus": {
+          "type": "string"
+        },
+        "submittedBy": {
+          "type": "string"
+        },
+        "submittedDate": {
+          "type": "string"
+        },
+        "submittedTime": {
+          "type": "string"
+        },
+        "tradeDate": {
+          "type": "string"
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "tradeId": {
+          "type": "string"
+        },
+        "tradeType": {
+          "type": "string"
+        },
+        "wholesaler": {
+          "type": "string"
+        },
+        "wholesalerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "wholesalerMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "wholesalerPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "MarketplaceOrderDetail"
+    },
+    "MarketplaceProduct": {
+      "type": "object",
+      "properties": {
+        "accountType": {
+          "type": "string"
+        },
+        "annualMaxReturn": {
+          "type": "string"
+        },
+        "annualMinGuarentee": {
+          "type": "string"
+        },
+        "annualizedCapRange": {
+          "type": "string"
+        },
+        "assetClass": {
+          "type": "string"
+        },
+        "autoCap": {
+          "type": "string"
+        },
+        "basketReturnAdjustment": {
+          "type": "string"
+        },
+        "basketType": {
+          "type": "string"
+        },
+        "callObservationFrequency": {
+          "type": "string"
+        },
+        "callPremium": {
+          "type": "string"
+        },
+        "callStep": {
+          "type": "string"
+        },
+        "callType": {
+          "type": "string"
+        },
+        "callValue": {
+          "type": "string"
+        },
+        "capFrequency": {
+          "type": "string"
+        },
+        "capRange": {
+          "type": "string"
+        },
+        "closingTimeFixed": {
+          "type": "string"
+        },
+        "couponBarrier": {
+          "type": "string"
+        },
+        "createTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "cusip": {
+          "type": "string"
+        },
+        "deskDeadlineDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "deskDeadlineTime": {
+          "type": "string"
+        },
+        "deskMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "deskPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "digitalReturn": {
+          "type": "string"
+        },
+        "digitalReturnBarrier": {
+          "type": "string"
+        },
+        "documentLinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentDetails"
+          }
+        },
+        "fdicInsured": {
+          "type": "boolean"
+        },
+        "floor": {
+          "type": "string"
+        },
+        "freqMinPay": {
+          "type": "string"
+        },
+        "growthType": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "isBuyClosed": {
+          "type": "boolean"
+        },
+        "isBuyEnabled": {
+          "type": "boolean"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "issuerLogo": {
+          "type": "string"
+        },
+        "maturityDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "maxReturn": {
+          "type": "string"
+        },
+        "minGuarantee": {
+          "type": "string"
+        },
+        "minPaymentRatePerAnnum": {
+          "type": "string"
+        },
+        "minPaymentRatePerPeriod": {
+          "type": "string"
+        },
+        "noCallPeriod": {
+          "type": "string"
+        },
+        "overrideToDirect": {
+          "type": "boolean"
+        },
+        "paymentFrequency": {
+          "type": "string"
+        },
+        "paymentRatePerAnnum": {
+          "type": "string"
+        },
+        "paymentRatePerPeriod": {
+          "type": "string"
+        },
+        "paymentType": {
+          "type": "string"
+        },
+        "pricingDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "principalBarrier": {
+          "type": "string"
+        },
+        "principalBarrierObserved": {
+          "type": "string"
+        },
+        "principalBuffer": {
+          "type": "string"
+        },
+        "principalProtection": {
+          "type": "string"
+        },
+        "productFaceValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "productRiskRank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "productStatus": {
+          "type": "string"
+        },
+        "productType": {
+          "type": "string"
+        },
+        "program": {
+          "$ref": "#/definitions/Program"
+        },
+        "protectionType": {
+          "type": "string"
+        },
+        "redemptionType": {
+          "type": "string"
+        },
+        "registrationType": {
+          "type": "string"
+        },
+        "repConcession": {
+          "type": "number",
+          "format": "double"
+        },
+        "repDeadlineDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "repDeadlineTime": {
+          "type": "string"
+        },
+        "repPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "returnType": {
+          "type": "string"
+        },
+        "salesConcession": {
+          "type": "string"
+        },
+        "settlementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "standardPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "structureType": {
+          "type": "string"
+        },
+        "taxTreatment": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "tickers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timeOffset": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tradeDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "tradeType": {
+          "type": "string"
+        },
+        "underlyers": {
+          "type": "string"
+        },
+        "underlyingTickers": {
+          "type": "string"
+        },
+        "upsideParticipationAboveDigitalReturn": {
+          "type": "string"
+        },
+        "upsideParticipationRate": {
+          "type": "string"
+        },
+        "visibility": {
+          "type": "boolean"
+        },
+        "wholesaler": {
+          "type": "string"
+        },
+        "wholesalerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "wholesalerMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "wholesalerPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "MarketplaceProduct"
+    },
+    "MonthlyNotionalReportConfig": {
+      "type": "object",
+      "properties": {
+        "emailAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "title": "MonthlyNotionalReportConfig"
+    },
+    "NfsOrderExecutionConfig": {
+      "type": "object",
+      "properties": {
+        "currencyCode": {
+          "type": "string",
+          "enum": [
+            "USD",
+            "EUR",
+            "MXN"
+          ]
+        },
+        "exchangeCode": {
+          "type": "string",
+          "enum": [
+            "XNYS",
+            "XASE",
+            "XPHO, XPHL",
+            "XOTC",
+            "XBOS",
+            "XCHI",
+            "XCBO",
+            "XNDQ, 11",
+            "XPSE",
+            "XISX, XISE",
+            "EDGA",
+            "MPRL",
+            "XCIS",
+            "XBOX",
+            "C2OX",
+            "YBAT",
+            "BATO",
+            "GMNI",
+            "MRCY",
+            "IEXG",
+            "XMIO",
+            "XBXO",
+            "XOFF"
+          ]
+        },
+        "firmBrokerId": {
+          "type": "string"
+        },
+        "issueTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NfsOrderExecutionIssueTypeConfig"
+          }
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "NFS"
+          ]
+        },
+        "nfsActive": {
+          "type": "string",
+          "enum": [
+            "TestMode",
+            "ActiveLive",
+            "Deactivated"
+          ]
+        },
+        "nfsOption": {
+          "type": "string",
+          "enum": [
+            "ExportOnly",
+            "STPOnly",
+            "ExportAndSTP"
+          ]
+        }
+      },
+      "title": "NfsOrderExecutionConfig"
+    },
+    "NfsOrderExecutionIssueTypeConfig": {
+      "type": "object",
+      "required": [
+        "activation",
+        "aggregationType",
+        "issueType"
+      ],
+      "properties": {
+        "activation": {
+          "type": "string",
+          "enum": [
+            "TestMode",
+            "ActiveLive",
+            "Deactivated"
+          ]
+        },
+        "agencyTradeForFeeBased": {
+          "type": "boolean"
+        },
+        "agencyTradeForFeeBasedType": {
+          "type": "string",
+          "enum": [
+            "CustomerAccountAvgPriceAccount",
+            "CustomerAccountFeeBasedOrders",
+            "AveragePriceAccountFeeBasedOrders"
+          ]
+        },
+        "aggregationSend": {
+          "type": "string",
+          "enum": [
+            "TradeDate",
+            "NotApplicable",
+            "Minus5FromTradeDate",
+            "Minus4FromTradeDate",
+            "Minus3FromTradeDate",
+            "Minus2FromTradeDate",
+            "Minus1FromTradeDate"
+          ]
+        },
+        "aggregationType": {
+          "type": "string",
+          "enum": [
+            "AggregateMonthEnd",
+            "SendApprovedOrderImmediately"
+          ]
+        },
+        "averagePriceAmount": {
+          "type": "string"
+        },
+        "issueType": {
+          "type": "string",
+          "enum": [
+            "CD",
+            "Note"
+          ]
+        },
+        "principalAccountForCommissionTrade": {
+          "type": "boolean"
+        },
+        "traceReporting": {
+          "type": "string",
+          "enum": [
+            "TradeDate",
+            "Minus1FromTradeDate",
+            "Minus2FromTradeDate",
+            "Minus3FromTradeDate",
+            "Minus4FromTradeDate",
+            "Minus5FromTradeDate",
+            "NotApplicable",
+            "Plus1FromTradeDate",
+            "Plus2FromTradeDate",
+            "Plus3FromTradeDate",
+            "Plus4FromTradeDate",
+            "Plus5FromTradeDate"
+          ]
+        },
+        "traceReportingTime": {
+          "type": "string"
+        },
+        "transactionTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NfsOrderExecutionTransactionTypeConfig"
+          }
+        }
+      },
+      "title": "NfsOrderExecutionIssueTypeConfig"
+    },
+    "NfsOrderExecutionLegendCode": {
+      "type": "object",
+      "properties": {
+        "legendCode": {
+          "type": "string",
+          "enum": [
+            "SolicitedOrder",
+            "UnsolicitedOrder",
+            "DiscretionExercised",
+            "ProspUndSepCovr",
+            "FactSheetToFollow"
+          ]
+        }
+      },
+      "title": "NfsOrderExecutionLegendCode"
+    },
+    "NfsOrderExecutionTransactionTypeConfig": {
+      "type": "object",
+      "required": [
+        "accountType",
+        "lastCapacity",
+        "product",
+        "settlementType",
+        "side",
+        "transactionType"
+      ],
+      "properties": {
+        "accountType": {
+          "type": "string",
+          "enum": [
+            "DVP",
+            "Cash",
+            "Margin"
+          ]
+        },
+        "averagePriceAccount": {
+          "type": "string"
+        },
+        "commissionType": {
+          "type": "string",
+          "enum": [
+            "FIX_VALUE_DESCRIPTION",
+            "NO_COMMISSION",
+            "CENTS_PER_SHARE",
+            "PERCENT_DISCOUNT",
+            "TOTAL_DOLLAR_AMOUNT",
+            "CONCESSION_SALES_CREDIT_PER_SHARE",
+            "CONCESSION_SALES_CREDIT_TOTAL_DOLLAR_AMOUNT",
+            "REGULAR_COMM_SCHEDULE"
+          ]
+        },
+        "lastCapacity": {
+          "type": "string",
+          "enum": [
+            "Agent",
+            "CrossAsAgent",
+            "CrossAsPrincipal",
+            "Principal",
+            "RisklessPrincipal",
+            "MixedCapacity"
+          ]
+        },
+        "legendCodes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NfsOrderExecutionLegendCode"
+          }
+        },
+        "partyRoleAllocationToAvgAccount": {
+          "type": "string",
+          "enum": [
+            "ExecutingFirm",
+            "RegisteredRep",
+            "AcceptingRep",
+            "PayToRep",
+            "OrderOriginator",
+            "GiveUpFirm",
+            "ContraBroker",
+            "OffsetAccount"
+          ]
+        },
+        "partyRoleAllocationToCustomerAccount": {
+          "type": "string",
+          "enum": [
+            "ExecutingFirm",
+            "RegisteredRep",
+            "AcceptingRep",
+            "PayToRep",
+            "OrderOriginator",
+            "GiveUpFirm",
+            "ContraBroker",
+            "OffsetAccount"
+          ]
+        },
+        "partyRoleClient": {
+          "type": "string",
+          "enum": [
+            "ExecutingFirm",
+            "RegisteredRep",
+            "AcceptingRep",
+            "PayToRep",
+            "OrderOriginator",
+            "GiveUpFirm",
+            "ContraBroker",
+            "OffsetAccount"
+          ]
+        },
+        "partyRoleClientPriceSrc": {
+          "type": "string",
+          "enum": [
+            "DESKPRICE",
+            "REPPRICE",
+            "100"
+          ]
+        },
+        "partyRolePrincipal": {
+          "type": "string",
+          "enum": [
+            "ExecutingFirm",
+            "RegisteredRep",
+            "AcceptingRep",
+            "PayToRep",
+            "OrderOriginator",
+            "GiveUpFirm",
+            "ContraBroker",
+            "OffsetAccount"
+          ]
+        },
+        "partyRolePrincipalPriceSrc": {
+          "type": "string",
+          "enum": [
+            "DESKPRICE",
+            "REPPRICE",
+            "100"
+          ]
+        },
+        "partyRoleWholesaler": {
+          "type": "string",
+          "enum": [
+            "ExecutingFirm",
+            "RegisteredRep",
+            "AcceptingRep",
+            "PayToRep",
+            "OrderOriginator",
+            "GiveUpFirm",
+            "ContraBroker",
+            "OffsetAccount"
+          ]
+        },
+        "partyRoleWholesalerPriceSrc": {
+          "type": "string",
+          "enum": [
+            "DESKPRICE",
+            "REPPRICE",
+            "100"
+          ]
+        },
+        "principalAccount": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string",
+          "enum": [
+            "Agency",
+            "Commodity",
+            "Corporate",
+            "Currency",
+            "Equity",
+            "Government",
+            "Index",
+            "Loan",
+            "MoneyMarket",
+            "Mortgage",
+            "Municipal",
+            "Other",
+            "Financing"
+          ]
+        },
+        "settlementType": {
+          "type": "string",
+          "enum": [
+            "Regular",
+            "Cash",
+            "TradeDatePlus1",
+            "TradeDatePlus2",
+            "TradeDatePlus3",
+            "TradeDatePlus4",
+            "TradeDatePlus5",
+            "Future",
+            "WhenIssue"
+          ]
+        },
+        "side": {
+          "type": "string",
+          "enum": [
+            "Buy",
+            "Sell",
+            "BuyMinus",
+            "SellPlus",
+            "SellShort",
+            "SellShortExempt",
+            "CrossShort",
+            "CrossShortExempt",
+            "BuyToCover"
+          ]
+        },
+        "tlementType": {
+          "type": "string",
+          "enum": [
+            "Regular",
+            "Cash",
+            "TradeDatePlus1",
+            "TradeDatePlus2",
+            "TradeDatePlus3",
+            "TradeDatePlus4",
+            "TradeDatePlus5",
+            "Future",
+            "WhenIssue"
+          ]
+        },
+        "transactionType": {
+          "type": "string",
+          "enum": [
+            "AgencyTrade",
+            "PrincipalTrade"
+          ]
+        }
+      },
+      "title": "NfsOrderExecutionTransactionTypeConfig"
+    },
+    "NotificationSettings": {
+      "type": "object",
+      "properties": {
+        "deskEmailTo": {
+          "type": "string"
+        },
+        "notifyCDFGRM": {
+          "type": "boolean"
+        },
+        "notifyCDFGRMEdit": {
+          "type": "boolean"
+        },
+        "notifyDesk": {
+          "type": "boolean"
+        },
+        "notifyDeskEdit": {
+          "type": "boolean"
+        },
+        "notifyOnTradeApprove": {
+          "type": "boolean"
+        },
+        "notifyRegRep": {
+          "type": "boolean"
+        },
+        "notifyRegRepEdit": {
+          "type": "boolean"
+        },
+        "notifySA": {
+          "type": "boolean"
+        },
+        "notifySAEdit": {
+          "type": "boolean"
+        },
+        "salesAsstEmailTo": {
+          "type": "string"
+        },
+        "secureOrderConfirmationMessage": {
+          "type": "string"
+        },
+        "secureOrderConfirmations": {
+          "type": "boolean"
+        },
+        "secureOrderPassword": {
+          "type": "string"
+        },
+        "secureOrderRecipients": {
+          "type": "string"
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "NotificationSettings"
+    },
+    "OrderExecutionConfig": {
+      "type": "object",
+      "required": [
+        "clientId",
+        "clientName",
+        "programs"
+      ],
+      "properties": {
+        "clientId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "clientName": {
+          "type": "string"
+        },
+        "createByUsername": {
+          "type": "string"
+        },
+        "createdTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "programs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OrderExecutionProgramConfig"
+          }
+        }
+      },
+      "title": "OrderExecutionConfig"
+    },
+    "OrderExecutionProgramConfig": {
+      "type": "object",
+      "required": [
+        "orderExecutionType",
+        "programId",
+        "programName"
+      ],
+      "properties": {
+        "nfsOrderExecutionTypeConfig": {
+          "$ref": "#/definitions/NfsOrderExecutionConfig"
+        },
+        "orderExecutionType": {
+          "type": "string",
+          "enum": [
+            "NFS",
+            "TOMS",
+            "NONE",
+            "PERSHING EXPORT"
+          ]
+        },
+        "pershingExportOrderExecutionConfig": {
+          "$ref": "#/definitions/PershingExportConfig"
+        },
+        "programId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "programName": {
+          "type": "string"
+        },
+        "tomsOrderExecutionTypeConfig": {
+          "$ref": "#/definitions/TomsOrderExecutionConfig"
+        }
+      },
+      "title": "OrderExecutionProgramConfig"
+    },
+    "OrderResponse": {
+      "type": "object",
+      "properties": {
+        "buyerList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Buyer"
+          }
+        },
+        "editOrders": {
+          "type": "boolean"
+        },
+        "nfsConfigurationActive": {
+          "type": "boolean"
+        },
+        "orderConfigSpecifications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map«string,object»"
+          }
+        },
+        "orderContraList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "orderDetails": {
+          "$ref": "#/definitions/ProductOrder"
+        },
+        "programs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Program"
+          }
+        },
+        "regionalTradeDesks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RegionalTradeDesk"
+          }
+        }
+      },
+      "title": "OrderResponse"
+    },
+    "PershingExportColumnConfig": {
+      "type": "object",
+      "required": [
+        "columnIndex",
+        "columnLabel",
+        "includeInExport",
+        "sourceType"
+      ],
+      "properties": {
+        "columnIndex": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "columnLabel": {
+          "type": "string"
+        },
+        "columnValue": {
+          "type": "string"
+        },
+        "includeInExport": {
+          "type": "boolean"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "selectedSource": {
+          "type": "string"
+        },
+        "sourceType": {
+          "type": "string",
+          "enum": [
+            "Order",
+            "Option",
+            "Product General",
+            "Backend"
+          ]
+        }
+      },
+      "title": "PershingExportColumnConfig"
+    },
+    "PershingExportConfig": {
+      "type": "object",
+      "properties": {
+        "amountValue": {
+          "type": "string",
+          "enum": [
+            "Thousands(M)",
+            "ActualAmount"
+          ]
+        },
+        "currencyCode": {
+          "type": "string",
+          "enum": [
+            "USD",
+            "EUR",
+            "MXN"
+          ]
+        },
+        "exchangeCode": {
+          "type": "string",
+          "enum": [
+            "ARCA - ARCA EXCH",
+            "BSE - BOSTON EXCH",
+            "CHX - CHICAGO EXCH",
+            "NYSE - NEW YORK EXCH",
+            "OTC (NSCC) - OTC",
+            "OTCX (NON NSCC) - OTC EX CLEARING",
+            "PHLX - PHILADELPHIA EXCH"
+          ]
+        },
+        "executionMode": {
+          "type": "string",
+          "enum": [
+            "TestMode",
+            "ActiveLive",
+            "Deactivated"
+          ]
+        },
+        "options": {
+          "type": "string",
+          "enum": [
+            "ExportOnly"
+          ]
+        },
+        "orderFieldOptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pershingExportIssueTypeConfigs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PershingExportIssueTypeConfig"
+          }
+        }
+      },
+      "title": "PershingExportConfig"
+    },
+    "PershingExportIssueTypeConfig": {
+      "type": "object",
+      "properties": {
+        "contraAccountNumber": {
+          "type": "string"
+        },
+        "issueType": {
+          "type": "string",
+          "enum": [
+            "CD",
+            "Note",
+            "Market Linked Trust"
+          ]
+        },
+        "pershingExportColumns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PershingExportColumnConfig"
+          }
+        }
+      },
+      "title": "PershingExportIssueTypeConfig"
+    },
+    "ProductCustomizations": {
+      "type": "object",
+      "properties": {
+        "deskMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "deskPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "overrideToDirect": {
+          "type": "boolean"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "programId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "standardPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "visibility": {
+          "type": "boolean"
+        },
+        "wholesalerMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "wholesalerPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "ProductCustomizations"
+    },
+    "ProductOrder": {
+      "type": "object",
+      "properties": {
+        "ISIN": {
+          "type": "string"
+        },
+        "accountNumber": {
+          "type": "string"
+        },
+        "accountNumberLength": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "accountNumberOverride": {
+          "type": "boolean"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "adviserEntreredNetWorth": {
+          "type": "number",
+          "format": "double"
+        },
+        "buyerId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "buyerName": {
+          "type": "string"
+        },
+        "closingDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "commissionAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "commissionType": {
+          "type": "string"
+        },
+        "contraAccountNumber": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "cusip": {
+          "type": "string"
+        },
+        "custodian": {
+          "type": "string"
+        },
+        "debitBalanceOverrideSelect": {
+          "type": "string"
+        },
+        "debitBalanceOverrideSelectOther": {
+          "type": "string"
+        },
+        "deskMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "deskPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "discretionExcercised": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "fdicAcknowledged": {
+          "type": "boolean"
+        },
+        "fdicAcknowledgmentMessage": {
+          "type": "string"
+        },
+        "firmNumber": {
+          "type": "string"
+        },
+        "formsSubmitted": {
+          "type": "string"
+        },
+        "indicationType": {
+          "type": "string"
+        },
+        "ipOverride": {
+          "type": "string"
+        },
+        "isBulkOrder": {
+          "type": "boolean"
+        },
+        "isin": {
+          "type": "string"
+        },
+        "issueType": {
+          "type": "string"
+        },
+        "issuer": {
+          "type": "string"
+        },
+        "orderApprovalActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map«string,object»"
+          }
+        },
+        "orderApprovalResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Map«string,object»"
+          }
+        },
+        "orderApprovalStatus": {
+          "type": "string"
+        },
+        "orderDocuments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DocumentDetails"
+          }
+        },
+        "orderId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "orderNotes": {
+          "type": "string"
+        },
+        "orderReceiptDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "orderReceiptTime": {
+          "type": "string"
+        },
+        "orderReceivedFrom": {
+          "type": "string"
+        },
+        "orderedByUsername": {
+          "type": "string"
+        },
+        "override": {
+          "type": "boolean"
+        },
+        "overrideNotes": {
+          "type": "string"
+        },
+        "priceBasisAmount": {
+          "type": "number",
+          "format": "double"
+        },
+        "productFaceValue": {
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "productStandardPx": {
+          "type": "number",
+          "format": "double"
+        },
+        "programId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "prospectusAcknowledged": {
+          "type": "boolean"
+        },
+        "prospectusAcknowledgmentDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "prospectusAcknowledgmentText": {
+          "type": "string"
+        },
+        "prospectusAcknowledgmentTime": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantityEntered": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "quantityMultiplier": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "referralName": {
+          "type": "string"
+        },
+        "regionalTradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "regionalTradeDeskName": {
+          "type": "string"
+        },
+        "registrationType": {
+          "type": "string"
+        },
+        "repConcession": {
+          "type": "number",
+          "format": "double"
+        },
+        "repId": {
+          "type": "string"
+        },
+        "repPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "revision": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "riskLevelRank": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "salesConcession": {
+          "type": "number",
+          "format": "double"
+        },
+        "salesCreditType": {
+          "type": "string"
+        },
+        "settlementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "solicited": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "stateName": {
+          "type": "string"
+        },
+        "structureType": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "tlementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "tradeDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "tradeId": {
+          "type": "string"
+        },
+        "tradeType": {
+          "type": "string"
+        },
+        "underlyingAssetsIn": {
+          "type": "string"
+        },
+        "underlyingSummary": {
+          "type": "string"
+        },
+        "wholesaler": {
+          "type": "string"
+        },
+        "wholesalerId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "wholesalerMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "wholesalerPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "ProductOrder"
+    },
+    "ProductPricing": {
+      "type": "object",
+      "properties": {
+        "deskMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "deskPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "issuerPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "repConcession": {
+          "type": "number",
+          "format": "double"
+        },
+        "repPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "standardPrice": {
+          "type": "number",
+          "format": "double"
+        },
+        "wholesalerMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "wholesalerPrice": {
+          "type": "number",
+          "format": "double"
+        }
+      },
+      "title": "ProductPricing"
+    },
+    "ProductTypeMarkup": {
+      "type": "object",
+      "properties": {
+        "deskMarkup": {
+          "type": "number",
+          "format": "double"
+        },
+        "productTypeForDeskMarkup": {
+          "type": "string",
+          "enum": [
+            "CD",
+            "NOTE",
+            "MARKET LINKED TRUST"
+          ]
+        }
+      },
+      "title": "ProductTypeMarkup"
+    },
+    "ProductUploadHistory": {
+      "type": "object",
+      "required": [
+        "uploadTimestamp",
+        "uploadType",
+        "uploadedByUsername"
+      ],
+      "properties": {
+        "errorCount": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "fileName": {
+          "type": "string"
+        },
+        "notificationRequired": {
+          "type": "boolean"
+        },
+        "productUploadHistoryDetails": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductUploadHistoryDetails"
+          }
+        },
+        "uploadTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "uploadType": {
+          "type": "string",
+          "enum": [
+            "ADD_PRODUCTS",
+            "UPDATE_PRODUCTS",
+            "ASSIGNMENT_PRICING"
+          ]
+        },
+        "uploadedByUsername": {
+          "type": "string"
+        }
+      },
+      "title": "ProductUploadHistory"
+    },
+    "ProductUploadHistoryDetails": {
+      "type": "object",
+      "required": [
+        "securityId",
+        "status"
+      ],
+      "properties": {
+        "errorMessages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "securityId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "ERROR"
+          ]
+        }
+      },
+      "title": "ProductUploadHistoryDetails"
+    },
+    "Program": {
+      "type": "object",
+      "properties": {
+        "cdMinimumOrderQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "closingTimeFixed": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "legalName": {
+          "type": "string"
+        },
+        "noteMinimumOrderQty": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shortName": {
+          "type": "string"
+        },
+        "timeOffSet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tradeDeskId": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Program"
+    },
+    "ProgramIdRefreshResponse": {
+      "type": "object",
+      "properties": {
+        "buyerList": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Buyer"
+          }
+        },
+        "contraList": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stpActive": {
+          "type": "boolean"
+        }
+      },
+      "title": "ProgramIdRefreshResponse"
+    },
+    "ProgramProductPricing": {
+      "type": "object",
+      "properties": {
+        "productPricings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductPricing"
+          }
+        },
+        "productTypeMarkups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductTypeMarkup"
+          }
+        },
+        "programId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "programName": {
+          "type": "string"
+        }
+      },
+      "title": "ProgramProductPricing"
+    },
+    "RegionalTradeDesk": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "regionalTradeDeskName": {
+          "type": "string"
+        }
+      },
+      "title": "RegionalTradeDesk"
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "file": {
+          "$ref": "#/definitions/File"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "inputStream": {
+          "$ref": "#/definitions/InputStream"
+        },
+        "open": {
+          "type": "boolean"
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "uri": {
+          "$ref": "#/definitions/URI"
+        },
+        "url": {
+          "$ref": "#/definitions/URL"
+        }
+      },
+      "title": "Resource"
+    },
+    "StpAudit": {
+      "type": "object",
+      "properties": {
+        "showStpRetry": {
+          "type": "boolean"
+        },
+        "showStpStatus": {
+          "type": "boolean"
+        },
+        "stpErrors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StpError"
+          }
+        },
+        "stpStatuses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/StpStatus"
+          }
+        }
+      },
+      "title": "StpAudit"
+    },
+    "StpError": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        },
+        "transactionType": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "StpError"
+    },
+    "StpStatus": {
+      "type": "object",
+      "properties": {
+        "createdTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "Sent",
+            "Send Fail",
+            "Send Success",
+            "Error"
+          ]
+        },
+        "statusValue": {
+          "type": "string"
+        }
+      },
+      "title": "StpStatus"
+    },
+    "SyndicationRequest": {
+      "type": "object",
+      "properties": {
+        "issuerName": {
+          "type": "string"
+        },
+        "productId": {
+          "type": "string"
+        },
+        "programNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "tradeDeskName": {
+          "type": "string"
+        }
+      },
+      "title": "SyndicationRequest"
+    },
+    "TomsOrderExecutionAllocationsConfig": {
+      "type": "object",
+      "required": [
+        "allocationsType"
+      ],
+      "properties": {
+        "allocationsType": {
+          "type": "string",
+          "enum": [
+            "CLIENT",
+            "STREET"
+          ]
+        },
+        "issueTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TomsOrderExecutionIssueTypeConfig"
+          }
+        }
+      },
+      "title": "TomsOrderExecutionAllocationsConfig"
+    },
+    "TomsOrderExecutionConfig": {
+      "type": "object",
+      "properties": {
+        "allocations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TomsOrderExecutionAllocationsConfig"
+          }
+        },
+        "amountValue": {
+          "type": "string",
+          "enum": [
+            "Thousands(M)",
+            "ActualAmount"
+          ]
+        },
+        "asOfDateBookBuildingOption": {
+          "type": "string",
+          "enum": [
+            "Trade Date",
+            "Settlement Date",
+            "Order Approval Date",
+            "Order Taken Date",
+            "Order Submitted Date"
+          ]
+        },
+        "asOfDateCalendarOption": {
+          "type": "string",
+          "enum": [
+            "Trade Date",
+            "Settlement Date",
+            "Order Approval Date",
+            "Order Taken Date",
+            "Order Submitted Date"
+          ]
+        },
+        "currencyCode": {
+          "type": "string"
+        },
+        "exportFileContents": {
+          "type": "string",
+          "enum": [
+            "AllocationsClient",
+            "AllocationsStreet",
+            "Both"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "enum": [
+            "TOMS"
+          ]
+        },
+        "tomsActive": {
+          "type": "string",
+          "enum": [
+            "TestMode",
+            "ActiveLive",
+            "Deactivated"
+          ]
+        },
+        "tomsOption": {
+          "type": "string",
+          "enum": [
+            "ExportOnly",
+            "STPOnly",
+            "ExportAndSTP"
+          ]
+        }
+      },
+      "title": "TomsOrderExecutionConfig"
+    },
+    "TomsOrderExecutionIssueTypeConfig": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string",
+          "enum": [
+            "DVP",
+            "Cash",
+            "Margin"
+          ]
+        },
+        "buySell": {
+          "type": "string",
+          "enum": [
+            "B",
+            "S"
+          ]
+        },
+        "clientPrice": {
+          "type": "string",
+          "enum": [
+            "PAR Value",
+            "Desk Price",
+            "Wholesaler Price",
+            "Standard Price",
+            "Rep Price"
+          ]
+        },
+        "issueType": {
+          "type": "string",
+          "enum": [
+            "CD",
+            "Note"
+          ]
+        },
+        "longNote1": {
+          "type": "string"
+        },
+        "security": {
+          "type": "string"
+        },
+        "shortNote4": {
+          "type": "string"
+        },
+        "streetPrice": {
+          "type": "string",
+          "enum": [
+            "PAR Value",
+            "Desk Price",
+            "Wholesaler Price",
+            "Standard Price",
+            "Rep Price",
+            "Calculation"
+          ]
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "title": "TomsOrderExecutionIssueTypeConfig"
+    },
+    "URI": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "fragment": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "opaque": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "query": {
+          "type": "string"
+        },
+        "rawAuthority": {
+          "type": "string"
+        },
+        "rawFragment": {
+          "type": "string"
+        },
+        "rawPath": {
+          "type": "string"
+        },
+        "rawQuery": {
+          "type": "string"
+        },
+        "rawSchemeSpecificPart": {
+          "type": "string"
+        },
+        "rawUserInfo": {
+          "type": "string"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "schemeSpecificPart": {
+          "type": "string"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      },
+      "title": "URI"
+    },
+    "URL": {
+      "type": "object",
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "content": {
+          "type": "object"
+        },
+        "defaultPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "deserializedFields": {
+          "$ref": "#/definitions/URLStreamHandler"
+        },
+        "file": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "serializedHashCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      },
+      "title": "URL"
+    },
+    "URLStreamHandler": {
+      "type": "object",
+      "title": "URLStreamHandler"
+    },
+    "WholesalerConfig": {
+      "type": "object",
+      "required": [
+        "name",
+        "productTypes",
+        "status"
+      ],
+      "properties": {
+        "createdByUsername": {
+          "type": "string"
+        },
+        "createdTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dailyNotionalReportConfig": {
+          "$ref": "#/definitions/DailyNotionalReportConfig"
+        },
+        "endTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lastUpdatedBy": {
+          "type": "string"
+        },
+        "lastUpdatedTimestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "monthlyNotionalReportConfig": {
+          "$ref": "#/definitions/MonthlyNotionalReportConfig"
+        },
+        "name": {
+          "type": "string"
+        },
+        "productTypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WholesalerProductTypesConfig"
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Active",
+            "Inactive"
+          ]
+        }
+      },
+      "title": "WholesalerConfig"
+    },
+    "WholesalerProductTypePropertiesConfig": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": [
+            "MPID",
+            "DTCCode",
+            "DTCAlpha"
+          ]
+        },
+        "selected": {
+          "type": "boolean"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": "WholesalerProductTypePropertiesConfig"
+    },
+    "WholesalerProductTypesConfig": {
+      "type": "object",
+      "properties": {
+        "productType": {
+          "type": "string",
+          "enum": [
+            "MLCD",
+            "StructuredNotes"
+          ]
+        },
+        "properties": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/WholesalerProductTypePropertiesConfig"
+          }
+        }
+      },
+      "title": "WholesalerProductTypesConfig"
+    }
+  }
+}

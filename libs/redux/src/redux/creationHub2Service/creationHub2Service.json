@@ -1,0 +1,82 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Boston Service REST APIs",
+        "version": "1.0",
+        "title": "Boston Service"
+    },
+    "host": "bdev.lumafintech.com",
+    "basePath": "/api/creation-hub-2-service",
+    "tags": [
+        {
+            "name": "creation-hub-template-controller",
+            "description": "Creation Hub Template Controller"
+        }
+    ],
+    "paths": {
+        "/templates": {
+            "get": {
+                "tags": [
+                    "creation-hub-template-controller"
+                ],
+                "summary": "Get Creation Hub Templates for Current User",
+                "description": "Return a list of Creation Hub Templates associated with the current User",
+                "operationId": "getCreationHubTemplatesUsingGET",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/CreationHubTemplate"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    },
+                    "500": {
+                        "description": "Internal Server Exception"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "definitions": {
+        "CreationHubTemplate": {
+            "type": "object",
+            "properties": {
+                "notes": {
+                    "type": "string"
+                },
+                "structure": {
+                    "type": "string"
+                },
+                "templateId": {
+                    "type": "string"
+                },
+                "templateName": {
+                    "type": "string"
+                },
+                "underliers": {
+                    "type": "string"
+                }
+            },
+            "title": "CreationHubTemplate"
+        }
+    }
+}

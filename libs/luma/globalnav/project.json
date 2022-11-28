@@ -1,0 +1,23 @@
+{
+  "root": "libs/luma/globalnav",
+  "sourceRoot": "libs/luma/globalnav/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/luma/globalnav/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/luma/globalnav"],
+      "options": {
+        "jestConfig": "libs/luma/globalnav/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

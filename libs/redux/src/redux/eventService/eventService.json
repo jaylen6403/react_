@@ -1,0 +1,941 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Event Service REST APIs",
+    "version": "1.0",
+    "title": "Boston Event Services"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/event-service",
+  "tags": [
+    {
+      "name": "event-confirmation-controller",
+      "description": "Event Confirmation Controller"
+    },
+    { "name": "event-controller", "description": "Event Controller" }
+  ],
+  "paths": {
+    "/daily-summary": {
+      "post": {
+        "tags": ["event-controller"],
+        "summary": "Build the Daily Summary for admins",
+        "operationId": "sendDailySummaryUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "adminEmails",
+            "description": "adminEmails",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/daily-summary/email": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Send the Daily Summary",
+        "operationId": "sendDailySummaryUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "adminOnly",
+            "in": "query",
+            "description": "adminOnly",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "description": "date",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/event": {
+      "post": {
+        "tags": ["event-controller"],
+        "summary": "Create Event",
+        "description": "Create Event",
+        "operationId": "createEventFromModelUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "createForm",
+            "description": "createForm",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CreateEventForm" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/LumaEvent" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/event-confirmations": {
+      "get": {
+        "tags": ["event-confirmation-controller"],
+        "summary": "Get Confirmation events for the User",
+        "description": "Returns a list of Confirmation Events associated with the User",
+        "operationId": "createEventConfirmationListUsingGET",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EventProductData" }
+            }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Exception" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["event-confirmation-controller"],
+        "summary": "Create the Confirmed Event",
+        "description": "Create the Confirmed Event",
+        "operationId": "updateEventProductDataUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "eventProductData",
+            "description": "eventProductData",
+            "required": true,
+            "schema": { "$ref": "#/definitions/EventProductData" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/EventProductData" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/event/earliest/{type}/{key}": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Get Earliest Event",
+        "description": "Get Earliest Event by Event Type and Event Key",
+        "operationId": "getEarliestEventUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "type",
+            "required": true,
+            "type": "string",
+            "enum": ["REDEMPTION", "BARRIER_BREACH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/LumaEvent" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/event/latest/{type}/{key}": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Get Latest Event",
+        "description": "Get Latest Event by Event Type and Event Key",
+        "operationId": "getLatestEventUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "path",
+            "description": "key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "description": "type",
+            "required": true,
+            "type": "string",
+            "enum": ["REDEMPTION", "BARRIER_BREACH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/LumaEvent" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/event/{id}": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Get Event",
+        "description": "Get Event by Event ID",
+        "operationId": "getEventUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«LumaEvent»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/events": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Get Events by Event Recorded Date",
+        "description": "Get Events by the Event Recorded Date provided",
+        "operationId": "getEventsByDateUsingGET_1",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": false,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type",
+            "required": true,
+            "type": "string",
+            "enum": ["REDEMPTION", "BARRIER_BREACH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/LumaEvent" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["event-controller"],
+        "summary": "Get Events by Event Type and List of Event Keys",
+        "description": "Get Events by the Event Type and List of Event Keys provided",
+        "operationId": "getEventsByEventTypeKeysUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "eventKeys",
+            "description": "eventKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type",
+            "required": true,
+            "type": "string",
+            "enum": ["REDEMPTION", "BARRIER_BREACH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/LumaEvent" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/confirmed": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Get Core Events by Type and Creation Date",
+        "description": "Get Core Events by type, created between start date and end date",
+        "operationId": "getEventsByCreationDateUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "endDate",
+            "in": "query",
+            "description": "endDate",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "description": "eventTypes",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Auto Call",
+                "Issuer Call",
+                "Missed Call",
+                "Coupon Payment",
+                "Missed Coupon Payment",
+                "Barrier Breach",
+                "Maturity",
+                "PDW Coupon Date",
+                "PDW Call Date",
+                "PDW Trade Date",
+                "PDW Issued Date",
+                "PDW Final Valuation Date",
+                "PDW Maturity Date",
+                "PDW Strike Date"
+              ]
+            },
+            "collectionFormat": "multi",
+            "enum": [
+              "Auto Call",
+              "Issuer Call",
+              "Missed Call",
+              "Coupon Payment",
+              "Missed Coupon Payment",
+              "Barrier Breach",
+              "Maturity",
+              "PDW Coupon Date",
+              "PDW Call Date",
+              "PDW Trade Date",
+              "PDW Issued Date",
+              "PDW Final Valuation Date",
+              "PDW Maturity Date",
+              "PDW Strike Date"
+            ]
+          },
+          {
+            "name": "startDate",
+            "in": "query",
+            "description": "startDate",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Event" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/core": {
+      "get": {
+        "tags": ["event-controller"],
+        "summary": "Get core events by product ID",
+        "description": "Get core events by product ID",
+        "operationId": "getEventsByProductIdUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "query",
+            "description": "productId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Event" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["event-controller"],
+        "summary": "Create Core Event",
+        "description": "Create Core Event",
+        "operationId": "createCoreEventUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "event",
+            "description": "event",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Event" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/Event" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["event-controller"],
+        "summary": "Update Core Event",
+        "description": "Update Core Event by Event ID",
+        "operationId": "updateCoreEventUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "event",
+            "description": "event",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Event" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Event" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/core/{sourceId}": {
+      "delete": {
+        "tags": ["event-controller"],
+        "summary": "Delete Core Event",
+        "description": "Delete Core Event by Event ID and source name",
+        "operationId": "deleteCoreEventUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "source",
+            "in": "query",
+            "description": "source",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sourceId",
+            "in": "path",
+            "description": "sourceId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/earliest": {
+      "post": {
+        "tags": ["event-controller"],
+        "summary": "Get Earliest event for each key by Event Type and List of Event Keys",
+        "description": "Get Earliest event for each key  by the Event Type and List of Event Keys provided",
+        "operationId": "getEarliestEventForEachKeyByEventTypeKeysUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "eventKeys",
+            "description": "eventKeys",
+            "required": false,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type",
+            "required": true,
+            "type": "string",
+            "enum": ["REDEMPTION", "BARRIER_BREACH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/LumaEvent" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/events/latest": {
+      "post": {
+        "tags": ["event-controller"],
+        "summary": "Get latest event for each key by Event Type and List of Event Keys",
+        "description": "Get latest event for each key  by the Event Type and List of Event Keys provided",
+        "operationId": "getLatestEventForEachKeyByEventTypeKeysUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "eventKeys",
+            "description": "eventKeys",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "type",
+            "required": true,
+            "type": "string",
+            "enum": ["REDEMPTION", "BARRIER_BREACH"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/LumaEvent" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "CashSettlementRates": {
+      "type": "object",
+      "properties": {
+        "issuerRate": { "type": "number", "format": "double" },
+        "lumaRate": { "type": "number", "format": "double" },
+        "rate": { "type": "number", "format": "double" }
+      },
+      "title": "CashSettlementRates"
+    },
+    "CreateEventForm": {
+      "type": "object",
+      "properties": {
+        "eventData": { "type": "string" },
+        "eventKey": { "type": "string" },
+        "eventType": { "type": "string" },
+        "eventUser": { "type": "string" }
+      },
+      "title": "CreateEventForm"
+    },
+    "Event": {
+      "type": "object",
+      "required": ["productId"],
+      "properties": {
+        "couponPaymentType": {
+          "type": "string",
+          "example": "Fixed",
+          "description": "The type of coupon payment"
+        },
+        "creationDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the event was created"
+        },
+        "eventDate": {
+          "type": "string",
+          "format": "date",
+          "example": "Fri Jan 31 00:00:00 UTC 2020",
+          "description": "The date of the event"
+        },
+        "eventStatus": {
+          "type": "string",
+          "example": "Calculated",
+          "description": "The status of the event",
+          "enum": ["Calculated", "Pending", "Confirmed", "Not Applicable"]
+        },
+        "eventType": {
+          "type": "string",
+          "example": "Auto Call",
+          "description": "The type of event affecting the product",
+          "enum": [
+            "Auto Call",
+            "Issuer Call",
+            "Missed Call",
+            "Coupon Payment",
+            "Missed Coupon Payment",
+            "Barrier Breach",
+            "Maturity",
+            "PDW Coupon Date",
+            "PDW Call Date",
+            "PDW Trade Date",
+            "PDW Issued Date",
+            "PDW Final Valuation Date",
+            "PDW Maturity Date",
+            "PDW Strike Date"
+          ]
+        },
+        "externalReferenceId": {
+          "type": "string",
+          "example": "028dfceb-68ac-44eb-92c8-97a60a4490f5-SP-166681LBv1",
+          "description": "The ID of this event that is persisted by an external entity - for example, UBS"
+        },
+        "issuerRate": {
+          "type": "number",
+          "format": "double",
+          "example": 0.25,
+          "description": "The payout percentage for the product as a result of the event as calculated by the Issuer"
+        },
+        "lastModified": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the event was last modified"
+        },
+        "lumaRate": {
+          "type": "number",
+          "format": "double",
+          "example": 0.25,
+          "description": "The payout percentage for the product as a result of the event as calculated by Luma"
+        },
+        "matchingCallEvent": { "$ref": "#/definitions/Event" },
+        "matchingCouponEvent": { "$ref": "#/definitions/Event" },
+        "matchingRedemptionObservation": {
+          "type": "boolean",
+          "example": false,
+          "description": "Whether or not the product has a Coupon/Call Observation Date matching the Observation Date of the other"
+        },
+        "physicalSettlementItems": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PhysicalSettlement" }
+        },
+        "productId": {
+          "type": "string",
+          "example": "123ABC123",
+          "description": "The unique identifier for the associated product"
+        },
+        "productIdType": {
+          "type": "string",
+          "example": "CUSIP",
+          "description": "The type of identifier used to identify the product",
+          "enum": ["CUSIP", "ISIN"]
+        },
+        "rate": {
+          "type": "number",
+          "format": "double",
+          "example": 0.25,
+          "description": "The payout percentage for the product as a result of the event"
+        },
+        "settlementDate": {
+          "type": "string",
+          "format": "date",
+          "example": "Fri Jan 31 00:00:00 UTC 2020",
+          "description": "The date the event payout will occur"
+        },
+        "settlementType": {
+          "type": "string",
+          "example": "Physical",
+          "description": "The type of settlement for the product",
+          "enum": ["Physical", "Cash"]
+        },
+        "source": { "type": "string", "example": "Citigroup" },
+        "sourceId": {
+          "type": "string",
+          "example": "11f0e74c-2d15-4f96-b4fb-b70fb260601f",
+          "description": "The unique identifier of the event from the event source"
+        },
+        "sourceType": {
+          "type": "string",
+          "example": "Issuer",
+          "description": "The source type for the event",
+          "enum": ["Luma", "Issuer", "DTC", "EC", "Third Party"]
+        },
+        "tlementDate": { "type": "string", "format": "date" },
+        "tlementType": { "type": "string", "enum": ["Physical", "Cash"] },
+        "user": {
+          "type": "string",
+          "example": "example@lumafintech.com",
+          "description": "The user who recorded the event"
+        }
+      },
+      "title": "Event"
+    },
+    "EventProductData": {
+      "type": "object",
+      "properties": {
+        "activeUnderlier": { "type": "string" },
+        "basketType": {
+          "type": "string",
+          "enum": ["Equal", "Custom", "WoF", "BoF", "Out Performance", "Single"]
+        },
+        "cashSettlementRates": { "$ref": "#/definitions/CashSettlementRates" },
+        "confirmationStatus": { "type": "string" },
+        "downsideType": { "type": "string" },
+        "eventDate": { "type": "string", "format": "date" },
+        "eventType": { "type": "string" },
+        "issuer": { "type": "string" },
+        "physicalSettlements": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PhysicalSettlement" }
+        },
+        "principalProximity": { "type": "string" },
+        "principalProximityThreshold": { "type": "number", "format": "double" },
+        "productIdentifier": { "type": "string" },
+        "productStatus": {
+          "type": "string",
+          "enum": ["Live", "Matured", "Called", "Expired", ""]
+        },
+        "productSymbol": { "type": "string" },
+        "registrationType": { "type": "string" },
+        "settlementDate": { "type": "string", "format": "date" },
+        "settlementType": { "type": "string" },
+        "structureNameInternal": { "type": "string" },
+        "structureShortNameInternal": { "type": "string" },
+        "tenorFinal": { "type": "number", "format": "double" },
+        "tenorUnit": { "type": "string" },
+        "tradeDate": { "type": "string", "format": "date" },
+        "underlierList": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/UnderlierRest" }
+        },
+        "underlierPerformance": { "type": "number", "format": "double" }
+      },
+      "title": "EventProductData"
+    },
+    "LumaEvent": {
+      "type": "object",
+      "properties": {
+        "eventData": { "type": "string" },
+        "eventDate": { "type": "string", "format": "date-time" },
+        "eventId": { "type": "integer", "format": "int64" },
+        "eventKey": { "type": "string" },
+        "eventType": {
+          "type": "string",
+          "enum": ["REDEMPTION", "BARRIER_BREACH"]
+        },
+        "eventUser": { "type": "string" }
+      },
+      "title": "LumaEvent"
+    },
+    "Optional«LumaEvent»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«LumaEvent»"
+    },
+    "Pageable": {
+      "type": "object",
+      "properties": {
+        "offset": { "type": "integer", "format": "int64" },
+        "pageNumber": { "type": "integer", "format": "int32" },
+        "pageSize": { "type": "integer", "format": "int32" },
+        "paged": { "type": "boolean" },
+        "sort": { "$ref": "#/definitions/Sort" },
+        "unpaged": { "type": "boolean" }
+      },
+      "title": "Pageable"
+    },
+    "Page«Event»": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Event" }
+        },
+        "empty": { "type": "boolean" },
+        "first": { "type": "boolean" },
+        "last": { "type": "boolean" },
+        "number": { "type": "integer", "format": "int32" },
+        "numberOfElements": { "type": "integer", "format": "int32" },
+        "pageable": { "$ref": "#/definitions/Pageable" },
+        "size": { "type": "integer", "format": "int32" },
+        "sort": { "$ref": "#/definitions/Sort" },
+        "totalElements": { "type": "integer", "format": "int64" },
+        "totalPages": { "type": "integer", "format": "int32" }
+      },
+      "title": "Page«Event»"
+    },
+    "PhysicalSettlement": {
+      "type": "object",
+      "properties": {
+        "issuerValue": {
+          "type": "number",
+          "format": "double",
+          "example": 7.25,
+          "description": "When physical settlement type is “shares”, this contains the number of shares, when cash in lieu, this is the cash value the note holder will receive upon settlement as calculated by the Issuer"
+        },
+        "lumaValue": {
+          "type": "number",
+          "format": "double",
+          "example": 7.25,
+          "description": "When physical settlement type is “shares”, this contains the number of shares, when cash in lieu, this is the cash value the note holder will receive upon settlement as calculated by Luma"
+        },
+        "physicalSettlementType": {
+          "type": "string",
+          "example": "Shares",
+          "description": "The type of physical settlement record",
+          "enum": ["Shares", "Cash in Lieu"]
+        },
+        "recordId": {
+          "type": "integer",
+          "format": "int64",
+          "example": 123,
+          "description": "The unique identifier for the Physical Settlement"
+        },
+        "securityId": {
+          "type": "string",
+          "example": "ABC",
+          "description": "The unique identifier for the security being physically settled"
+        },
+        "securityIdType": {
+          "type": "string",
+          "example": "RIC",
+          "description": "The type of unique identifier for the physically settled security",
+          "enum": ["RIC", "Bloomberg", "ISIN", "CUSIP"]
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "example": 7.25,
+          "description": "When physical settlement type is “shares”, this contains the number of shares, when cash in lieu, this is the cash value the note holder will receive upon settlement"
+        }
+      },
+      "title": "PhysicalSettlement"
+    },
+    "Sort": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "sorted": { "type": "boolean" },
+        "unsorted": { "type": "boolean" }
+      },
+      "title": "Sort"
+    },
+    "UnderlierRest": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "ticker": { "type": "string" },
+        "type": { "type": "string", "enum": ["BLOOMBERG", "RIC"] }
+      },
+      "title": "UnderlierRest"
+    }
+  }
+}

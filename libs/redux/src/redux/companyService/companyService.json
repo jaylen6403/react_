@@ -1,0 +1,1093 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Company Service",
+    "version": "0.0.1",
+    "title": "Company Service"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/company",
+  "tags": [
+    {
+      "name": "company-contact-controller",
+      "description": "Company Contact Controller"
+    },
+    { "name": "company-controller", "description": "Company Controller" },
+    {
+      "name": "company-relationship-controller",
+      "description": "Company Relationship Controller"
+    },
+    {
+      "name": "currency-admin-controller",
+      "description": "Currency Admin Controller"
+    },
+    { "name": "whitelabel-controller", "description": "Whitelabel Controller" }
+  ],
+  "paths": {
+    "/annuitycompanies": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get all carriers",
+        "description": "Get all carrier",
+        "operationId": "getAnnuityCompaniesUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/AnnuityCompany" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/companies": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get all companies",
+        "description": "Get all companies",
+        "operationId": "getAllCompaniesUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CompanyEntity" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get company information using companies short name",
+        "description": "Get company information using companies short name",
+        "operationId": "getCompanyByShortNameUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "shortName",
+            "in": "query",
+            "description": "shortName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«CompanyEntity»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["company-controller"],
+        "summary": "Create Company",
+        "description": "Create new Company",
+        "operationId": "createCompanyUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "companyEntity",
+            "description": "companyEntity",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyEntity" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/CompanyEntity" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["company-controller"],
+        "summary": "Update Company",
+        "description": "Update a Company",
+        "operationId": "updateCompanyUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "companyEntity",
+            "description": "companyEntity",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyEntity" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CompanyEntity" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company/contact": {
+      "post": {
+        "tags": ["company-contact-controller"],
+        "summary": "Create Company Contact",
+        "description": "Create new Company Contact",
+        "operationId": "createCompanyContactUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "contact",
+            "description": "contact",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyContact" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/CompanyContact" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["company-contact-controller"],
+        "summary": "Update Company Contact",
+        "description": "Update Company Contact",
+        "operationId": "updateCompanyContactUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "contact",
+            "description": "contact",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyContact" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CompanyContact" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company/contact/{id}": {
+      "get": {
+        "tags": ["company-contact-controller"],
+        "summary": "Get Company Contact by Contact ID",
+        "description": "Get Company Contact information using COntact ID",
+        "operationId": "getCompanyContactByIdUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«CompanyContact»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["company-contact-controller"],
+        "summary": "Delete Company Contact",
+        "description": "Delete Company Contact",
+        "operationId": "deleteCompanyContactUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company/pointOfContact/{shortName}": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get company point of contact",
+        "description": "Get company point of contact using company short name",
+        "operationId": "getCompanyPointOfContactUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "shortName",
+            "in": "path",
+            "description": "shortName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«string»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company/summary": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get company summary info using companies short name",
+        "description": "Get company summary info using companies short name",
+        "operationId": "getCompanyInfoUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "shortName",
+            "in": "query",
+            "description": "shortName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CompanySummary" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company/{id}": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get company information using companies Id",
+        "description": "Get company information using companies Id",
+        "operationId": "getCompanyByIdUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«CompanyEntity»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/company/{shortName}": {
+      "delete": {
+        "tags": ["company-controller"],
+        "summary": "Tombstone company",
+        "description": "Soft delete company",
+        "operationId": "tombstoneCompanyUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "shortName",
+            "in": "path",
+            "description": "shortName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/countries": {
+      "get": {
+        "tags": ["company-controller"],
+        "summary": "Get country information using company name",
+        "description": "Get country information using company name",
+        "operationId": "getCountriesUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Country" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/currency/manage/all": {
+      "get": {
+        "tags": ["currency-admin-controller"],
+        "summary": "Get all currency",
+        "description": "For Admin page, dropdown where we map currencies: Get them all, can pass a locale to get locale display name (es,fr)...",
+        "operationId": "getAllCurrencyUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "description": "locale",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CurrencyWrapper" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/currency/manage/find": {
+      "get": {
+        "tags": ["currency-admin-controller"],
+        "summary": "Find all mapping for a companyShortName (ie GWIM)",
+        "operationId": "findMappingsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "companyShortName",
+            "in": "query",
+            "description": "companyShortName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CurrencyWrapper" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/currency/manage/mapping": {
+      "post": {
+        "tags": ["currency-admin-controller"],
+        "summary": "create a currency mapping",
+        "description": "For Admin to create a currency mapping",
+        "operationId": "createCurrencyMappingUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "cmd",
+            "description": "cmd",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyCurrencyCommand" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CurrencyWrapper" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["currency-admin-controller"],
+        "summary": "delete a currency mapping",
+        "description": "For Admin to delete a currency mapping",
+        "operationId": "deleteCurrencyMappingUsingDELETE",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "cmd",
+            "description": "cmd",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyCurrencyCommand" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/relationships": {
+      "get": {
+        "tags": ["company-relationship-controller"],
+        "summary": "retrieve a list of company relationships",
+        "description": "retrieve a list of company relationships",
+        "operationId": "getRelationshipsUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CompanyRelationshipEntity" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["company-relationship-controller"],
+        "summary": "add new company relationship",
+        "description": "add new company relationship",
+        "operationId": "addRelationshipUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "entity",
+            "description": "entity",
+            "required": true,
+            "schema": { "$ref": "#/definitions/CompanyRelationshipEntity" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "type": "integer", "format": "int32" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/relationships/parent/{id}": {
+      "get": {
+        "tags": ["company-relationship-controller"],
+        "summary": "retrieve company relationship by parent company id",
+        "description": "retrieve company relationship by parent company id",
+        "operationId": "getRelationshipByParentIdUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CompanyRelationshipEntity" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/relationships/{id}": {
+      "get": {
+        "tags": ["company-relationship-controller"],
+        "summary": "retrieve company relationship by id",
+        "description": "retrieve company relationship by id",
+        "operationId": "getRelationshipByIdUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/CompanyRelationshipEntity" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["company-relationship-controller"],
+        "summary": "remove company relationship by id",
+        "description": "remove company relationship by id",
+        "operationId": "deleteRelationshipByIdUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/whitelabelinfo": {
+      "get": {
+        "tags": ["whitelabel-controller"],
+        "summary": "Get White Label Information",
+        "description": "Returns White Label Information ",
+        "operationId": "getWhitelabelInfoUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": { "$ref": "#/definitions/WhitelabelInfo" }
+          },
+          "400": { "description": "Bad Request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" },
+          "500": { "description": "Internal Server Exception" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AnnuityCompany": {
+      "type": "object",
+      "properties": {
+        "fullname": { "type": "string" },
+        "id": { "type": "integer", "format": "int32" },
+        "role": { "type": "string" },
+        "shortname": { "type": "string" },
+        "timezone": { "type": "string" }
+      },
+      "title": "AnnuityCompany"
+    },
+    "Company": {
+      "type": "object",
+      "properties": {
+        "activeEffectiveDate": { "type": "integer", "format": "int32" },
+        "city": { "type": "string" },
+        "contacts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CompanyContact" }
+        },
+        "externalKey": { "type": "string" },
+        "fullName": { "type": "string" },
+        "id": { "type": "integer", "format": "int32" },
+        "pointOfContact": { "type": "string" },
+        "roleAssignments": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CompanyRoleAssignment" }
+        },
+        "shortName": { "type": "string" },
+        "signedClientAgreementDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": { "type": "string" },
+        "streetAddress1": { "type": "string" },
+        "streetAddress2": { "type": "string" },
+        "termsOfUse": { "type": "string", "format": "date-time" },
+        "timezone": { "type": "string" },
+        "tombstoneDate": { "type": "string", "format": "date-time" },
+        "zipCode": { "type": "string" }
+      },
+      "title": "Company"
+    },
+    "CompanyContact": {
+      "type": "object",
+      "properties": {
+        "companyId": { "type": "integer", "format": "int32" },
+        "contactId": { "type": "integer", "format": "int32" },
+        "email": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "primaryContactIndicator": { "type": "integer", "format": "int32" },
+        "title": { "type": "string" }
+      },
+      "title": "CompanyContact"
+    },
+    "CompanyCurrencyCommand": {
+      "type": "object",
+      "properties": {
+        "companyShortName": { "type": "string" },
+        "currencyCode": { "type": "string" },
+        "featureKey": { "type": "string" },
+        "lumaComponent": { "$ref": "#/definitions/LumaComponent" },
+        "sortUser": { "type": "integer", "format": "int32" },
+        "userDefault": { "type": "boolean" }
+      },
+      "title": "CompanyCurrencyCommand"
+    },
+    "CompanyEntity": {
+      "type": "object",
+      "properties": {
+        "activeEffectiveDate": { "type": "integer", "format": "int32" },
+        "city": { "type": "string" },
+        "contacts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CompanyContact" }
+        },
+        "country": { "type": "string" },
+        "fullName": { "type": "string" },
+        "id": { "type": "integer", "format": "int32" },
+        "pointOfContact": { "type": "string" },
+        "roleAssignments": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/CompanyRoleAssignment" }
+        },
+        "shortName": { "type": "string" },
+        "signedClientAgreementDate": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "state": { "type": "string" },
+        "streetAddress1": { "type": "string" },
+        "streetAddress2": { "type": "string" },
+        "termsOfUse": { "type": "string", "format": "date-time" },
+        "timezone": { "type": "string" },
+        "tombstoneDate": { "type": "string", "format": "date-time" },
+        "zipCode": { "type": "string" }
+      },
+      "title": "CompanyEntity"
+    },
+    "CompanyRelationshipEntity": {
+      "type": "object",
+      "properties": {
+        "childCompany": { "$ref": "#/definitions/Company" },
+        "id": { "type": "integer", "format": "int32" },
+        "parentCompany": { "$ref": "#/definitions/Company" }
+      },
+      "title": "CompanyRelationshipEntity"
+    },
+    "CompanyRoleAssignment": {
+      "type": "object",
+      "properties": {
+        "assignmentId": { "type": "integer", "format": "int32" },
+        "createDate": { "type": "string", "format": "date-time" },
+        "status": {
+          "type": "string",
+          "enum": ["INACTIVE", "ACTIVE", "SUCCESS", "FAILURE"]
+        },
+        "updateDate": { "type": "string", "format": "date-time" },
+        "updatedBy": { "type": "string" }
+      },
+      "title": "CompanyRoleAssignment"
+    },
+    "CompanySummary": {
+      "type": "object",
+      "properties": {
+        "acctManager": { "type": "string" },
+        "companyId": { "type": "integer", "format": "int32" },
+        "contact": { "type": "string" },
+        "contractPhone": { "type": "string" },
+        "country": { "type": "string" },
+        "enterpriseRoles": { "type": "string" },
+        "legalName": { "type": "string" },
+        "productTypes": { "type": "array", "items": { "type": "string" } },
+        "shortName": { "type": "string" },
+        "status": { "type": "string" },
+        "timezone": { "type": "string" }
+      },
+      "title": "CompanySummary"
+    },
+    "Country": {
+      "type": "object",
+      "properties": {
+        "countryCode": { "type": "string" },
+        "countryName": { "type": "string" },
+        "id": { "type": "integer", "format": "int32" },
+        "region": { "type": "string" }
+      },
+      "title": "Country"
+    },
+    "CurrencyWrapper": {
+      "type": "object",
+      "properties": {
+        "companyId": { "type": "integer", "format": "int32" },
+        "companyShortName": { "type": "string" },
+        "currencyCode": { "type": "string" },
+        "currencyMappingId": { "type": "integer", "format": "int64" },
+        "defaultFractionDigits": { "type": "integer", "format": "int32" },
+        "displayName": { "type": "string" },
+        "displayNameLocale": { "type": "string" },
+        "numericCode": { "type": "string" },
+        "sortMapping": { "type": "integer", "format": "int32" },
+        "sortUser": { "type": "integer", "format": "int32" },
+        "symbol": { "type": "string" },
+        "symbolLocale": { "type": "string" },
+        "userDefault": { "type": "boolean" }
+      },
+      "title": "CurrencyWrapper"
+    },
+    "LumaComponent": {
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "defaultLabel": { "type": "string" },
+        "id": { "type": "object" },
+        "messageKeyLabel": { "type": "string" }
+      },
+      "title": "LumaComponent"
+    },
+    "Optional«CompanyContact»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«CompanyContact»"
+    },
+    "Optional«CompanyEntity»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«CompanyEntity»"
+    },
+    "Optional«string»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«string»"
+    },
+    "WhitelabelInfo": {
+      "type": "object",
+      "properties": {
+        "companyUri": { "type": "string" },
+        "contactEmail": { "type": "string" },
+        "disclaimers": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "hostCompanyUri": { "type": "string" }
+      },
+      "title": "WhitelabelInfo"
+    }
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Boston Service REST APIs",
+    "version": "1.0",
+    "title": "Boston Service"
+  },
+  "host": "scg.bqa.lumafintech.com",
+  "basePath": "/api/creation-hub-2-service",
+  "tags": [
+    {
+      "name": "{Form Configs}",
+      "description": "Form Config Controller"
+    }
+  ],
+  "paths": {
+    "/v1/form-config/apply-change": {
+      "post": {
+        "tags": [
+          "{Form Configs}"
+        ],
+        "summary": "Apply change of form config",
+        "operationId": "applyProductChangeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "changeRequest",
+            "description": "changeRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PricingSpec"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FormConfig"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/form-config/create-request": {
+      "post": {
+        "tags": [
+          "{Form Configs}"
+        ],
+        "summary": "createPricing",
+        "operationId": "createPricingUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          },
+          {
+            "in": "body",
+            "name": "pricingSpec",
+            "description": "pricingSpec",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/PricingSpec"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CreationResponse"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/form-config/initial": {
+      "get": {
+        "tags": [
+          "{Form Configs}"
+        ],
+        "summary": "Get initial form state",
+        "operationId": "getInitialFormStateUsingGET",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "default": "Bearer "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/FormConfig"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "CreationResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "SUCCESS",
+            "INVALID"
+          ]
+        }
+      },
+      "title": "CreationResponse"
+    },
+    "FieldGroup": {
+      "type": "object",
+      "properties": {
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SectionField"
+          }
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "title": "FieldGroup"
+    },
+    "FormConfig": {
+      "type": "object",
+      "properties": {
+        "issuers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Issuer"
+          }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Section"
+          }
+        }
+      },
+      "title": "FormConfig"
+    },
+    "Issuer": {
+      "type": "object",
+      "properties": {
+        "canAutoQuoteIndicative": {
+          "type": "boolean"
+        },
+        "canAutoQuoteLive": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "string"
+        },
+        "rating": {
+          "type": "string"
+        },
+        "selected": {
+          "type": "boolean"
+        }
+      },
+      "title": "Issuer"
+    },
+    "ParamValue": {
+      "type": "object",
+      "title": "ParamValue"
+    },
+    "PricingSpec": {
+      "type": "object",
+      "properties": {
+        "issuers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ParamValue"
+          }
+        }
+      },
+      "title": "PricingSpec"
+    },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "fieldGroups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldGroup"
+          }
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "title": "Section"
+    },
+    "SectionField": {
+      "type": "object",
+      "properties": {
+        "paramName": {
+          "type": "string"
+        }
+      },
+      "title": "SectionField"
+    }
+  }
+}

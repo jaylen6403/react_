@@ -1,0 +1,2527 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "User Service REST APIs",
+    "version": "1.0",
+    "title": "Boston User Services"
+  },
+  "host": "bdev.lumafintech.com",
+  "basePath": "/api/user-service",
+  "tags": [
+    { "name": "permission-controller", "description": "Permission Controller" },
+    { "name": "role-controller", "description": "Role Controller" },
+    {
+      "name": "role-permission-controller",
+      "description": "Role Permission Controller"
+    },
+    {
+      "name": "training-course-controller",
+      "description": "Training Course Controller"
+    },
+    {
+      "name": "user-address-controller",
+      "description": "User Address Controller"
+    },
+    { "name": "user-controller", "description": "User Controller" },
+    { "name": "user-email-controller", "description": "User Email Controller" },
+    {
+      "name": "user-permission-controller",
+      "description": "User Permission Controller"
+    },
+    { "name": "user-phone-controller", "description": "User Phone Controller" },
+    {
+      "name": "user-product-access-controller",
+      "description": "User Product Access Controller"
+    },
+    {
+      "name": "user-program-controller",
+      "description": "User Program Controller"
+    },
+    { "name": "user-role-controller", "description": "User Role Controller" }
+  ],
+  "paths": {
+    "/permission": {
+      "get": {
+        "tags": ["permission-controller"],
+        "summary": "Get a Permission by Permission Name",
+        "description": "Get the Permission by Permission Name",
+        "operationId": "getPermissionByPermissionNameUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«Permission»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["permission-controller"],
+        "summary": "Insert a Permission",
+        "description": "Insert a Permission.",
+        "operationId": "insertPermissionUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "permission",
+            "description": "permission",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Permission" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/Permission" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["permission-controller"],
+        "summary": "Update a Permission",
+        "description": "Update a Permission.",
+        "operationId": "updatePermissionUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "permission",
+            "description": "permission",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Permission" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Permission" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/permission/{permissionID}": {
+      "get": {
+        "tags": ["permission-controller"],
+        "summary": "Get a Permission",
+        "description": "Get the Permission associated with a Permission ID.",
+        "operationId": "getPermissionUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "permissionID",
+            "in": "path",
+            "description": "permissionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«Permission»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["permission-controller"],
+        "summary": "Delete a Permission",
+        "description": "Delete a Permission associated with a Permission ID.",
+        "operationId": "deletePermissionUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "permissionID",
+            "in": "path",
+            "description": "permissionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/permissions": {
+      "get": {
+        "tags": ["permission-controller"],
+        "summary": "Get Permissions",
+        "description": "Get all of the Permissions",
+        "operationId": "getPermissionsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Permission" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/role": {
+      "get": {
+        "tags": ["role-controller"],
+        "summary": "Get a Role by Role Name",
+        "description": "Get the Role by the Role Name.",
+        "operationId": "getRoleByRoleNameUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«Role»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["role-controller"],
+        "summary": "Insert a Role",
+        "description": "Insert a Role.",
+        "operationId": "insertRoleUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "role",
+            "description": "role",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Role" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/Role" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["role-controller"],
+        "summary": "Update a Role",
+        "description": "Update a Role.",
+        "operationId": "updateRoleUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "role",
+            "description": "role",
+            "required": true,
+            "schema": { "$ref": "#/definitions/Role" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Role" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/role-permission": {
+      "post": {
+        "tags": ["role-permission-controller"],
+        "summary": "Insert a Role Permission",
+        "description": "Insert a Role Permission.",
+        "operationId": "insertRolePermissionUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "rolePermission",
+            "description": "rolePermission",
+            "required": true,
+            "schema": { "$ref": "#/definitions/RolePermission" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/RolePermission" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["role-permission-controller"],
+        "summary": "Update a Role Permission",
+        "description": "Update a Role Permission.",
+        "operationId": "updateRolePermissionUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "rolePermission",
+            "description": "rolePermission",
+            "required": true,
+            "schema": { "$ref": "#/definitions/RolePermission" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/RolePermission" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/role-permission/{rolePermissionID}": {
+      "get": {
+        "tags": ["role-permission-controller"],
+        "summary": "Get a Role Permission",
+        "description": "Get the Role Permission associated with a Role Permission ID.",
+        "operationId": "getRolePermissionUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "rolePermissionID",
+            "in": "path",
+            "description": "rolePermissionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«RolePermission»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["role-permission-controller"],
+        "summary": "Delete a Role Permission",
+        "description": "Delete a Role Permission associated with a Role Permission ID.",
+        "operationId": "deleteRolePermissionUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "rolePermissionID",
+            "in": "path",
+            "description": "rolePermissionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/role/{roleID}": {
+      "get": {
+        "tags": ["role-controller"],
+        "summary": "Get a Role",
+        "description": "Get the Role associated with a Role ID.",
+        "operationId": "getRoleUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "roleID",
+            "in": "path",
+            "description": "roleID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«Role»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["role-controller"],
+        "summary": "Delete a Role",
+        "description": "Delete a Role associated with a Role ID.",
+        "operationId": "deleteRoleUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "roleID",
+            "in": "path",
+            "description": "roleID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/roles": {
+      "get": {
+        "tags": ["role-controller"],
+        "summary": "Get Roles",
+        "description": "Get all of the Roles",
+        "operationId": "getRolesUsingGET",
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Role" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get User by User Name",
+        "description": "Get User by User Name",
+        "operationId": "getWithUserNameUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "query",
+            "description": "userName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["user-controller"],
+        "summary": "Insert a User",
+        "description": "Insert a User.",
+        "operationId": "insertUserUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "user",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserModel" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/UserModel" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-controller"],
+        "summary": "Update a User",
+        "description": "Update a User.",
+        "operationId": "updateUserUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "description": "user",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserModel" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserModel" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user-permission": {
+      "get": {
+        "tags": ["user-permission-controller"],
+        "summary": "Get a User Permission",
+        "description": "Get the User Permission associated with a UserId and Permission ID.",
+        "operationId": "getUserPermissionByUserNameAndPermissionNameUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "permissionName",
+            "in": "query",
+            "description": "permissionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "userName",
+            "in": "query",
+            "description": "userName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserPermission" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["user-permission-controller"],
+        "summary": "Insert a User Permission",
+        "description": "Insert a User Permission.",
+        "operationId": "insertUserPermissionUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userPermission",
+            "description": "userPermission",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserPermission" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/UserPermission" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-permission-controller"],
+        "summary": "Update a User Permission",
+        "description": "Update a User Permission.",
+        "operationId": "updateUserPermissionUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userPermission",
+            "description": "userPermission",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserPermission" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserPermission" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user-permission/{userPermissionID}": {
+      "get": {
+        "tags": ["user-permission-controller"],
+        "summary": "Get a User Permission",
+        "description": "Get the User Permission associated with a User Permission ID.",
+        "operationId": "getUserPermissionUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userPermissionID",
+            "in": "path",
+            "description": "userPermissionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserPermission»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["user-permission-controller"],
+        "summary": "Delete a User Permission",
+        "description": "Delete a User Permission associated with a User Permission ID.",
+        "operationId": "deleteUserPermissionUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "userPermissionID",
+            "in": "path",
+            "description": "userPermissionID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user-permissions/{username}": {
+      "post": {
+        "tags": ["user-permission-controller"],
+        "summary": "Replace a user's permissions with the given list",
+        "description": "Replace a user's permissions with the given list.  Any existing permissions will be cleared.",
+        "operationId": "replaceUserPermissionsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userPermissions",
+            "description": "userPermissions",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/UserPermission" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user-role": {
+      "post": {
+        "tags": ["user-role-controller"],
+        "summary": "Insert a User Role",
+        "description": "Insert a User Role.",
+        "operationId": "insertUserRoleUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userRole",
+            "description": "userRole",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserRole" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/UserRole" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-role-controller"],
+        "summary": "Update a User Role",
+        "description": "Update a User Role.",
+        "operationId": "updateUserRoleUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userRole",
+            "description": "userRole",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserRole" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserRole" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user-role/{userRoleID}": {
+      "get": {
+        "tags": ["user-role-controller"],
+        "summary": "Get a User Role",
+        "description": "Get the User Role associated with a User Role ID.",
+        "operationId": "getUserRoleUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userRoleID",
+            "in": "path",
+            "description": "userRoleID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserRole»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["user-role-controller"],
+        "summary": "Delete a User Role",
+        "description": "Delete a User Role associated with a User Role ID.",
+        "operationId": "deleteUserRoleUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "userRoleID",
+            "in": "path",
+            "description": "userRoleID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/address": {
+      "post": {
+        "tags": ["user-address-controller"],
+        "summary": "Insert a User Address",
+        "description": "Insert a User Address.",
+        "operationId": "insertUserAddressUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "address",
+            "description": "address",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AddressModel" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/AddressModel" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-address-controller"],
+        "summary": "Update a User Address",
+        "description": "Update a User Address.",
+        "operationId": "updateUserAddressUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "address",
+            "description": "address",
+            "required": true,
+            "schema": { "$ref": "#/definitions/AddressModel" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/AddressModel" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/address/{addressID}": {
+      "get": {
+        "tags": ["user-address-controller"],
+        "summary": "Get User Address",
+        "description": "Get the User Address associated with a User Address ID.",
+        "operationId": "getUserAddressUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "addressID",
+            "in": "path",
+            "description": "addressID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«AddressModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["user-address-controller"],
+        "summary": "Delete a User Address",
+        "description": "Delete a User Address associated with a User Address ID.",
+        "operationId": "deleteUserAddressUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "addressID",
+            "in": "path",
+            "description": "addressID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/cst": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get User by crossSiteToken",
+        "description": "Returns a user who has a specified token",
+        "operationId": "getUserByCrossSiteTokenUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "crossSiteToken",
+            "in": "query",
+            "description": "crossSiteToken",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/email": {
+      "post": {
+        "tags": ["user-email-controller"],
+        "summary": "Insert a User Email",
+        "description": "Insert a User Email.",
+        "operationId": "insertUserEmailUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "email",
+            "description": "email",
+            "required": true,
+            "schema": { "$ref": "#/definitions/EmailModel" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/EmailModel" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-email-controller"],
+        "summary": "Update a User Email",
+        "description": "Update a User Email.",
+        "operationId": "updateUserEmailUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "email",
+            "description": "email",
+            "required": true,
+            "schema": { "$ref": "#/definitions/EmailModel" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/EmailModel" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/email/{emailID}": {
+      "get": {
+        "tags": ["user-email-controller"],
+        "summary": "Get User Email",
+        "description": "Get the User Email associated with a User Email ID.",
+        "operationId": "getUserEmailUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "emailID",
+            "in": "path",
+            "description": "emailID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«EmailModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["user-email-controller"],
+        "summary": "Delete a User Email",
+        "description": "Delete a User Email associated with a User Email ID.",
+        "operationId": "deleteUserEmailUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "emailID",
+            "in": "path",
+            "description": "emailID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/phone": {
+      "post": {
+        "tags": ["user-phone-controller"],
+        "summary": "Insert a User Phone",
+        "description": "Insert a User Phone.",
+        "operationId": "insertUserPhoneUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "phone",
+            "description": "phone",
+            "required": true,
+            "schema": { "$ref": "#/definitions/PhoneModel" }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": { "$ref": "#/definitions/PhoneModel" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-phone-controller"],
+        "summary": "Update a User Phone",
+        "description": "Update a User Phone.",
+        "operationId": "updateUserPhoneUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "phone",
+            "description": "phone",
+            "required": true,
+            "schema": { "$ref": "#/definitions/PhoneModel" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/PhoneModel" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/phone/{phoneID}": {
+      "get": {
+        "tags": ["user-phone-controller"],
+        "summary": "Get User Phone",
+        "description": "Get the User Phone associated with a User Phone ID.",
+        "operationId": "getUserPhoneUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "phoneID",
+            "in": "path",
+            "description": "phoneID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«PhoneModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["user-phone-controller"],
+        "summary": "Delete a User Phone",
+        "description": "Delete a User Phone associated with a User Phone ID.",
+        "operationId": "deleteUserPhoneUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "phoneID",
+            "in": "path",
+            "description": "phoneID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/rmt": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get User by rememberMeToken",
+        "description": "Returns a user who has a specified token",
+        "operationId": "getUserByRememberMeTokenUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "rememberMeToken",
+            "in": "query",
+            "description": "rememberMeToken",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/verificationCode": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get User by verificationCode",
+        "description": "Returns a user who has a specified verificationCode",
+        "operationId": "getUserByVerificationCodeUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "verificationCode",
+            "in": "query",
+            "description": "verificationCode",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/{userID}": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get User",
+        "description": "Get the User associated with a User ID.",
+        "operationId": "getWithUserIdUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["user-controller"],
+        "summary": "Delete a User",
+        "description": "Delete a User associated with a User ID.",
+        "operationId": "deleteUserUsingDELETE",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": { "description": "OK" },
+          "204": { "description": "No Content" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/{userID}/addresses": {
+      "get": {
+        "tags": ["user-address-controller"],
+        "summary": "Get Addresses for a User",
+        "description": "Get the Addresses associated with a User ID.",
+        "operationId": "getAddressesForUserUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/AddressModel" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/{userID}/emails": {
+      "get": {
+        "tags": ["user-email-controller"],
+        "summary": "Get Emails for a User",
+        "description": "Get the Emails associated with a User ID.",
+        "operationId": "getEmailsForUserUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/EmailModel" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/{userID}/phones": {
+      "get": {
+        "tags": ["user-phone-controller"],
+        "summary": "Get Phones for a User",
+        "description": "Get the Phones associated with a User ID.",
+        "operationId": "getPhonesForUserUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/PhoneModel" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/{userID}/programs": {
+      "get": {
+        "tags": ["user-program-controller"],
+        "summary": "Get User Programs",
+        "description": "Get the list of programs the user is associated with",
+        "operationId": "getUserProgramsUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "userID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/user/{userName}/lastLogin": {
+      "put": {
+        "tags": ["user-controller"],
+        "summary": "Update User Last Login Date/Time",
+        "description": "Update a User's last login date/time value.",
+        "operationId": "updateUserLastLoginUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "description": "userName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Optional«UserModel»" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/useraccess/course": {
+      "post": {
+        "tags": ["training-course-controller"],
+        "summary": "Create or update training course",
+        "description": "Create or update a training course",
+        "operationId": "createTrainingCourseUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "course",
+            "description": "course",
+            "required": true,
+            "schema": { "$ref": "#/definitions/TrainingCourse" }
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created", "schema": { "type": "string" } },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["training-course-controller"],
+        "summary": "Update user training course",
+        "description": "Update a training course resource",
+        "operationId": "updateTrainingCourseUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "course",
+            "description": "course",
+            "required": true,
+            "schema": { "$ref": "#/definitions/TrainingCourse" }
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created", "schema": { "type": "string" } },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/useraccess/product": {
+      "get": {
+        "tags": ["user-product-access-controller"],
+        "summary": "Get user product access",
+        "description": "Get a user product access resource",
+        "operationId": "getProductAccessUsingGET_1",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserProductAccess" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["user-product-access-controller"],
+        "summary": "Create or update user product access",
+        "description": "Create or update a user product access resource",
+        "operationId": "createProductAccessUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "in": "body",
+            "name": "userAccess",
+            "description": "userAccess",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserProductAccess" }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created", "schema": { "type": "string" } },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["user-product-access-controller"],
+        "summary": "Update user product access",
+        "description": "Update a user product access resource",
+        "operationId": "updateProductAccessUsingPUT",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "in": "body",
+            "name": "userAccess",
+            "description": "userAccess",
+            "required": true,
+            "schema": { "$ref": "#/definitions/UserProductAccess" }
+          }
+        ],
+        "responses": {
+          "201": { "description": "Created", "schema": { "type": "string" } },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/useraccess/product/updated": {
+      "get": {
+        "tags": ["user-product-access-controller"],
+        "summary": "Get user product access by last updated date",
+        "description": "Get a user product access resource",
+        "operationId": "getCompletedUserProductAccessUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "carrier",
+            "in": "query",
+            "description": "carrier",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "lastUpdated",
+            "in": "query",
+            "description": "lastUpdated",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/UserTrainingCourseInfo" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/useraccess/product/{uuid}": {
+      "get": {
+        "tags": ["user-product-access-controller"],
+        "summary": "Get user product access",
+        "description": "Get a user product access resource",
+        "operationId": "getProductAccessUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "description": "uuid",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/UserProductAccess" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/usermetadata": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get user metadata by username.",
+        "description": "Get user metadata by username.",
+        "operationId": "getMetadataByUsernameUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "authenticated",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "authorities[0].authority",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "credentials",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "details",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "principal",
+            "in": "query",
+            "required": false,
+            "type": "object"
+          },
+          {
+            "name": "userName",
+            "in": "query",
+            "description": "userName",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ResponseEntity" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/userpermission/{username}": {
+      "post": {
+        "tags": ["user-permission-controller"],
+        "summary": "Adds or updates a list of permissions for given user.",
+        "description": "Adds or updates a list of permissions for given user.",
+        "operationId": "addUserPermissionsUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userPermissions",
+            "description": "userPermissions",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/ResponseEntity" }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get Users",
+        "description": "Get Users",
+        "operationId": "getUsersUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.sorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "sort.unsorted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unpaged",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "$ref": "#/definitions/Page«UserModel»" }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["user-controller"],
+        "summary": "Get Users from a List of User Names",
+        "description": "Get Users that match a list of user names.",
+        "operationId": "getUsersByUserNameListPostUsingPOST",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "userNames",
+            "description": "userNames",
+            "required": true,
+            "schema": { "type": "array", "items": { "type": "string" } }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/UserModel" }
+            }
+          },
+          "201": { "description": "Created" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    },
+    "/users/{companyKey}": {
+      "get": {
+        "tags": ["user-controller"],
+        "summary": "Get UserModels associated with a company",
+        "description": "Get Users that belong to a company.",
+        "operationId": "getUserModelsForCompanyKeyUsingGET",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "companyKey",
+            "in": "path",
+            "description": "companyKey",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/UserModel" }
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "AddressModel": {
+      "type": "object",
+      "properties": {
+        "addressId": { "type": "integer", "format": "int32" },
+        "addressType": { "type": "string" },
+        "city": { "type": "string" },
+        "countyCode": { "type": "string" },
+        "state": { "type": "string" },
+        "streetLine1": { "type": "string" },
+        "streetLine2": { "type": "string" },
+        "userId": { "type": "integer", "format": "int32" },
+        "zip": { "type": "string" }
+      },
+      "title": "AddressModel"
+    },
+    "Course": {
+      "type": "object",
+      "properties": {
+        "courseName": { "type": "string" },
+        "trainingCompleteDate": { "type": "string", "format": "date" },
+        "trainingScore": { "type": "number", "format": "double" }
+      },
+      "title": "Course"
+    },
+    "EmailModel": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "emailId": { "type": "integer", "format": "int32" },
+        "userId": { "type": "integer", "format": "int32" }
+      },
+      "title": "EmailModel"
+    },
+    "Optional«AddressModel»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«AddressModel»"
+    },
+    "Optional«EmailModel»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«EmailModel»"
+    },
+    "Optional«Permission»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«Permission»"
+    },
+    "Optional«PhoneModel»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«PhoneModel»"
+    },
+    "Optional«RolePermission»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«RolePermission»"
+    },
+    "Optional«Role»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«Role»"
+    },
+    "Optional«UserModel»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«UserModel»"
+    },
+    "Optional«UserPermission»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«UserPermission»"
+    },
+    "Optional«UserRole»": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "present": { "type": "boolean" }
+      },
+      "title": "Optional«UserRole»"
+    },
+    "Pageable": {
+      "type": "object",
+      "properties": {
+        "offset": { "type": "integer", "format": "int64" },
+        "pageNumber": { "type": "integer", "format": "int32" },
+        "pageSize": { "type": "integer", "format": "int32" },
+        "paged": { "type": "boolean" },
+        "sort": { "$ref": "#/definitions/Sort" },
+        "unpaged": { "type": "boolean" }
+      },
+      "title": "Pageable"
+    },
+    "Page«UserModel»": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/UserModel" }
+        },
+        "empty": { "type": "boolean" },
+        "first": { "type": "boolean" },
+        "last": { "type": "boolean" },
+        "number": { "type": "integer", "format": "int32" },
+        "numberOfElements": { "type": "integer", "format": "int32" },
+        "pageable": { "$ref": "#/definitions/Pageable" },
+        "size": { "type": "integer", "format": "int32" },
+        "sort": { "$ref": "#/definitions/Sort" },
+        "totalElements": { "type": "integer", "format": "int64" },
+        "totalPages": { "type": "integer", "format": "int32" }
+      },
+      "title": "Page«UserModel»"
+    },
+    "Permission": {
+      "type": "object",
+      "properties": {
+        "companyId": { "type": "integer", "format": "int32" },
+        "companyKey": { "type": "string" },
+        "displayKey": { "type": "string" },
+        "displayName": { "type": "string" },
+        "displayNane": { "type": "string" },
+        "permissionId": { "type": "integer", "format": "int32" },
+        "permissionName": { "type": "string" },
+        "showInAdminScreen": { "type": "boolean" },
+        "system": { "type": "boolean" }
+      },
+      "title": "Permission"
+    },
+    "PhoneModel": {
+      "type": "object",
+      "properties": {
+        "phoneId": { "type": "integer", "format": "int32" },
+        "phoneNumber": { "type": "string" },
+        "phoneType": { "type": "string" },
+        "userId": { "type": "integer", "format": "int32" }
+      },
+      "title": "PhoneModel"
+    },
+    "ResponseEntity": {
+      "type": "object",
+      "properties": {
+        "body": { "type": "object" },
+        "statusCode": {
+          "type": "string",
+          "enum": [
+            "100 CONTINUE",
+            "101 SWITCHING_PROTOCOLS",
+            "102 PROCESSING",
+            "103 CHECKPOINT",
+            "200 OK",
+            "201 CREATED",
+            "202 ACCEPTED",
+            "203 NON_AUTHORITATIVE_INFORMATION",
+            "204 NO_CONTENT",
+            "205 RESET_CONTENT",
+            "206 PARTIAL_CONTENT",
+            "207 MULTI_STATUS",
+            "208 ALREADY_REPORTED",
+            "226 IM_USED",
+            "300 MULTIPLE_CHOICES",
+            "301 MOVED_PERMANENTLY",
+            "302 FOUND",
+            "302 MOVED_TEMPORARILY",
+            "303 SEE_OTHER",
+            "304 NOT_MODIFIED",
+            "305 USE_PROXY",
+            "307 TEMPORARY_REDIRECT",
+            "308 PERMANENT_REDIRECT",
+            "400 BAD_REQUEST",
+            "401 UNAUTHORIZED",
+            "402 PAYMENT_REQUIRED",
+            "403 FORBIDDEN",
+            "404 NOT_FOUND",
+            "405 METHOD_NOT_ALLOWED",
+            "406 NOT_ACCEPTABLE",
+            "407 PROXY_AUTHENTICATION_REQUIRED",
+            "408 REQUEST_TIMEOUT",
+            "409 CONFLICT",
+            "410 GONE",
+            "411 LENGTH_REQUIRED",
+            "412 PRECONDITION_FAILED",
+            "413 PAYLOAD_TOO_LARGE",
+            "413 REQUEST_ENTITY_TOO_LARGE",
+            "414 URI_TOO_LONG",
+            "414 REQUEST_URI_TOO_LONG",
+            "415 UNSUPPORTED_MEDIA_TYPE",
+            "416 REQUESTED_RANGE_NOT_SATISFIABLE",
+            "417 EXPECTATION_FAILED",
+            "418 I_AM_A_TEAPOT",
+            "419 INSUFFICIENT_SPACE_ON_RESOURCE",
+            "420 METHOD_FAILURE",
+            "421 DESTINATION_LOCKED",
+            "422 UNPROCESSABLE_ENTITY",
+            "423 LOCKED",
+            "424 FAILED_DEPENDENCY",
+            "425 TOO_EARLY",
+            "426 UPGRADE_REQUIRED",
+            "428 PRECONDITION_REQUIRED",
+            "429 TOO_MANY_REQUESTS",
+            "431 REQUEST_HEADER_FIELDS_TOO_LARGE",
+            "451 UNAVAILABLE_FOR_LEGAL_REASONS",
+            "500 INTERNAL_SERVER_ERROR",
+            "501 NOT_IMPLEMENTED",
+            "502 BAD_GATEWAY",
+            "503 SERVICE_UNAVAILABLE",
+            "504 GATEWAY_TIMEOUT",
+            "505 HTTP_VERSION_NOT_SUPPORTED",
+            "506 VARIANT_ALSO_NEGOTIATES",
+            "507 INSUFFICIENT_STORAGE",
+            "508 LOOP_DETECTED",
+            "509 BANDWIDTH_LIMIT_EXCEEDED",
+            "510 NOT_EXTENDED",
+            "511 NETWORK_AUTHENTICATION_REQUIRED"
+          ]
+        },
+        "statusCodeValue": { "type": "integer", "format": "int32" }
+      },
+      "title": "ResponseEntity"
+    },
+    "Role": {
+      "type": "object",
+      "properties": {
+        "active": { "type": "boolean" },
+        "companyId": { "type": "integer", "format": "int32" },
+        "companyKey": { "type": "string" },
+        "description": { "type": "string" },
+        "displayKey": { "type": "string" },
+        "effectiveDate": { "type": "string", "format": "date-time" },
+        "effectiveEnd": { "type": "string", "format": "date-time" },
+        "lastUpdated": { "type": "string", "format": "date-time" },
+        "permissions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/RolePermission" }
+        },
+        "roleId": { "type": "integer", "format": "int32" },
+        "roleName": { "type": "string" }
+      },
+      "title": "Role"
+    },
+    "RolePermission": {
+      "type": "object",
+      "properties": {
+        "effectiveDate": { "type": "string", "format": "date-time" },
+        "effectiveEnd": { "type": "string", "format": "date-time" },
+        "permission": { "$ref": "#/definitions/Permission" },
+        "permissionId": { "type": "integer", "format": "int32" },
+        "roleId": { "type": "integer", "format": "int32" },
+        "rolePermissionId": { "type": "integer", "format": "int32" }
+      },
+      "title": "RolePermission"
+    },
+    "Sort": {
+      "type": "object",
+      "properties": {
+        "empty": { "type": "boolean" },
+        "sorted": { "type": "boolean" },
+        "unsorted": { "type": "boolean" }
+      },
+      "title": "Sort"
+    },
+    "StateLicense": {
+      "type": "object",
+      "properties": {
+        "expireDate": { "type": "string" },
+        "issueDate": { "type": "string" },
+        "licenseNumber": { "type": "string" },
+        "state": { "type": "string" }
+      },
+      "title": "StateLicense"
+    },
+    "TrainingCourse": {
+      "type": "object",
+      "properties": {
+        "courseId": { "type": "string" },
+        "courseName": { "type": "string" },
+        "coursePackage": { "type": "string" },
+        "endDate": { "type": "string", "format": "date" },
+        "publisher": { "type": "string" },
+        "startDate": { "type": "string", "format": "date" },
+        "status": { "type": "string" },
+        "trainingType": { "type": "string" }
+      },
+      "title": "TrainingCourse"
+    },
+    "UserModel": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/AddressModel" }
+        },
+        "brokerDealerKey": { "type": "integer", "format": "int32" },
+        "companyKey": { "type": "string" },
+        "createDate": { "type": "string", "format": "date-time" },
+        "crossSiteToken": { "type": "string" },
+        "crossSiteTokenExpiration": { "type": "string", "format": "date-time" },
+        "emails": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/EmailModel" }
+        },
+        "firstName": { "type": "string" },
+        "fullName": { "type": "string" },
+        "jobTitle": { "type": "string" },
+        "lastLoginDate": { "type": "string", "format": "date-time" },
+        "lastName": { "type": "string" },
+        "lastUpdateDate": { "type": "string", "format": "date-time" },
+        "password": { "type": "string" },
+        "passwordLastUpdatedBy": { "type": "string" },
+        "passwordLastUpdatedDate": { "type": "string", "format": "date-time" },
+        "passwordLockedDate": { "type": "string", "format": "date-time" },
+        "permissions": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/UserPermission" }
+        },
+        "phones": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/PhoneModel" }
+        },
+        "programIds": { "type": "string" },
+        "rememberMeIndicator": { "type": "boolean" },
+        "rememberMeToken": { "type": "string" },
+        "roles": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/UserRole" }
+        },
+        "splitIds": { "type": "array", "items": { "type": "string" } },
+        "status": {
+          "type": "string",
+          "enum": ["INACTIVE", "ACTIVE", "SUSPENDED", "LOCKED", "BLOCKED"]
+        },
+        "userId": { "type": "integer", "format": "int32" },
+        "userName": { "type": "string" },
+        "uuid": { "type": "string" },
+        "verificationCode": { "type": "string" },
+        "verificationCodeExpiration": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "title": "UserModel"
+    },
+    "UserNameInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": { "type": "string" },
+        "fullName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "userId": { "type": "integer", "format": "int32" },
+        "userName": { "type": "string" }
+      },
+      "title": "UserNameInfo"
+    },
+    "UserPermission": {
+      "type": "object",
+      "properties": {
+        "effectiveDate": { "type": "string", "format": "date-time" },
+        "effectiveEnd": { "type": "string", "format": "date-time" },
+        "permission": { "$ref": "#/definitions/Permission" },
+        "permissionId": { "type": "integer", "format": "int32" },
+        "userId": { "type": "integer", "format": "int32" },
+        "userPermissionId": { "type": "integer", "format": "int32" }
+      },
+      "title": "UserPermission"
+    },
+    "UserProductAccess": {
+      "type": "object",
+      "properties": {
+        "additionalRoleCodes": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "crdNumber": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "createdOn": { "type": "string", "format": "date-time" },
+        "id": { "type": "string" },
+        "licenseDetails": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/StateLicense" }
+        },
+        "roleCode": { "type": "string" },
+        "trainingDetails": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Course" }
+        },
+        "trainingId": { "type": "string" },
+        "updatedBy": { "type": "string" },
+        "updatedOn": { "type": "string", "format": "date-time" },
+        "username": { "type": "string" }
+      },
+      "title": "UserProductAccess"
+    },
+    "UserRole": {
+      "type": "object",
+      "properties": {
+        "effectiveDate": { "type": "string", "format": "date-time" },
+        "effectiveEnd": { "type": "string", "format": "date-time" },
+        "role": { "$ref": "#/definitions/Role" },
+        "roleId": { "type": "integer", "format": "int32" },
+        "userId": { "type": "integer", "format": "int32" },
+        "userRoleId": { "type": "integer", "format": "int32" }
+      },
+      "title": "UserRole"
+    },
+    "UserTrainingCourseInfo": {
+      "type": "object",
+      "properties": {
+        "courseCompletionDate": { "type": "string", "format": "date" },
+        "courseId": { "type": "string" },
+        "trainingId": { "type": "string" }
+      },
+      "title": "UserTrainingCourseInfo"
+    }
+  }
+}

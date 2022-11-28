@@ -1,0 +1,80 @@
+{
+  "root": "apps/luma",
+  "sourceRoot": "apps/luma/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "deployUrl": "/",
+        "outputPath": "dist/apps/luma",
+        "index": "apps/luma/src/index.html",
+        "baseHref": "/",
+        "main": "apps/luma/src/main.tsx",
+        "polyfills": "apps/luma/src/polyfills.ts",
+        "tsConfig": "apps/luma/tsconfig.app.json",
+        "assets": [
+          "apps/luma/src/favicon.ico",
+          "apps/luma/src/assets",
+          {
+            "input": "public/fonts/IBMPlexSans",
+            "glob": "*",
+            "output": "assets/fonts"
+          }
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/luma/src/environments/environment.ts",
+              "with": "apps/luma/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "luma:build",
+        "hmr": true,
+        "port": 4200
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "luma:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/luma/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/luma"],
+      "options": {
+        "jestConfig": "apps/luma/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

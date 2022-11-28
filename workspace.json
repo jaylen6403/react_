@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "projects": {
+    "design-system": "libs/design-system",
+    "luma": "apps/luma",
+    "luma-confirmation": "libs/luma/confirmation",
+    "luma-creationhub": "libs/luma/creationhub",
+    "luma-dashboard": "libs/luma/dashboard",
+    "luma-e2e": "apps/luma-e2e",
+    "luma-globalnav": "libs/luma/globalnav",
+    "luma-lifecyclemanager": "libs/luma/lifecyclemanager",
+    "luma-secondaries": "libs/luma/secondaries",
+    "redux": "libs/redux",
+    "utility": "libs/utility"
+  }
+}
