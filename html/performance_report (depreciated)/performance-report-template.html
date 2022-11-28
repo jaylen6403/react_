@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        @page :first {
+            size: a4;
+            margin: 0mm 0mm 25mm 0mm;
+
+            @bottom-left {
+                content: "For financial professional use only, not to be distributed to the public";
+                color: #2f3336;
+                font-family: "IBMPlexSans-Regular", Helvetica;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: 400;
+                left: 30px;
+                padding-left: 30px;
+                width: 15%;
+                position: absolute;
+            }
+        }
+
+        @page {
+            size: a4;
+            margin: 11mm 0mm 25mm 0mm;
+
+            /* @top-left{
+                content: "Current Rates";
+                color: #2f3336;
+                font-family: "IBMPlexSans-Bold", Helvetica;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 700;
+                left: 30px;
+                padding-left: 30px;
+                width: 15%;
+                position: absolute;
+            } */
+            @bottom-left {
+                content: "For financial professional use only, not to be distributed to the public";
+                color: #2f3336;
+                font-family: "IBMPlexSans-Regular", Helvetica;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: 400;
+                left: 30px;
+                padding-left: 30px;
+                width: 15%;
+                position: absolute;
+            }
+        }
+
+        @media print {
+            .page-break {
+                clear: both;
+                page-break-after: always;
+            }
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Regular";
+            src: url("https://www.1001fonts.com/download/font/ibm-plex-sans.regular.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Bold";
+            font-weight: 700;
+            src: url("https://www.1001fonts.com/download/font/ibm-plex-sans.bold.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Medium";
+            font-weight: 500;
+            src: url("https://www.1001fonts.com/download/font/ibm-plex-sans.medium.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Italic";
+            font-style: italic;
+            font-weight: 400;
+            src: url("https://fonts.animaapp.com/IBMPlexSans-Italic") format("truetype");
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin-bottom: 30px;
+            height: 100px
+        }
+
+        .rectangle-5 {
+            height: 72px;
+            left: 20px;
+            position: absolute;
+            top: 20px;
+            width: 15px;
+        }
+
+        tr {
+            break-inside: avoid;
+        }
+
+
+        .screen a {
+            display: contents;
+            text-decoration: none;
+        }
+
+
+        /* * {
+            box-sizing: border-box;
+        }  */
+
+
+        .ibmplexsans-regular-normal-mine-shaft-6px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 6px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-regular-normal-mine-shaft-8px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 8px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-regular-normal-mine-shaft-8px-bold {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 8px;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .ibmplexsans-regular-normal-mine-shaft-10px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-medium-normal-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .ibmplexsans-regular-normal-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-bold-mine-shaft-10px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Bold", Helvetica;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .ibmplexsans-bold-normal-mine-shaft-16px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .ibmplexsans-medium-mine-shaft-6px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 6px;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+
+        .ibmplexsans-bold-normal-mine-shaft-10px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .ibmplexsans-medium-mine-shaft-10px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 550;
+        }
+
+
+        .ibmplexsans-bold-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Bold", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .product-name {
+            position: absolute;
+            top: 80px;
+            right: 70px;
+        }
+
+        .performance-value {
+            background-color: #f2f4f5;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        .performance-summary {
+            padding-bottom: 20px;
+        }
+
+        .performance-summary-group {
+            padding-left: 18px;
+        }
+
+        .performance-summary-table {
+            padding-left: 10px;
+            padding-bottom: 5px;
+        }
+
+        .performance-summary-table td {
+            padding-left: 0px;
+        }
+
+        .performance-summary-table th,
+        .performance-summary-table td {
+            text-align: left;
+            padding-right: 50px;
+        }
+
+        .rider-table,
+        .expenses-table {
+            display: table;
+        }
+
+        .rider-table tr,
+        .expenses-table tr {
+            display: table-cell;
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .rider-table tr td,
+        .expenses-table tr td {
+            display: block;
+        }
+
+
+        .fees-tr td:nth-child(odd) {
+            background-color: #f2f4f5;
+        }
+
+        .form-item-left {
+            width: 200px;
+        }
+
+        .form-item-right {
+            width: 200px;
+        }
+
+        .riders {
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 13px;
+            margin-left: 30px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        .navbar {
+            width: 94%;
+        }
+
+        .ratings {
+            width: 50%;
+            float: right;
+        }
+
+        .rates-row {
+            padding-left: 30px;
+            padding-top: 3px;
+        }
+
+        .current-rates {
+            font-weight: 700;
+            margin-left: 30px;
+            letter-spacing: 0;
+            line-height: 13px;
+            margin-bottom: 5px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .carrier-logo-asset {
+            position: absolute;
+            top: 40px;
+            height: 25px;
+            right: 70px;
+        }
+
+        .assets-luma-logo {
+            height: 41px;
+            left: 41px;
+            position: absolute;
+            top: 35px;
+            width: 150px;
+        }
+
+
+        li {
+            margin: 10px;
+        }
+
+        .headerTitle {
+            text-align: end;
+            float: right;
+            margin-top: 30px;
+            margin-right: 30px;
+        }
+
+        .product-terms {
+            width: 50%;
+            float: left;
+        }
+
+        .sectionTitle {
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 13px;
+            white-space: nowrap;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: separate;
+            width: 97%;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .two-tone-table {
+            margin-top: 10px;
+            display: table;
+            width: 100%;
+        }
+
+        .two-tone-table tr {
+            display: table-cell;
+            width: 50%;
+        }
+
+        .two-tone-table tr td {
+            display: block;
+            padding: 0px;
+            margin: 10px;
+        }
+
+        .two-tone-table tr:first-child {
+            background-color: #f2f4f5;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        td {
+            white-space: inherit;
+            min-width: 56px;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            word-wrap: break-word;
+            padding-left: 5px;
+            border-radius: 5px;
+
+        }
+
+        .td-small {
+            max-width: 70px;
+            min-width: 70px;
+        }
+
+        .waiver-list {
+            padding-top: 10px;
+        }
+
+        .waiver-list td {
+            font-size: 11px;
+        }
+
+        .sectionBreak {
+            background-color: #00263e;
+            border-radius: 0.5px;
+            width: 90%;
+            height: 1px;
+            margin: 0px 0px 10px 30px;
+        }
+
+        section {
+            display: inline-block;
+            width: 790px;
+        }
+
+        .group-container {
+            display: inline-block;
+        }
+
+        footer {
+            margin-top: 40px;
+
+        }
+
+        .ratesContainer,
+        .summaryContainer {
+            display: block
+        }
+
+
+        .section-title {
+            padding-bottom: 5px;
+        }
+
+        .two-tone-section {
+            padding-left: 30px;
+            display: inline-block;
+            width: calc(100% - 30px);
+            padding-bottom: 10px;
+        }
+
+        .product-summary {
+            width: 97%;
+        }
+
+        .product-summary article {
+            line-height: 1.2;
+        }
+
+        .background {
+            background-color: #f2f4f5;
+            width: 50%;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .product-contents {
+            margin-top: 10px;
+        }
+
+        .product-item-row {
+            display: inline-block;
+            width: 360px;
+        }
+
+        .product-item-row p {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .product-left {
+            display: block;
+            position: relative;
+            float: left;
+            width: 45%;
+        }
+
+        .product-right {
+            display: block;
+            position: relative;
+            float: right;
+            width: 49%;
+            word-wrap: break-word;
+        }
+
+        .last-product {
+            padding-bottom: 10px;
+        }
+
+        .performance-chart {
+            padding-left: 30px;
+        }
+
+        .performance-summary h2 {
+            width: 97%;
+            text-align: left;
+            border-bottom: 1px solid #000;
+            line-height: 0.1em;
+            /* margin: 10px 0 20px; */
+        }
+
+        .performance-summary span {
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .overlap-group-1 {
+            background-color: white;
+            border-radius: 8px;
+            height: 20px;
+            left: 0;
+            top: 20px;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .underlying-performance-product {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            padding: 8px;
+
+        }
+
+        .underlying-performance-product li {
+            display: table-cell;
+        }
+
+        .ticker-key {
+            width: 10px;
+            height: 10px;
+            border: 3px solid #228ED4;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .rectangle-index {
+            display: inline-block;
+            background-color: #26a0dc;
+            border-radius: 2px;
+            height: 4px;
+            width: 28px;
+            margin-right: 8px;
+        }
+
+        .rectangle-base {
+            display: inline-block;
+            background-color: #141618;
+            border-radius: 2px;
+            height: 4px;
+            width: 28px;
+            margin-right: 8px;
+        }
+
+        .rectangle-coupon-threshhold {
+            display: inline-block;
+            background-color: #A5191D;
+            border-radius: 2px;
+            height: 4px;
+            width: 28px;
+            margin-right: 8px;
+        }
+
+        .rectangle-principal-threshhold {
+            display: inline-block;
+            background-color: #BDAC23;
+            border-radius: 2px;
+            height: 4px;
+            width: 28px;
+            margin-right: 8px;
+        }
+
+
+        .graph-legend {
+            padding-left: 30px;
+            position: absolute;
+            left: 30px;
+            overflow: hidden;
+        }
+
+        .legend-color {
+            margin-right: 10px;
+        }
+
+        .graph-legend-text {
+            overflow: hidden;
+        }
+
+        .graph-legend-text div {
+            float: left;
+            margin: 0px 50px 0px 0px;
+            text-align: left;
+        }
+
+        .underlying-performance {
+            margin-bottom: 10px;
+        }
+
+        .observation-table-section {
+            position: absolute;
+            top: 750px;
+            left: 0px;
+            width: 804px;
+        }
+
+        .observation-table-main {
+            margin-left: 30px;
+        }
+
+        .observation-table-container table {
+            width: 95%;
+            border-collapse: collapse;
+        }
+
+        .observation-table-container table tr:nth-child(even) {
+            background-color: #f2f4f5;
+        }
+
+        .observation-table-header {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .observation-table-header th,
+        .observation-date-row td {
+            padding: 8px;
+        }
+
+        .observation-date-row td:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        .observation-date-row td:last-child {
+            border-radius: 0px 10px 10px 0px;
+        }
+
+        .line-graph {
+            width: 95%;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; background: #ffffff">
+    <header>
+        <image class="headerImage" style="display:inline-block">
+            <img class="rectangle-5"
+                src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-rectangle-FED34FDF-C0C4-40CF-A713-38298D94A956.png" />
+            <img class="assets-luma-logo"
+                src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-assetsluma-logosname--flamelighthorizontal-9021C587-0957-4894-A267-024F86B3A5B8@2x.png" />
+        </image>
+        <section class="headerTitle" style="display:inline-block">
+            <img class="carrier-logo-asset"
+                src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/transamerica.png" />
+            <div class="product-name ibmplexsans-bold-mine-shaft-12px" style="font-size: 14px">18m Point to Point Capped
+                Dual Directional
+                <br>on Worst of RTY, NDX, INDU
+            </div>
+        </section>
+    </header>
+    <main>
+        <section>
+            <div class="performance-summary-group">
+                <div class="performance-summary ibmplexsans-bold-mine-shaft-12px">
+                    <h2>
+                        <span class="performance-summary-border">Performance Summary</span>
+
+                    </h2>
+                </div>
+                <table class="performance-summary-table">
+                    <tr>
+                        <th class="performance-summary-table-header ibmplexsans-regular-normal-mine-shaft-10px">Active
+                            Underlier
+                        </th>
+                        <th class="performance-summary-table-header ibmplexsans-regular-normal-mine-shaft-10px">Active
+                            Underlier
+                            (Strike)</th>
+                        <th class="performance-summary-table-header ibmplexsans-regular-normal-mine-shaft-10px">
+                            Underlier Performance</th>
+                        <th class="ibmplexsans-regular-normal-mine-shaft-10px">Intrinsic Value</th>
+                    </tr>
+                    <tr>
+                        <td class="ibmplexsans-bold-mine-shaft-12px">RUT</td>
+                        <td class="ibmplexsans-bold-mine-shaft-12px">1,906.09 (2,285.68)</td>
+                        <td class="ibmplexsans-bold-mine-shaft-12px">-16.61%</td>
+                        <td class="ibmplexsans-bold-mine-shaft-12px">16.61%</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <div class="sectionBreak"></div>
+        <section class="product-details-container">
+            <div class="section-container">
+                <div class="product-terms">
+                    <div class="two-tone-section ibmplexsans-regular-normal-mine-shaft-12px">
+                        <div class="section-title ibmplexsans-bold-mine-shaft-12px">
+                            Terms of Product
+                        </div>
+                        <div class="product-contents">
+                            <div class="product-items background">
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Issuer</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>Royal Bank of Canada</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Term</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>12 Months (11 Months Remaining) Dawn of the Final Day
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Underlying</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>Dow Jones & Co, Russell 2000 Index, NASDAQ 100
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Underlying Ticker</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>DJI, RUT, NDX</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Product ID (ISIN)</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>48132RK82</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Growth Type</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>Contingent Income Auto-Callable Fixed Income Business Synergy Maximum
+                                            Notional Market-to-Market</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Coupon Threshold</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>60.00%</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Principal Threshold</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>60.00%</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Coupon p.a.</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>8.00% (2.00 % Quarterly)</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Issue Size</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>945,000</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Denomination</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>1,000</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row last-product">
+                                    <div class="product-left">
+                                        <p>Country Distribution</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>USA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="product-terms">
+                    <div class="two-tone-section ibmplexsans-regular-normal-mine-shaft-12px">
+                        <div class="section-title ibmplexsans-bold-mine-shaft-12px">
+                            Dates
+                        </div>
+                        <div class="product-contents">
+                            <div class="product-items background">
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Pricing Date</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>07/22/2022</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Settlement Date</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>07/29/2022</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Final Observation Date</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>07/24/2023</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row last-product">
+                                    <div class="product-left">
+                                        <p>Maturity Date</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>07/28/2023</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="two-tone-section ibmplexsans-regular-normal-mine-shaft-12px">
+                        <div class="section-title ibmplexsans-bold-mine-shaft-12px">
+                            Analytics
+                        </div>
+                        <div class="product-contents ">
+                            <div class="product-items background">
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Intrinsic value</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>-</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Mark to market</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>100.25%</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Mark to Market Source</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>Issuer</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Probability of Barrier Crossing</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>17.28%</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row last-product">
+                                    <div class="product-left">
+                                        <p>Probability of Autocall</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>12.88%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="sectionBreak"></div>
+
+        <section class="performance-chart">
+            <div class="underlying-performance-section">
+
+                <div class="underlying-performance ibmplexsans-bold-mine-shaft-10px">
+                    Underlying Performance
+                </div>
+                <div class="navbar">
+                    <div class="overlap-group-1 ibmplexsans-regular-normal-mine-shaft-8px">
+                        <ul class="underlying-performance-product">
+                            <li class="underlying-ticker">Underlying Ticker</li>
+                            <li class="underlying-name">Underlying Name</li>
+                            <li class="starting-index">Strike Price</li>
+                            <li class="coupon-barrier">Coupon Barrier<br> Threshold</li>
+                            <li class="protection-barrier">Principal Barrier Threshold</li>
+                            <li class="current-index">Current Index Level</li>
+                            <li class="ul-performance">UL Performance</li>
+                            <li class="active-ul">Active UL</li>
+                        </ul>
+                    </div>
+                    <div class="performance-value ibmplexsans-regular-normal-mine-shaft-8px">
+                        <ul class="underlying-performance-product">
+                            <li><span class="ticker-key"></span>MET</li>
+                            <li>MetLife Inc.</li>
+                            <li>60.85</li>
+                            <li>36.51</li>
+                            <li>36.51</li>
+                            <li>67.66</li>
+                            <li>11.19%</li>
+                            <li>YES</li>
+                        </ul>
+                    </div>
+                </div>
+                <img class="line-graph"
+                    src="./img/performance-report---luma-bitmap-F4884C4B-1BFD-43DD-903B-98C545195D32.png" />
+                <div class="graph-legend">
+                    <div class="graph-legend-text">
+                        <div class="ibmplexsans-medium-mine-shaft-6px"><span class="rectangle-index"></span>Underlying
+                        </div>
+                        <div class="ibmplexsans-medium-mine-shaft-6px"><span class="rectangle-base"></span>Initial Level
+                        </div>
+                        <div class="ibmplexsans-medium-mine-shaft-6px"><span
+                                class="rectangle-coupon-threshhold"></span>Coupon
+                            Threshhold</div>
+                        <div class="ibmplexsans-medium-mine-shaft-6px"><span
+                                class="rectangle-principal-threshhold"></span>Principal
+                            Threshold (Not
+                            shown if Principal Threshold = Coupon
+                            Threshold)</div>
+                    </div>
+                </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

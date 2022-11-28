@@ -1,0 +1,57 @@
+:root { 
+  --daintree: #00263e;
+  --mine-shaft: #2f3336;
+  --white: #ffffff;
+  --wild-sand: #f2f4f5;
+ 
+  --font-size-l: 8px;
+  --font-size-m: 6px;
+  --font-size-xl: 10px;
+ 
+  --font-family-ibmplexsans-bold: "IBMPlexSans-Bold", Helvetica;
+  --font-family-ibmplexsans-italic: "IBMPlexSans-Italic", Helvetica;
+  --font-family-ibmplexsans-medium: "IBMPlexSans-Medium", Helvetica;
+  --font-family-ibmplexsans-regular: "IBMPlexSans-Regular", Helvetica;
+}
+.ibmplexsans-regular-normal-mine-shaft-6px {
+  color: var(--mine-shaft);
+  font-family: var(--font-family-ibmplexsans-regular);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.ibmplexsans-regular-normal-mine-shaft-8px {
+  color: var(--mine-shaft);
+  font-family: var(--font-family-ibmplexsans-regular);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.ibmplexsans-medium-mine-shaft-6px {
+  color: var(--mine-shaft);
+  font-family: var(--font-family-ibmplexsans-medium);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.ibmplexsans-bold-mine-shaft-10px {
+  color: var(--mine-shaft);
+  font-family: var(--font-family-ibmplexsans-bold);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.ibmplexsans-medium-mine-shaft-8px {
+  color: var(--mine-shaft);
+  font-family: var(--font-family-ibmplexsans-medium);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 500;
+}
+
+:root {
+}

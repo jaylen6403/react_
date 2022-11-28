@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        @page :first {
+            size: a4;
+            margin: 0mm 0mm 25mm 0mm;
+
+            @bottom-left {
+                content: "For Financial Professional Use Only. Annuities are products of the insurance industry and are not (a) insured by the FDIC or any federal government agency, (b) deposits of or guaranteed by any bank or credit union, or (c) a provision or condition of any bank or credit union activity. Annuities contain features, fees, risks, exclusions and limitations that vary by state, and some annuities are subject to investment risk and may lose value. For a full explanation of an annuity, please refer to the Disclosure Statement or Prospectus (as applicable) produced by issuing insurance company. The information contained herein is not intended as, nor should it be construed as, legal, tax, or investment advice. Before deciding on an annuity, considerations should include income needs, risk tolerance and investment objectives. None of the information contained herein constitutes an offer by Luma Financial Technologies, LLC or its subsidiaries to sell any investment products in any jurisdiction.";
+                color: #2f3336;
+                font-family: "IBMPlexSans-Regular", Helvetica;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: 400;
+                left: 30px;
+                padding-left: 30px;
+                padding-right: 30px;
+                width: 15%;
+                position: absolute;
+            }
+        }
+
+        @page {
+            size: a4;
+            margin: 11mm 0mm 25mm 0mm;
+
+            /* @top-left{
+                content: "Current Rates";
+                color: #2f3336;
+                font-family: "IBMPlexSans-Bold", Helvetica;
+                font-size: 10px;
+                font-style: normal;
+                font-weight: 700;
+                left: 30px;
+                padding-left: 30px;
+                width: 15%;
+                position: absolute;
+            } */
+            @bottom-left {
+                content: "For Financial Professional Use Only. Annuities are products of the insurance industry and are not (a) insured by the FDIC or any federal government agency, (b) deposits of or guaranteed by any bank or credit union, or (c) a provision or condition of any bank or credit union activity. Annuities contain features, fees, risks, exclusions and limitations that vary by state, and some annuities are subject to investment risk and may lose value. For a full explanation of an annuity, please refer to the Disclosure Statement or Prospectus (as applicable) produced by issuing insurance company. The information contained herein is not intended as, nor should it be construed as, legal, tax, or investment advice. Before deciding on an annuity, considerations should include income needs, risk tolerance and investment objectives. None of the information contained herein constitutes an offer by Luma Financial Technologies, LLC or its subsidiaries to sell any investment products in any jurisdiction.";
+                color: #2f3336;
+                font-family: "IBMPlexSans-Regular", Helvetica;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: 400;
+                left: 30px;
+                padding-left: 30px;
+                padding-right: 30px;
+                width: 15%;
+                position: absolute;
+            }
+        }
+
+        @media print {
+            .page-break {
+                clear: both;
+                page-break-after: always;
+            }
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Regular";
+            src: url("https://www.1001fonts.com/download/font/ibm-plex-sans.regular.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Bold";
+            font-weight: 700;
+            src: url("https://www.1001fonts.com/download/font/ibm-plex-sans.bold.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Medium";
+            font-weight: 500;
+            src: url("https://www.1001fonts.com/download/font/ibm-plex-sans.medium.ttf") format("truetype");
+        }
+
+        @font-face {
+            font-family: "IBMPlexSans-Italic";
+            font-style: italic;
+            font-weight: 400;
+            src: url("https://fonts.animaapp.com/IBMPlexSans-Italic") format("truetype");
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            margin-bottom: 30px;
+            height: 100px
+        }
+
+        .rectangle-5 {
+            height: 72px;
+            left: 20px;
+            position: absolute;
+            top: 20px;
+            width: 15px;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            page-break-after: auto;
+            break-after: auto;
+        }
+
+
+        .screen a {
+            display: contents;
+            text-decoration: none;
+        }
+
+
+        /* * {
+            box-sizing: border-box;
+        }  */
+
+
+        .ibmplexsans-regular-normal-mine-shaft-6px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 6px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-medium-normal-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .ibmplexsans-regular-normal-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-regular-normal-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .ibmplexsans-bold-normal-mine-shaft-16px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .ibmplexsans-medium-mine-shaft-6px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 6px;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+
+        .ibmplexsans-bold-normal-mine-shaft-10px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .ibmplexsans-medium-mine-shaft-10px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Medium", Helvetica;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: 550;
+        }
+
+
+        .ibmplexsans-bold-mine-shaft-12px {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Bold", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .product-name {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+        }
+
+        .rider-table,
+        .expenses-table {
+            display: table;
+        }
+
+        .rider-table tr,
+        .expenses-table tr {
+            display: table-cell;
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .rider-table tr td,
+        .expenses-table tr td {
+            display: block;
+        }
+
+        .fees-expenses-table tr:nth-child(even) {
+            background-color: #f2f4f5;
+        }
+
+        .form-item-left {
+            width: 200px;
+        }
+
+        .form-item-right {
+            width: 200px;
+        }
+
+        .riders {
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 13px;
+            margin-left: 30px;
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        .navbar {
+            margin-left: 30px;
+            width: 94%;
+        }
+
+        .ratings {
+            width: 50%;
+            float: right;
+        }
+
+        .rates-row {
+            padding-left: 30px;
+            padding-top: 3px;
+        }
+
+        .current-rates {
+            font-weight: 700;
+            margin-left: 30px;
+            letter-spacing: 0;
+            line-height: 13px;
+            margin-bottom: 5px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .carrier-logo-asset {
+            position: absolute;
+            top: 40px;
+            height: 25px;
+            right: 20px;
+        }
+
+        .assets-luma-logo {
+            height: 41px;
+            left: 41px;
+            position: absolute;
+            top: 35px;
+            width: 150px;
+        }
+
+
+        li {
+            margin: 10px;
+        }
+
+        .headerTitle {
+            text-align: end;
+            float: right;
+            margin-top: 30px;
+            margin-right: 30px;
+        }
+
+        div span {
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .product-terms {
+            width: 50%;
+            float: left;
+        }
+
+        .sectionTitle {
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 13px;
+            white-space: nowrap;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-spacing: 0 2px;
+            border-collapse: collapse;
+            width: 97%;
+            border-radius: 5px;
+            display: inline-block;
+            page-break-inside: auto;
+            break-inside: auto;
+        }
+
+        .two-tone-table {
+            margin-top: 10px;
+            display: table;
+            width: 100%;
+        }
+
+        tbody {
+            width: 100%;
+            display: table;
+        }
+
+        .two-tone-table tr {
+            display: table-cell;
+            width: 50%;
+        }
+
+        .two-tone-table tr td {
+            display: block;
+            padding: 0px;
+            margin: 10px;
+        }
+
+        .two-tone-table tr:first-child {
+            background-color: #f2f4f5;
+            border-radius: 10px 0px 0px 10px;
+        }
+
+
+        td {
+            /* white-space: inherit; */
+            min-width: 56px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            word-wrap: break-word;
+            padding-left: 5px;
+            /* border-radius: 5px; */
+
+        }
+
+        .td-small {
+            max-width: 70px;
+            min-width: 70px;
+        }
+
+        .waiver-list {
+            padding-top: 10px;
+        }
+
+        .waiver-list td {
+            font-size: 11px;
+        }
+
+        .sectionBreak {
+            background-color: #00263e;
+            border-radius: 0.5px;
+            height: 1px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 30px;
+            margin-right: 20px;
+        }
+
+        section {
+            display: inline-block;
+            width: 790px;
+        }
+
+        .group-container {
+            display: inline-block;
+        }
+
+        footer {
+            margin-top: 40px;
+
+        }
+
+        .ratesContainer,
+        .summaryContainer {
+            display: block
+        }
+
+
+        .section-title {
+            padding-bottom: 5px;
+        }
+
+        .two-tone-section {
+            padding-left: 30px;
+            display: inline-block;
+            width: calc(100% - 30px);
+            padding-bottom: 10px;
+        }
+
+        .product-summary {
+            width: 97%;
+        }
+
+        .product-summary article {
+            line-height: 1.2;
+        }
+
+        .background {
+            background-color: #f2f4f5;
+            width: 50%;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        .product-contents {
+            margin-top: 10px;
+        }
+
+        .product-item-row {
+            display: inline-block;
+            width: 360px;
+        }
+
+        .product-item-row p {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .product-left {
+            display: block;
+            position: relative;
+            float: left;
+            width: 45%;
+        }
+
+        .product-right {
+            display: block;
+            position: relative;
+            float: right;
+            width: 49%;
+            word-wrap: break-word;
+        }
+
+        .last-product {
+            padding-bottom: 10px;
+        }
+
+        .rates-tr {
+            color: #2f3336;
+            font-family: "IBMPlexSans-Regular", Helvetica;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .td-big {
+            max-width: 500px;
+            min-width: 500px;
+        }
+
+        .rates-tr--grey {
+            background-color: #f2f4f5;
+            border-radius: 5px;
+        }
+
+        tr td:first-child {
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        tr td:last-child {
+            border-radius: 0px 5px 5px 0px;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; background: #ffffff">
+    <header>
+        <image class="headerImage" style="display:inline-block">
+            <img class="rectangle-5"
+                src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-rectangle-FED34FDF-C0C4-40CF-A713-38298D94A956.png" />
+            <img class="assets-luma-logo"
+                src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-assetsluma-logosname--flamelighthorizontal-9021C587-0957-4894-A267-024F86B3A5B8@2x.png" />
+        </image>
+        <section class="headerTitle" style="display:inline-block">
+            <img class="carrier-logo-asset"
+                src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/transamerica.png" />
+            <div class="product-name ibmplexsans-bold-mine-shaft-12px" style="font-size: 14px">Weihenstephan Hefe
+                Weissbier</div>
+        </section>
+    </header>
+    <main>
+
+        <section class="product-details-container">
+            <div class="section-container">
+                <div class="product-terms">
+                    <div class="two-tone-section ibmplexsans-regular-normal-mine-shaft-12px">
+                        <div class="section-title ibmplexsans-bold-mine-shaft-12px">
+                            Product Details
+                        </div>
+                        <div class="product-contents ">
+                            <div class="product-items background">
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Share Class</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>CDSC Years</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>A REALLY REALLY LONG AMOUNT OF YEARS THAT HUMANS CANNOT POSSIBLY LIVE THROUGH
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>PRODUCT CDSC</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Min Premium: NQ</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>$5,000,000,000,000,000,000,000,000,000</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Min Premium: Q</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>$5,000,000,000,000,000,000,000,000,000</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Add Premium: NQ</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>$5,000,000,000,000,000,000,000,000,000</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Add Premium: Q</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>$5,000,000,000,000,000,000,000,000,000</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Issue Age Min</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>0</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Issue Age Max</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>1234567890</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row last-product">
+                                    <div class="product-left">
+                                        <p>Annuitization Age</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>1234567890</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="product-terms">
+                    <div class="two-tone-section ibmplexsans-regular-normal-mine-shaft-12px">
+                        <div class="section-title ibmplexsans-bold-mine-shaft-12px">
+                            Ratings
+                        </div>
+                        <div class="product-contents">
+                            <div class="product-items background">
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>A.M. Best</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>A Excellent</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Fitch</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>F for Fitch</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Moody's</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>A3 Good</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row last-product">
+                                    <div class="product-left">
+                                        <p>Standard & Poor's</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>A+ Strong</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="two-tone-section ibmplexsans-regular-normal-mine-shaft-12px">
+                        <div class="section-title ibmplexsans-bold-mine-shaft-12px">
+                            Withdrawal Provisions
+                        </div>
+                        <div class="product-contents ">
+                            <div class="product-items background">
+                                <div class="product-item-row">
+                                    <div class="product-left">
+                                        <p>Free Withdrawal</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>100%</p>
+                                    </div>
+                                </div>
+                                <div class="product-item-row last-product">
+                                    <div class="product-left">
+                                        <p>Waivers</p>
+                                    </div>
+                                    <div class="product-right">
+                                        <p>Nursing Home, Terminal Illness, Critical Illness, Seriously Illness, Omega
+                                            Illness,
+                                            Awfully Illness, Giga Illness, Hyper Illness</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="ratesContainer">
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        Fees & Expenses
+                    </div>
+                    <div class="rates-row">
+                        <table>
+                            <tbody>
+                                <tr class="rates-tr">
+                                    <td class="td-big">M&E</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">Admin Fee</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">Contract Charge</td>
+                                    <td>$30</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">Contract Charge Breakpoint</td>
+                                    <td>$50,000</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">Average Fund Expense</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">Template1</td>
+                                    <td>0.00%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">Template2</td>
+                                    <td>$000,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <div class="page-break"></div>
+        <section class="summaryContainer">
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        Compounded-Plus Death Benefit
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>Death Benefit</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>79</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>0.35%</td>
+                                </tr>
+                            </table>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Death benefit is the greatest of:<br>
+                                    - Account value;<br>
+                                    - Highest anniversary value prior to oldest owner's 81st birthday; or,<br>
+                                    - Purchase payments increased at 5% annually through the anniversary prior to the
+                                    oldest owner's 81st
+                                    birthday.
+                                </p>
+                                <p>
+                                    Death benefit is credited and continues for surviving spouse
+                                    Highest anniversary value and 5% accumulation increase automatically until the
+                                    anniversary prior to the oldest owner's 81st birthday<br>
+                                    No cap on death benefit. Proportionate. No special treatment for RMD
+                                    withdrawals.<br>
+                                    Availability: Time of application. Annual Charge: 0.350% annually,
+                                    assessed daily and calculated against the account value.<br>
+                                    Benefit charge is 0.15% for contracts issued prior to 5/1/2004<br>
+                                    Benefit is based on life(lives) of Owner(s)Available for issue age(s) 0 - 79;<br>
+                                    Automatically steps-up as detailed in the description.
+                                    Not available with the Principal Protection or Annual Step-Up death benefits.<br>
+                                </p>
+                                <p>
+                                    As of 7/19/10, same state availability as
+                                    contract except not available in NY & WA.<br>
+                                    None Does not automatically terminate.
+                                    Cannot voluntarily terminate.
+                                    An ownership change to someone other than a spouse will
+                                    reset the death benefit to the account value as of the
+                                    date of the ownership change.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        Annual Step-Up Death Benefit
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>Death Benefit</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>79</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>0.2%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Death benefit is the greatest of:<br>
+                                    - Account value;<br>
+                                    - Adjusted purchase payments; or,<br>
+                                    - Highest anniversary value prior to owner's 81st birthday,
+                                    adjusted for subsequent purchase payments and withdrawals.
+                                </p>
+                                <p>
+                                    Death benefit is
+                                    credited and continues for surviving spouse<br>
+                                    Anniversary values on or after the older owner's
+                                    81st birthday are not considered in calculating the highest
+                                    anniversary value component.<br>
+                                    No cap on death benefit. Proportionate. No special
+                                    treatment for RMD withdrawals. <br>
+                                </p>
+                                <p>
+                                    Availability: Time of application. <br>
+                                    Annual Charge: 0.200% annually, assessed daily and calculated against the account
+                                    value. <br>
+                                    - Benefit is based on life(lives) of Owner(s)Available for issue age(s)
+                                    0 - 79; <br>
+                                    Highest anniversary value automatically locks in until the
+                                    anniversary prior to the oldest owner's 81st birthday.<br>
+                                    May not have in conjunction with any other death benefit. None.<br>
+                                    Does not automatically terminate. Cannot voluntarily terminate. An ownership change
+                                    to someone
+                                    other than a spouse will reset the death benefit to the account value as of the
+                                    date of the ownership change.
+
+                                </p>
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        Principal Protection
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>Death Benefit</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>90</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>0.%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Death benefit is the greatest of:<br>
+                                    - Account value, or<br>
+                                    - Adjusted purchase payments<br>
+                                    Death benefit is credited and continues for surviving spouse.
+                                </p>
+                                <p>
+                                    - Proportionate. No special treatment for RMD withdrawals.<br>
+                                    Availability: Default death benefit . Annual Charge: 0.000%.<br>
+                                    - Benefit is based on life(lives) of Owner(s)Available for
+                                    issue age(s) same issue ages as
+                                    contract;<br>
+                                    There are no step-up features associated with this
+                                    benefit.<br>
+                                    Not available with the Annual Step-Up or Compounded-Plus death
+                                    benefits.
+                                </p>
+                                <p>
+                                    Same state availability as contract.<br>None Does not automatically terminate.
+                                    Cannot voluntarily terminate. An ownership change to someone
+                                    other than a spouse will reset the purchase payments portion of the death
+                                    benefit to the account value as of the date of the ownership change.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        Earnings Preservation Benefit
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>Death Benefit</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>79</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>0.25%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Earnings enhancement death benefit is equal to 40% of the earnings in the
+                                    contract. The greater of the account value or death benefit value is used to
+                                    determine the earnings for this benefit and there is no cap on the benefit
+                                    amount. The benefit only applies to earnings up to the anniversary prior to age
+                                    81.
+                                </p>
+                                <p>
+                                    Earnings enhancement is reduced to 25% if issue ages are 70-79.If spousally
+                                    continued, the surviving spouse has the option to defer the death benefit until
+                                    his/her death or choose to have the death benefit credited, at which time the
+                                    benefit and its fee terminate.The benefit only applies to earnings up to the
+                                    anniversary prior to age 81.
+                                </p>
+                                <p>
+                                    Earnings enhancement is reduced to 25% if issue
+                                    ages are 70-79. Not available for issue ages 80 or older.No cap on death
+                                    benefit.Proportionate. No special treatment for RMD withdrawals.
+                                    Availability: Time of application. Annual Charge: 0.250% annually,
+                                    assessed daily and calculated against the account value. -Benefit is based on
+                                    life(lives) of Owner(s)Available for issue age(s) 0 - 79; There are no
+                                    step-up features associated with this benefit.As of 5/1/11, may not have
+                                    in conjunction with the Enhanced Death Benefit II.
+                                </p>
+                                <p>
+                                    Same state availability as
+                                    contract except not available in NY & WA.<br>
+                                    None Does not automatically
+                                    terminate. Cannot voluntarily terminate. An ownership change to someone
+                                    other than a spouse will reset the benefit base to the account value as of the
+                                    date of the ownership change
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        GLWB w/Flexchoice Access Level
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>GMWB</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>1.35%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit base. Lifetime
+                                    payments are applicable as long as the first withdrawal is made on or after the
+                                    date the owner turns 59 1/2 years old. Withdrawal rates are based on the age of
+                                    the owner at the time of the first withdrawal as follows:<br>
+                                </p>
+                                <p>
+                                    59½-64...3.75%<br>
+                                    65+......4.75%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year following the
+                                    account value reaching zero the remaining benefit base is paid on a monthly
+                                    basis for life at a percentage determined by the age of the owner at the time of
+                                    the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...3.75% (Single Rate)<br>
+                                    65+......4.75% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 7/20/20, the withdrawal rates were as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64...4.35%<br>
+                                    65-74....5.35%<br>
+                                    75-79....5.60%<br>
+                                    80+......6.10%<br>
+                                </p>
+                                <p>
+                                    Beginning<br>
+                                    in the contract year following the account value reaching zero the remaining
+                                    benefit base is paid on a monthly basis for life at a percentage determined by
+                                    the age of the owner at the time of the first withdrawal as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64...4.35% (Single Rate)<br>
+                                    65-74....5.35% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    75-79....5.60% (Single Rate)<br>
+                                    80+......6.10% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 11/12/18,
+                                    the withdrawal rates were as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64...4.25%<br>
+                                    65-74....5.25%<br>
+                                    75-79....5.50%<br>
+                                    80+......6.00%<br>
+                                </p>
+                                <p>
+                                    Beginning<br>
+                                    in the contract year following the account value reaching zero the remaining
+                                    <!-- page tapers off after this...? -->
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        GLWB w/Flexchoice Access Expedite
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>GMWB</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>1.35%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit base. Lifetime
+                                    payments are applicable as long as the first withdrawal is made on or after the
+                                    date the owner turns 59½ years old. Withdrawal rates are based on the age of the
+                                    owner at the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...5.00%<br>
+                                    65+......6.00%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year following the
+                                    account value reaching zero, the lifetime payment is recalculated using the
+                                    current benefit base and a percentage determined by the age of the older owner
+                                    at the time of the first withdrawal. Guaranteed withdrawal rates based on age at
+                                    time of first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64... 2.50% (Single Rate).
+                                    Rate is increased by .50% if over 80 when account value reaches zero.<br>
+                                    65+...... 3.50% (Single Rate).
+                                    Rate is increased by .50% if over 80 when account value reaches zero.<br>
+                                </p>
+                                <p>
+                                    Prior to 7/20/2020, the Lifetime Guarantee Rates were as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64...5.00%<br>
+                                    65-74.....6.00%<br>
+                                    75-79.....6.00%<br>
+                                    80+........6.75%<br>
+                                </p>
+                                <p>
+                                    Beginning<br>
+                                    in the contract year following the account value reaching zero, the lifetime
+                                    payment is recalculated using the current benefit base and a percentage
+                                    determined by the age of the older owner at the time of the first withdrawal.
+                                    Guaranteed withdrawal rates based on age at time of first withdrawal as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64... 3.75% (Single Rate). Rate is increased by .25% if over 80
+                                    when account value reaches zero.<br>
+                                    65-74..... 4.75% (Single Rate). Rate is
+                                    increased by .25% if over 80 when account value reaches zero.<br>
+                                    75-79..... 4.75%
+                                    (Single Rate). Rate is increased by .25% if over 80 when account value reaches
+                                    zero.<br>
+                                    80+........ 5.75% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 11/12/2018, the Lifetime Guarantee Rates were as follows:
+                                    <!-- tapers off here as well -->
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        GLWB w/Flexchoice Access Expedite (Joint)
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>GMWB</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>809</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>1.35%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit base. Lifetime
+                                    payments are applicable as long as the first withdrawal is made on or after the
+                                    date the owner turns 59½ years old. Withdrawal rates are based on the age of the
+                                    owner at the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...5.00%<br>
+                                    65+......6.00%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year following the
+                                    account value reaching zero, the lifetime payment is recalculated using the
+                                    current benefit base and a percentage determined by the age of the older owner
+                                    at the time of the first withdrawal. Guaranteed withdrawal rates based on age at
+                                    time of first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64... 2.00% (Joint Rate). Rate is
+                                    increased by .25% if over 80 when account value reaches zero.<br>
+                                    65+...... 2.75%
+                                    (Joint Rate). Rate is increased by .50% if over 80 when account value reaches
+                                    zero.<br>
+                                </p>
+                                <p>
+                                    Prior to 7/20/2020, the Lifetime Guarantee Rates were as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64... 2.75% (Joint Rate). Rate is increased by .25% if over 80 when
+                                    account value reaches zero.<br>
+                                    65-74..... 3.75% (Joint Rate). Rate is increased by
+                                    .25% if over 80 when account value reaches zero.<br>
+                                    75-79..... 3.75% (Joint Rate).
+                                    Rate is increased by .25% if over 80 when account value reaches
+                                    zero.<br>
+                                    80+........ 4.75% (Joint Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 11/12/2018, the Lifetime
+                                    Guarantee Rates were as follows:
+                                </p>
+                                <p>
+                                    59½-64... 2.50% (Joint Rate). Rate is
+                                    increased by .25% if over 80 when account value reaches zero.<br>
+                                    65-74..... 3.50%
+                                    (Joint Rate). Rate is increased by .25% if over 80 when account value reaches
+                                    zero.<br>
+                                    75-79..... 3.50% (Joint Rate). Rate is increased by .25% if over 80 when
+                                    account value reaches zero.<br>
+                                    80+........ 4.50% (Joint Rate)
+                                </p>
+                                <p>
+                                    The benefit base is
+                                    equal to initial purchase payments, adjusted for additional purchase payments.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        GLWB w/Flexchoice Access Level (Joint)
+                    </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>GMWB</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>1.35%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit base. Lifetime
+                                    payments are applicable as long as the first withdrawal is made on or after the
+                                    date the owner turns 59 1/2 years old. Withdrawal rates are based on the age of
+                                    the owner at the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...3.75%<br>
+                                    65+......4.75%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year following the
+                                    account value reaching zero the remaining benefit base is paid on a monthly
+                                    basis for life at a percentage determined by the age of the owner at the time of
+                                    the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...2.75% (Joint Rate)<br>
+                                    65+......3.75% (Joint Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 7/20/2020, rates were as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64...4.35%<br>
+                                    65-74....5.35%<br>
+                                    75-79....5.60%<br>
+                                    80+......6.10%<br>
+                                </p>
+                                <p>
+                                    Beginning<br>
+                                    in the contract year following the account value reaching zero the remaining
+                                    benefit base is paid on a monthly basis for life at a percentage determined by
+                                    the age of the owner at the time of the first withdrawal as
+                                    follows:
+                                </p>
+                                <p>
+                                    59½-64...3.35% (Joint Rate)<br>
+                                    65-74....4.35% (Joint Rate)<br>
+                                    75-79....4.60% (Joint Rate)<br>
+                                    80+......5.10% (Joint Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 11/12/2018,
+                                    rates were as follows:
+                                </p>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit
+                                    base. Lifetime payments are applicable as long as the first withdrawal is made
+                                    on or after the date the owner turns 59 1/2 years old. Withdrawal rates are
+                                    based on the age of the owner at the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...4.25%<br>
+                                    65-74....5.25%<br>
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        GLWB w/Flexchoice Access Expedite </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>GMWB</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>1.35%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit base.
+                                    Lifetime payments are applicable as long as the first withdrawal is made on or after
+                                    the
+                                    date the owner turns 59½ years old.
+                                    Withdrawal rates are based on the age of the
+                                    owner at the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...5.00%<br>
+                                    65+......6.00%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year following the account value
+                                    reaching zero, the lifetime payment is recalculated using the current benefit
+                                    base and a percentage determined by the age of the older owner at the time of
+                                    the first withdrawal.<br>
+                                    Guaranteed withdrawal rates based on age at time of first
+                                    withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64... 2.50% (Single Rate). Rate is increased by .50%
+                                    if over 80 when account value reaches zero.<br>
+                                    65+...... 3.50% (Single Rate). Rate is increased by .50%
+                                    if over 80 when account value reaches zero.<br>
+                                </p>
+                                <p>
+                                    Prior to 7/20/2020, the Lifetime Guarantee Rates were as follows:
+                                </p>
+                                <p>
+                                    59½-64...5.00%<br>
+                                    65-74.....6.00% <br>
+                                    75-79.....6.00% <br>
+                                    80+........6.75%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year
+                                    following the account value reaching zero, the lifetime payment is recalculated
+                                    using the current benefit base and a percentage determined by the age of the
+                                    older owner at the time of the first withdrawal. Guaranteed withdrawal rates
+                                    based on age at time of first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64... 3.75% (Single Rate). Rate is increased by .25%
+                                    if over 80 when account value reaches zero.<br>
+                                    65-74..... 4.75% (Single Rate). Rate is increased by .25%
+                                    if over 80 when account value reaches zero.<br>
+                                    75-79..... 4.75% (Single Rate). Rate is increased by .25%
+                                    if over 80 when account value reaches zero.<br>
+                                    80+........ 5.75% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 11/12/2018, the Lifetime Guarantee Rates were as follows:
+                                </p>
+                                <p>
+                                    59½-64...3.50% (Single Rate). Rate is increased by .25%
+                                    if over 80 when account value reaches zero.<br>
+                                    65-74..... 4.50% (Single Rate). Rate is increased by .25%
+                                    if over 80 when account value reaches zero.<br>
+                                    75-79..... 4.50% (Single Rate). Rate is increased by .25%
+                                    if over 80 when account value reaches zero.<br>
+                                    80+........ 5.50% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    The benefit base is equal to initial purchase payments, adjusted
+                                    for additional purchase payments, withdrawals taken prior to the date the owner
+                                    turns 59 1/2 years old, and excess withdrawals.
+                                    Alternatively, on the 10th and subsequent anniversaries, the owner may elect to
+                                    exercise the
+                                    Guaranteed Principal Adjustment that restores initial purchase payments made within
+                                    120
+                                    days of contract issue less proportionate withdrawals.
+                                    If this portion of the benefit is exercised, the entire benefit is terminated.
+                                    In addition, there is an optional death benefit that may be elected in conjunction
+                                    with this
+                                    benefit. Highest anniversary value step-ups are applicable until the anniversary
+                                    prior to the owner's 91st birthday. Excess withdrawals reduce the benefit base
+                                    and withdrawal amount proportionately. Annual benefit payment will be equal to
+                                    RMD amount if it is greater than the maximum amount that can be withdrawn in a
+                                    single contract year, provided that owner is enrolled in automated distribution
+                                    program. RMDs will not be considered excess withdrawals.
+                                </p>
+                                <p>
+                                    Availability: Time of application<br>
+                                    Annual Charge: 1.350% assessed annually and calculated against
+                                    the benefit base.<br>
+                                    Fee percentage may increase upon optional, automatic step-up.<br>
+                                    Benefit is based on life(lives) of Owner (who must also be the
+                                    annuitant) Available for issue age(s) 50 - 80;<br>
+                                    Automatic step-up on each
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        GLWB w/Flexchoice Access Level </div>
+
+                    <div class="rates-row">
+                        <div class="product-summary ibmplexsans-regular-normal-mine-shaft-12px" style="width: 97%;">
+                            <table>
+                                <tr>
+                                    <td>Type: </td>
+                                    <td>GMWB</td>
+                                </tr>
+                                <tr>
+                                    <td>Min Issue Age: </td>
+                                    <td>50</td>
+                                </tr>
+                                <tr>
+                                    <td>Max Issue Age: </td>
+                                    <td>80</td>
+                                </tr>
+                                <tr>
+                                    <td>Rider Charge: </td>
+                                    <td>1.35%</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <article>
+                                <div>Description</div>
+                                <p>
+                                    Guarantees lifetime annual withdrawals of the benefit base.
+                                    Lifetime payments are applicable as long as the first withdrawal
+                                    is made on or after the date the owner turns 59 1/2 years old.
+                                    Withdrawal rates are based on the age of the owner at the time of the first
+                                    withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...3.75%<br>
+                                    65+......4.75%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year following the account value
+                                    reaching zero the remaining benefit base is paid on a monthly basis for life at
+                                    a percentage determined by the age of the owner at the time of the first
+                                    withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...3.75% (Single Rate)<br>
+                                    65+......4.75% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 7/20/20, the withdrawal rates were as follows:
+                                </p>
+                                <p>
+                                    59½-64...4.35%<br>
+                                    65-74....5.35%<br>
+                                    75-79....5.60%<br>
+                                    80+......6.10%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year
+                                    following the account value reaching zero the remaining benefit base is paid on
+                                    a monthly basis for life at a percentage determined by the age of the owner at
+                                    the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...4.35% (Single Rate)<br>
+                                    65-74....5.35% (Single Rate)<br>
+                                    75-79....5.60% (Single Rate)<br>
+                                    80+......6.10% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Prior to 11/12/18, the withdrawal rates were as follows:
+                                </p>
+                                <p>
+                                    59½-64...4.25%<br>
+                                    65-74....5.25%<br>
+                                    75-79....5.50%<br>
+                                    80+......6.00%<br>
+                                </p>
+                                <p>
+                                    Beginning in the contract year
+                                    following the account value reaching zero the remaining benefit base is paid on
+                                    a monthly basis for life at a percentage determined by the age of the owner at
+                                    the time of the first withdrawal as follows:
+                                </p>
+                                <p>
+                                    59½-64...4.25% (Single Rate)<br>
+                                    65-74....5.25% (Single Rate)<br>
+                                    75-79....5.50% (Single Rate)<br>
+                                    80+......6.00% (Single Rate)<br>
+                                </p>
+                                <p>
+                                    Alternatively, on the 10th and subsequent anniversaries, the owner may
+                                    elect to exercise the Guaranteed Principal Adjustment that restores initial
+                                    purchase payments made within 120 days of contract issue less proportionate
+                                    withdrawals.
+                                    If this portion of the benefit is exercised, the entire benefit is
+                                    terminated.
+                                    In addition, there is an optional death benefit that may be elected
+                                    in conjunction with this benefit.
+                                    Highest anniversary value step-ups are applicable until the anniversary
+                                    prior to the owner's 91st birthday.
+                                    Excess withdrawals reduce the benefit base and withdrawal amount proportionately.
+                                    Annual benefit payment will be equal to RMD amount if it is greater than the
+                                    maximum amount that can be withdrawn in a single contract year.
+                                    RMDs will not be considered excess withdrawals.
+
+                                    Availability: Time of application.
+                                    Annual Charge: 1.350% assessed annually and calculated against the benefit base.<br>
+
+                                    Fee percentage may increase upon optional step-up. Benefit is based on life(lives)
+                                    of Owner (who must also be the annuitant)
+                                    Available for issue age(s) 50 - 80;
+                                    Automatic step-up on each anniversary until the contract anniversary prior
+                                    to the owner's 91st birthday. The owner will have the opportunity to decline the
+                                    automatic step-ups if the benefit expense percentage increases. Automatic
+                                    step-ups may be reinstated.
+                                    On each contract anniversary, the benefit base is
+                                    compounded at 5% until the 10th contract anniversary (provided no withdrawals
+                                    were taken in the current year).
+                                    Cannot have in conjunction with any other
+                                    living benefit or the Earnings Preservation Benefit.
+                                    Must allocate according to Option A or Option B.
+                                    Allocations to Option B must be in Platform 1 (max. 70%) and Platform 2 (min. 30%).
+                                    See prospectus for details.
+                                    Quarterly rebalancing is automatic for Option B. The change of an owner for any
+                                    reason will terminate
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="page-break"></div>
+        <section class="ratesContainer">
+            <div class="section-container">
+                <div class="sectionBreak"></div>
+                <div>
+                    <div class="current-rates ibmplexsans-bold-mine-shaft-12px">
+                        Fees & Expenses
+                    </div>
+
+                    <div class="rates-row">
+                        <table>
+                            <tbody>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII MetLife Russl 2000® Idx G</td>
+                                    <td>0.63%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII Jennison Growth B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII MetLife Stock Index B</td>
+                                    <td>3.30%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseI JPMorgan Core Bond B</td>
+                                    <td>5.00%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseI PIMCO Total Return B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseI PIMCO Inflation Prot Bd B</td>
+                                    <td>A.BC%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                                <tr class="rates-tr">
+                                    <td class="td-big">BrighthouseII WA Management US Govt B</td>
+                                    <td>3.05%</td>
+                                </tr>
+                                <tr class="rates-tr rates-tr--grey">
+                                    <td class="td-big">BrighthouseII BlackRock Bond Income B</td>
+                                    <td>3.12%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

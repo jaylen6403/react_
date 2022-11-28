@@ -1,0 +1,1650 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <style>
+            @page {
+                size: a4;
+                margin: 0;
+            }
+
+            @page :first {
+                size: a4;
+                margin: 0mm 0mm 25mm 0mm;
+                @bottom-left {
+                    content: "For Financial Professional Use Only. Annuities are products of the insurance industry and are not (a) insured by the FDIC or any federal government agency, (b) deposits of or guaranteed by any bank or credit union, or (c) a provision or condition of any bank or credit union activity. Annuities contain features, fees, risks, exclusions and limitations that vary by state, and some annuities are subject to investment risk and may lose value. For a full explanation of an annuity, please refer to the Disclosure Statement or Prospectus (as applicable) produced by issuing insurance company. The information contained herein is not intended as, nor should it be construed as, legal, tax, or investment advice. Before deciding on an annuity, considerations should include income needs, risk tolerance and investment objectives. None of the information contained herein constitutes an offer by Luma Financial Technologies, LLC or its subsidiaries to sell any investment products in any jurisdiction.";
+                    color: #2f3336;
+                    font-family: "IBMPlexSans-Regular", Helvetica;
+                    font-size: 6px;
+                    font-style: normal;
+                    font-weight: 400;
+                    left: 30px;
+                    padding-left: 30px;
+                    width: 15%;
+                    position: absolute;
+                }
+            }
+
+            @page {
+                size: a4;
+                margin: 11mm 0mm 25mm 0mm;
+
+                @bottom-left {
+                    content: "For Financial Professional Use Only. Annuities are products of the insurance industry and are not (a) insured by the FDIC or any federal government agency, (b) deposits of or guaranteed by any bank or credit union, or (c) a provision or condition of any bank or credit union activity. Annuities contain features, fees, risks, exclusions and limitations that vary by state, and some annuities are subject to investment risk and may lose value. For a full explanation of an annuity, please refer to the Disclosure Statement or Prospectus (as applicable) produced by issuing insurance company. The information contained herein is not intended as, nor should it be construed as, legal, tax, or investment advice. Before deciding on an annuity, considerations should include income needs, risk tolerance and investment objectives. None of the information contained herein constitutes an offer by Luma Financial Technologies, LLC or its subsidiaries to sell any investment products in any jurisdiction.";
+                    color: #2f3336;
+                    font-family: "IBMPlexSans-Regular", Helvetica;
+                    font-size: 6px;
+                    font-style: normal;
+                    font-weight: 400;
+                    left: 30px;
+                    padding-left: 30px;
+                    width: 15%;
+                    position: absolute;
+                }
+            }
+/* 
+            html, body {
+                height: 100%;
+            } */
+            /* body {
+                width: 794px;
+                height: 1122px;
+                margin: 0;
+            } */
+            body > div {
+                background-color: white;
+            }
+            .inline-div {
+                display: inline;
+            }
+
+            .ibmplexsans-medium-mine-shaft-8px {
+                color: #2f3336;
+                font-family:"IBMPlexSans-Regular", Helvetica;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: 550;
+            }
+
+            .ibmplexsans-regular-normal-mine-shaft-8px {
+                color: #2f3336;
+                font-family: "IBMPlexSans-Regular", Helvetica;
+                font-size: 8px;
+                font-style: normal;
+                font-weight: normal;
+            }
+
+            .ibmplexsans-bold-mine-shaft-12px {
+                color: #2f3336;
+                font-family:"IBMPlexSans-Regular", Helvetica;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 600;
+            }
+
+            .ibmplexsans-bold-mine-shaft-14px{
+                color: #2f3336;
+                font-family:"IBMPlexSans-Regular", Helvetica;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 700;
+            }
+
+
+
+            .title {
+                font-weight: 500;
+                color: #2f3336;
+                margin-bottom: 5px;
+            }
+
+            .sub-text {
+                font-weight: normal;
+                word-break: break-all;
+                padding-top: 5px;
+            }
+
+            .table-container {
+                position: relative;
+                display: block;
+                margin-top: 12px;
+                margin-left: 35px;
+                margin-right: 5px;
+                height: 100%;
+                width: 93%;            
+            }
+
+            .ibm{
+                font-family:"sans-serif";
+            }
+
+            .left {
+                height: 100;
+                display: table-cell;
+                padding-right: 10px;
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                padding-right: 10px;
+                font-size: 8px;
+                color: #2f3336;
+                min-width: 80px;
+                max-width: 80px;
+            }
+
+            /* .border-divider::before {
+                content: "";
+                position: absolute;
+                left: 100%;
+                width: 1px;
+                height: 90%;
+                background: red;
+                opacity: 1;
+                border-radius: 2px;
+                top: 5%;
+            } */
+
+
+            /* for header  */
+
+            .rectangle-5 {
+                height: 72px;
+                left: 20px;
+                position: absolute;
+                top: 20px;
+                width: 15px;
+            }
+
+            .assets-luma-logo {
+                height: 41px;
+                left: 41px;
+                position: absolute;
+                top: 35px;
+                width: 150px;
+            }
+
+            .headerTitle {
+                text-align: end;
+                float: right;
+                margin-top: 30px;
+                margin-right: 30px;
+            }
+
+            .product-comparison {
+                font-weight: 700;
+                /*left: 550px;*/
+                right: 30px;
+                letter-spacing: 0;
+                line-height: 15px;
+                position: absolute;
+                text-align: center;
+                top: 40px;
+                font-size: 15px;
+                white-space: inherit;
+            }
+
+         
+            .header-date {
+                font-weight: 400;
+                        /*left: 550px;*/
+                right: 30px;
+                letter-spacing: 0;
+                line-height: 15px;
+                position: absolute;
+                text-align: center;
+                top: 70px;
+                font-size: 12px;
+                white-space: inherit;
+            }
+
+            
+            /* for Applied Filters  */
+
+            .performance-summary-group {
+                padding-left: 30px;
+                display: block;
+            }
+            .performance-summary-title {
+                padding-bottom: 10px;
+            }
+
+            .performance-summary-group .performance-summary {
+                width: fit-content;
+            }
+
+            .performance-summary-group .performance-summary-border {
+                background-color: #00263e;
+                border-radius: 0.5px;
+                height: 1px;
+                left: 122px;
+                position: absolute;
+                top: 7px;
+                width: 637px;
+            }
+
+
+
+            .sectionheader {
+                font-weight: 700;
+                letter-spacing: 0;
+                line-height: 13px;
+                white-space: nowrap;
+                padding-bottom: 3px;
+            }
+
+            .performance-item-owners {
+                display: inline-block;
+                background-color: #f2f4f5;
+                border-radius: 5px;
+                padding: 4px 8px;
+                margin: 5px 5px 8px 0px;
+            }
+
+
+            .performance-item-details {
+                font-weight: 500;
+                display: inline-block;
+                background-color: #f2f4f5;
+                border-radius: 5px;
+                padding: 4px 8px;
+                margin: 0px 5px 8px 0px;
+            }
+            /* for Applied Filters  */
+
+            .border-divider {
+                border-right: 2px solid #c4cdd1;
+                top: 50%;
+                bottom: 0;
+                display: table-cell;
+            }
+
+            .middle-section{
+                display: table-cell;
+                padding-right: 5px;
+                padding-left: 5px;
+                padding-bottom: 5px;
+                font-size: 7px;
+                color: #2f3336;
+                width: 80px;
+            }
+
+            .pl{
+                width: 40px;
+            }
+
+            .section-final{
+                width:200px
+            }
+
+            .section-header {
+                height: 14px;
+                font-size: 10px;
+                font-weight: bold;
+                color: #2f3336;
+                margin-bottom: 8px;
+            }
+
+            .inline-div {
+                height: 18px;
+                padding: 4px 8px;
+                border-radius: 4px;
+                background-color: #f2f4f5;
+                font-size: 8px;
+            }
+
+            .divider {
+                border-radius: 3px;
+                background-color: #00263e;
+                margin: 12px 0;
+                height: 1px;
+            }
+
+            .row {
+                height: min-content;
+                min-height: 60px;
+                display: inline-block;
+            }
+
+            .row > .middle-section.pl {
+                padding-left: 12px;
+            }
+
+       
+            .sectionBreak {
+                background-color: #00263e;
+                border-radius: 0.5px;
+                height: 1px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                margin-left: 30px;
+                margin-right: 20px;
+            }
+
+            .first-row{
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+            }
+
+            .final-row{
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius:15px;
+            }
+
+
+            .assets-company-logos-carriersaig {
+                height: 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <div style="display:inline-block; height: 120px;">
+            <image class="headerImage" style="display:inline-block">
+                <img class="rectangle-5"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-rectangle-FED34FDF-C0C4-40CF-A713-38298D94A956.png" />
+                <img class="assets-luma-logo"
+                     src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-assetsluma-logosname--flamelighthorizontal-9021C587-0957-4894-A267-024F86B3A5B8@2x.png" />
+            </image>
+            <section class="headerTitle" style="display:inline-block">
+                <div class="product-comparison ibmplexsans-bold-mine-shaft-12px">Marketplace Rate Export</div>
+                <div class="header-date ibmplexsans-medium-mine-shaft-8px">As of 08/16/2022</div>
+            </section>
+        </div>
+        <div class="performance-summary-group">
+            <div class="sectionheader ibmplexsans-bold-mine-shaft-14px">Applied Filters</div>
+            <div class="ibmplexsans-bold-mine-shaft-12px">
+              <div class="performance-item-owners ">State: <span style="font-weight:400">AL</span></div>
+              <div class="performance-item-owners">Prodcut Type: <span style="font-weight:400"">Fixed Rate</span></div>
+              <div class="performance-item-owners">Rate Term: <span style="font-weight:400"">3 yr</span></div>
+            </div>
+        </div>
+        <div class="sectionBreak"></div>
+        <div class="sectionheader ibmplexsans-bold-mine-shaft-14px" style="padding-left: 30px; display: inline-block;">Rates</div>
+        <div class="table-container ibm">
+            <div class="row first-row" style="background-color:#e7ecee">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="background-color:#e7ecee">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="background-color:#e7ecee">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="background-color:#e7ecee">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="background-color:#e7ecee">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>     <div class="row">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/aig.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row final-row" style="background-color:#e7ecee">
+                <div class="left">
+                    <div  style="border-right: 2px solid #c4cdd1;padding-bottom: 5px;"> 
+                        <img class="assets-company-logos-carriersaig"
+                        src="https://app.lumafintech.com/cms-assets/DEV/images/company-logos/annuities/midland-national.png"/></div>
+                
+                    <div style="border-right: 2px solid #c4cdd1;  font-weight: 500;
+                    color: #2f3336; padding-right: 5px;">
+                        American Path Fix 4 Annuity
+                        <div class="sub-text">
+                            <span>Fixed Rate, MVA</span>
+                        </div>
+                    </div>
+                    <div style="border-right: 2px solid #c4cdd1"> 
+                        <span> <br><br><br> </span>
+                    </div>
+                </div>
+                <div class="middle-section pl">
+                    <div class="title">
+                        Base Rate
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        GMIR
+                        <div class="sub-text">
+                            <span>0.25%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Bonus Rate
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Interest Rate Bonus
+                        <div class="sub-text">
+                            <span>0.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Premium Rate Bonus
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>3.00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Account Type
+                        <div class="sub-text">
+                            <span>Brokerage</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Schedule
+                        <div class="sub-text">
+                            <span>8,7,7,6</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Surrender Period Yield
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section">
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>4yrs</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Premium Band
+                        <div class="sub-text">
+                            <span>Up to $100,000</span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        Guarantee Period
+                        <div class="sub-text">
+                            <span>5%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle-section section-final">
+                    <div class="title">
+                        Free Withdrawal:
+                        <div class="sub-text">
+                            <span
+                                >First contract year: 10% of purchase payment. Subsequent years: 10% of the contract
+                                value as of the withdrawal date, minus prior free withdrawals.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

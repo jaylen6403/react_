@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<!-- <link rel="stylesheet" type="text/css" href="css/styleguide.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/globals.css" /> -->
+
+<head>
+  <style>
+    @page {
+      size: a4;
+      margin: 0;
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Regular";
+      font-weight: 1 1000;
+      src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Bold";
+      font-weight: 700;
+      src: url("../fonts/IBMPlexSans-Bold.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Medium";
+      font-weight: 500;
+      src: url("../fonts/IBMPlexSans-Medium.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Italic";
+      font-style: italic;
+      font-weight: 400;
+      src: url("../fonts/IBMPlexSans-Italic.ttf") format("truetype");
+    }
+
+    .screen textarea:focus,
+    .screen input:focus {
+      outline: none;
+    }
+
+    .screen * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+
+    .screen div {
+      -webkit-text-size-adjust: none;
+    }
+
+    .screen a {
+      display: contents;
+      text-decoration: none;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .ibmplexsans-regular-normal-mine-shaft-8px-bold {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Regular", Helvetica;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+
+    .ibmplexsans-regular-normal-mine-shaft-6px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Regular", Helvetica;
+      font-size: 6px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .ibmplexsans-regular-normal-mine-shaft-8px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Regular", Helvetica;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .ibmplexsans-medium-mine-shaft-6px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Medium", Helvetica;
+      font-size: 6px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .ibmplexsans-bold-mine-shaft-10px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Bold", Helvetica;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .ibmplexsans-medium-mine-shaft-8px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Medium", Helvetica;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    header {
+      overflow: hidden
+    }
+
+    .header {
+      background-color: transparent;
+      height: 56px;
+      left: 9px;
+      /* position: absolute; */
+      top: 9px;
+      width: 16px;
+    }
+
+    .luma-logo {
+      background-color: transparent;
+      height: 24px;
+      left: 41px;
+      position: absolute;
+      top: 25px;
+      width: 95px;
+    }
+
+    .header-product {
+      margin-top: 15px;
+      text-align: right
+    }
+
+    .header-date {
+      margin-top: 10px;
+      text-align: right
+    }
+
+    .left-header {
+      width: 50%;
+      float: left;
+    }
+
+    .right-header {
+      width: 50%;
+      float: right;
+    }
+
+    .performance-summary-group {
+      background-color: transparent;
+      height: 54px;
+      left: 25px;
+      position: absolute;
+      top: 89px;
+      width: 100%;
+      overflow: auto;
+    }
+
+    .performance-summary-group .performance-summary {
+      width: fit-content;
+    }
+
+    .performance-summary-group .performance-summary-border {
+      background-color: #00263e;
+      border-radius: 0.5px;
+      height: 1px;
+      left: 122px;
+      position: absolute;
+      top: 7px;
+      width: 637px;
+    }
+
+    .performance-summary-table {
+      table-layout: fixed;
+      text-align: left;
+    }
+
+    .performance-summary-table th {
+      width: 200px;
+      padding: 12px 0px 5px 0px;
+    }
+
+    .terms-and-dates {
+      position: absolute;
+      top: 155px;
+      left: 0px;
+    }
+
+    .terms-and-dates-rectangle {
+      background-color: #00263e;
+      border-radius: 0.5px;
+      height: 1px;
+      left: 25px;
+      position: absolute;
+      width: 758px;
+    }
+
+    li {
+      list-style: none;
+      margin: 10px 10px;
+    }
+
+    ul {
+      padding-left: 0px;
+    }
+
+    .productTerms {
+      width: 50%;
+      float: left;
+    }
+
+    .performancereportluma .group-11-1ZLLRN {
+      background-color: transparent;
+      height: 84px;
+      left: 0px;
+      position: absolute;
+      top: 21px;
+      width: 562px;
+    }
+
+    .group-11-1 {
+      padding-left: 30px;
+    }
+
+    .product-term-section {
+      margin-top: 10px;
+    }
+
+    .left {
+      display: block;
+      position: relative;
+      float: left;
+      width: 50%;
+      background-size: 100% 100%;
+      margin-top: 10px;
+      background-color: #f2f4f5;
+    }
+
+    .form-item-left {
+      width: 200px;
+    }
+
+    .right {
+      display: block;
+      position: relative;
+      float: right;
+      width: 50%;
+      margin-top: 10px;
+    }
+
+    .form-item-right {
+      width: 194px;
+    }
+
+    .section-break {
+      border-top: solid #DCDCDC 1px;
+      border-radius: 0.121px;
+      height: 2px;
+      width: 200px;
+    }
+
+    .section-break2 {
+      border-top: solid #DCDCDC 1px;
+      border-radius: 0.121px;
+      height: 2px;
+      width: 170px;
+    }
+
+    .group-container {
+      display: inline-block;
+    }
+
+    .sectionheader-age {
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 13px;
+      white-space: nowrap;
+      margin-top: 5px;
+    }
+
+    .performance-chart {
+      position: absolute;
+      top: 440px;
+      left: 0px;
+      width: 804px;
+    }
+
+    .performance-chart-rectangle {
+      background-color: #00263e;
+      border-radius: 0.5px;
+      height: 1px;
+      left: 25px;
+      position: absolute;
+      width: 758px;
+    }
+
+    .underlying-performance-section {
+      margin-top: 10px;
+    }
+
+    .underlying-performance {
+      margin-left: 30px;
+    }
+
+    .navbar {
+      margin-left: 30px;
+      width: 94%;
+    }
+
+    .overlap-group-1 {
+      background-color: white;
+      border-radius: 8px;
+      height: 20px;
+      left: 0;
+      top: 20px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    .navbar-link-place {
+      font-weight: 500;
+      left: 40px;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    .navbar-link-type {
+      font-weight: 500;
+      left: 25%;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    .navbar-link-rider-cost {
+      font-weight: 500;
+      left: 46%;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    .navbar-link-availability {
+      font-weight: 500;
+      left: 70%;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    .performance-value {
+      background-color: #f2f4f5;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .rider-name {
+      left: 40px;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      padding-top: 10px;
+      white-space: nowrap;
+    }
+
+    .name {
+      left: 25%;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      padding-top: 10px;
+      white-space: nowrap;
+    }
+
+    .price-2 {
+      left: 46%;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      padding-top: 10px;
+      white-space: nowrap;
+    }
+
+    .mandatory {
+      left: 70%;
+      letter-spacing: 0;
+      line-height: 10px;
+      position: absolute;
+      padding-top: 10px;
+      white-space: nowrap;
+    }
+
+    .line-graph {
+      padding-left: 30px;
+      width: 97%;
+    }
+
+    /* 
+    .underlying-performance-product {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .underlying-performance-product li {
+      float: left;
+    }
+
+    .underlying-performance-product .underlying-name {
+      width: 100px;
+    } */
+
+    .underlying-performance-product {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      padding: 8px;
+
+    }
+
+    .underlying-performance-product li {
+      display: table-cell;
+    }
+
+    .ticker-key {
+      width: 10px;
+      height: 10px;
+      border: 3px solid #228ED4;
+      border-radius: 5px;
+      margin-right: 5px;
+    }
+
+    .rectangle-index {
+      display: inline-block;
+      background-color: #26a0dc;
+      border-radius: 2px;
+      height: 4px;
+      width: 28px;
+      margin-right: 8px;
+    }
+
+    .rectangle-base {
+      display: inline-block;
+      background-color: #141618;
+      border-radius: 2px;
+      height: 4px;
+      width: 28px;
+      margin-right: 8px;
+    }
+
+    .rectangle-coupon-threshhold {
+      display: inline-block;
+      background-color: #A5191D;
+      border-radius: 2px;
+      height: 4px;
+      width: 28px;
+      margin-right: 8px;
+    }
+
+    .rectangle-principal-threshhold {
+      display: inline-block;
+      background-color: #BDAC23;
+      border-radius: 2px;
+      height: 4px;
+      width: 28px;
+      margin-right: 8px;
+    }
+
+
+    .graph-legend {
+      padding-left: 30px;
+      position: absolute;
+      left: 30px;
+      overflow: hidden;
+    }
+
+    .legend-color {
+      margin-right: 10px;
+    }
+
+    .graph-legend-text {
+      overflow: hidden;
+    }
+
+    .graph-legend-text div {
+      float: left;
+      margin: 0px 50px 0px 0px;
+      text-align: left;
+    }
+
+    .underlying-performance {
+      margin-bottom: 10px;
+    }
+
+    .observation-table-section {
+      position: absolute;
+      top: 750px;
+      left: 0px;
+      width: 804px;
+    }
+
+    .observation-table-main {
+      margin-left: 30px;
+    }
+
+    .observation-table-container table {
+      width: 95%;
+      border-collapse: collapse;
+    }
+
+    .observation-table-container table tr:nth-child(even) {
+      background-color: #f2f4f5;
+    }
+
+    .observation-table-header {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .observation-table-header th,
+    .observation-date-row td {
+      padding: 8px;
+    }
+
+    .observation-date-row td:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .observation-date-row td:last-child {
+      border-radius: 0px 10px 10px 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="left-header">
+      <img class="header"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-rectangle-FED34FDF-C0C4-40CF-A713-38298D94A956.png" />
+      <img class="luma-logo"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-assetsluma-logosname--flamelighthorizontal-9021C587-0957-4894-A267-024F86B3A5B8@2x.png" />
+    </div>
+    <div class="right-header">
+      <div class="header-product ibmplexsans-bold-mine-shaft-10px">12 m Contingent Income Auto-Callable on MET</div>
+      <div class="header-date ibmplexsans-medium-mine-shaft-8px">As of 08/16/2022</div>
+    </div>
+  </header>
+  <div class="performance-summary-group">
+    <div class="performance-summary ibmplexsans-bold-mine-shaft-10px">Performance Summary</div>
+    <div class="performance-summary-border"></div>
+    <table class="performance-summary-table">
+      <tr>
+        <th class="performance-summary-table-header ibmplexsans-regular-normal-mine-shaft-8px">Active Underlier
+        </th>
+        <th class="performance-summary-table-header ibmplexsans-regular-normal-mine-shaft-8px">Active Underlier
+          Performance</th>
+        <th class="performance-summary-table-header ibmplexsans-regular-normal-mine-shaft-8px">Payout to date (Payments
+          Remaining)</th>
+        <th class="ibmplexsans-regular-normal-mine-shaft-8px">Potential Payments Remaining (%)</th>
+      </tr>
+      <tr>
+        <td class="ibmplexsans-bold-mine-shaft-10px">MET</td>
+        <td class="ibmplexsans-bold-mine-shaft-10px">67.66 (11.19%)</td>
+        <td class="ibmplexsans-bold-mine-shaft-10px">0.00% (4 of 4 Remaining)</td>
+        <td class="ibmplexsans-bold-mine-shaft-10px">8.00%</td>
+      </tr>
+    </table>
+  </div>
+  <section class="terms-and-dates">
+    <div class="terms-and-dates-rectangle"></div>
+    <div class="product-term-section">
+      <div class="productTerms">
+        <div class="group-11-1 ibmplexsans-regular-normal-mine-shaft-8px">
+          <div class="product-terms ibmplexsans-bold-mine-shaft-10px">
+            Terms of Product
+          </div>
+          <div class="left">
+            <ul class="form-item-left">
+              <li>Issuer</li>
+              <li>Term</li>
+              <li>Undderlying</li>
+              <li>Underlying Ticker</li>
+              <li>Product ID (ISIN)</li>
+              <li>Description</li>
+              <li>Coupon Threshold</li>
+              <li>Principal Threshold</li>
+              <li>Coupon p.a.</li>
+              <li>Issue Size</li>
+              <li>Denomination</li>
+              <li>Country Distribution</li>
+            </ul>
+          </div>
+          <div class="right">
+            <ul class="form-item-right">
+              <li>Royal Bank of Canada</li>
+              <li>12 Months (11 Months Remaining)</li>
+              <li>MetLife, Inc.</li>
+              <li>MET</li>
+              <li>XS2497667712</li>
+              <li>Contingent Income Auto-Callable</li>
+              <li>60.00%</li>
+              <li>60.00%</li>
+              <li>8.00% (2.00% Quarterly)</li>
+              <li>945,000</li>
+              <li>1,000</li>
+              <li>USA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ratings">
+        <div class="group-18-1">
+          <div class="group-container ibmplexsans-regular-normal-mine-shaft-8px">
+
+            <div class="sectionheader ibmplexsans-bold-mine-shaft-10px">
+              Dates
+            </div>
+            <div class="left">
+              <ul class="form-item-left">
+                <li>Pricing Date</li>
+                <li>Settlement Date</li>
+                <li>Final Observation Date</li>
+                <li>Maturity Date</li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="form-item-right">
+                <li>07/22/2022</li>
+                <li>07/29/2022</li>
+                <li>07/24/2023</li>
+                <li>07/28/2023</li>
+              </ul>
+            </div>
+          </div>
+          <div class="group-container ibmplexsans-regular-normal-mine-shaft-8px">
+
+            <div class="sectionheader-age ibmplexsans-bold-mine-shaft-10px">
+              Analytics
+            </div>
+            <div class="left">
+              <ul class="form-item-left">
+                <li>Intrinsic Value</li>
+                <li>Mark to Market</li>
+                <li>Mark to Market Source</li>
+                <li>Probability of Barrier Crossing</li>
+                <li>Probability of Autocall</li>
+              </ul>
+            </div>
+            <div class="right">
+              <ul class="form-item-right">
+                <li>-</li>
+                <li>100.25%</li>
+                <li>Issuer</li>
+                <li>17.28%</li>
+                <li>12.88%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="performance-chart">
+    <div class="performance-chart-rectangle"></div>
+    <div class="underlying-performance-section">
+      <div class="underlying-performance ibmplexsans-bold-mine-shaft-10px">
+        Underlying Performance
+      </div>
+      <div class="navbar">
+        <div class="overlap-group-1 ibmplexsans-regular-normal-mine-shaft-8px">
+          <ul class="underlying-performance-product">
+            <li class="underlying-ticker">Underlying Ticker</li>
+            <li class="underlying-name">Underlying Name</li>
+            <li class="starting-index">Strike Price</li>
+            <li class="coupon-barrier">Coupon Barrier<br> Threshold</li>
+            <li class="protection-barrier">Principal Barrier Threshold</li>
+            <li class="current-index">Current Index Level</li>
+            <li class="ul-performance">UL Performance</li>
+            <li class="active-ul">Active UL</li>
+          </ul>
+        </div>
+        <div class="performance-value ibmplexsans-regular-normal-mine-shaft-8px">
+          <ul class="underlying-performance-product">
+            <li><span class="ticker-key"></span>MET</li>
+            <li>MetLife Inc.</li>
+            <li>60.85</li>
+            <li>36.51</li>
+            <li>36.51</li>
+            <li>67.66</li>
+            <li>11.19%</li>
+            <li>YES</li>
+          </ul>
+        </div>
+      </div>
+      <img class="line-graph" src="./img/performance-report---luma-bitmap-F4884C4B-1BFD-43DD-903B-98C545195D32.png" />
+      <div class="graph-legend">
+        <div class="graph-legend-text">
+          <div class="ibmplexsans-medium-mine-shaft-6px"><span class="rectangle-index"></span>Underlying</div>
+          <div class="ibmplexsans-medium-mine-shaft-6px"><span class="rectangle-base"></span>Initial Level</div>
+          <div class="ibmplexsans-medium-mine-shaft-6px"><span class="rectangle-coupon-threshhold"></span>Coupon
+            Threshhold</div>
+          <div class="ibmplexsans-medium-mine-shaft-6px"><span class="rectangle-principal-threshhold"></span>Principal
+            Threshold (Not
+            shown if Principal Threshold = Coupon
+            Threshold)</div>
+        </div>
+      </div>
+  </section>
+  <section class="observation-table-section">
+    <div class="underlying-performance ibmplexsans-bold-mine-shaft-10px">Observation Table</div>
+    <div class="observation-table-main">
+      <div class="observation-table-container">
+        <table>
+          <tr class="ibmplexsans-medium-mine-shaft-6px observation-table-header">
+            <th>Observation Date</th>
+            <th>Event Type</th>
+            <th>Active Underlying</th>
+            <th>Strike Price</th>
+            <th>Performance</th>
+            <th>Coupon Barrier</th>
+            <th>Protection Barrier</th>
+            <th>Payout</th>
+          </tr>
+          <tr class="observation-date-row ibmplexsans-regular-normal-mine-shaft-6px">
+            <td>10/24/2022</td>
+            <td>Coupon</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="observation-date-row ibmplexsans-regular-normal-mine-shaft-6px">
+            <td>01/23/2023</td>
+            <td>Coupon</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+          <tr class="observation-date-row ibmplexsans-regular-normal-mine-shaft-6px">
+            <td>04/24/2023</td>
+            <td>Coupon</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

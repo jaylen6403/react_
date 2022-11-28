@@ -1,0 +1,1852 @@
+/* screen - performancereportluma */
+
+.performancereportluma {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 792px;
+  min-width: 612px;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.performancereportluma .rectangle-2Q09ib {
+  background-color: var(--white);
+  height: 774px;
+  left: 9px;
+  position: absolute;
+  top: 9px;
+  width: 594px;
+}
+
+.performancereportluma .group-3-2Q09ib {
+  background-color: transparent;
+  height: 54px;
+  left: 25px;
+  position: absolute;
+  top: 89px;
+  width: 562px;
+}
+
+.performancereportluma .performance-summary-l4gkPx {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 111px;
+}
+
+.performancereportluma .current-index-level-l4gkPx {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 73px;
+}
+
+.performancereportluma .x6766-1119-l4gkPx {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 41px;
+  white-space: nowrap;
+  width: 75px;
+}
+
+.performancereportluma .payout-to-date-l4gkPx {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 129px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 55px;
+}
+
+.performancereportluma .x000-l4gkPx {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 129px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 41px;
+  white-space: nowrap;
+  width: 30px;
+}
+
+.performancereportluma .potential-payments-r-l4gkPx {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 238px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 112px;
+}
+
+.performancereportluma .x4-of-4-l4gkPx {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 238px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 41px;
+  white-space: nowrap;
+  width: 28px;
+}
+
+.performancereportluma .potential-payments-r-Yw7K6E {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 404px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 124px;
+}
+
+.performancereportluma .x800-l4gkPx {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 404px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 41px;
+  white-space: nowrap;
+  width: 33px;
+}
+
+.performancereportluma .rectangle-l4gkPx {
+  background-color: var(--daintree);
+  border-radius: 0.5px;
+  height: 1px;
+  left: 122px;
+  position: absolute;
+  top: 7px;
+  width: 440px;
+}
+
+.performancereportluma .group-2-2Q09ib {
+  background-color: transparent;
+  height: 8px;
+  left: 25px;
+  position: absolute;
+  top: 606px;
+  width: 500px;
+}
+
+.performancereportluma .rectangle-0qpd2V {
+  background-color: #26a0dc;
+  border-radius: 2px;
+  height: 4px;
+  left: 0px;
+  position: absolute;
+  top: 2px;
+  width: 28px;
+}
+
+.performancereportluma .index-0qpd2V {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 36px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.performancereportluma .rectangle-Wuxlqv {
+  background-color: #1a1d1f;
+  border-radius: 2px;
+  height: 4px;
+  left: 77px;
+  position: absolute;
+  top: 2px;
+  width: 28px;
+}
+
+.performancereportluma .base-0qpd2V {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 113px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 16px;
+}
+
+.performancereportluma .rectangle-H66Xx6 {
+  background-color: #b62a27;
+  border-radius: 2px;
+  height: 4px;
+  left: 151px;
+  position: absolute;
+  top: 2px;
+  width: 28px;
+}
+
+.performancereportluma .coupon-threshold-0qpd2V {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 187px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 53px;
+}
+
+.performancereportluma .rectangle-EHMVZl {
+  background-color: #c9b82d;
+  border-radius: 2px;
+  height: 4px;
+  left: 262px;
+  position: absolute;
+  top: 2px;
+  width: 28px;
+}
+
+.performancereportluma .principal-threshold-0qpd2V {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 298px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 204px;
+}
+
+.performancereportluma .bitmap-2Q09ib {
+  background-color: transparent;
+  height: 140px;
+  left: 25px;
+  position: absolute;
+  top: 453px;
+  width: 562px;
+}
+
+.performancereportluma .rectangle-2sIPw5 {
+  background-color: var(--daintree);
+  border-radius: 0.5px;
+  height: 1px;
+  left: 25px;
+  position: absolute;
+  top: 372px;
+  width: 562px;
+}
+
+.performancereportluma .rectangle-5zK2Ne {
+  background-color: var(--daintree);
+  border-radius: 0.5px;
+  height: 1px;
+  left: 25px;
+  position: absolute;
+  top: 155px;
+  width: 562px;
+}
+
+.performancereportluma .group-18-2Q09ib {
+  background-color: transparent;
+  height: 192px;
+  left: 25px;
+  position: absolute;
+  top: 168px;
+  width: 280px;
+}
+
+.performancereportluma .terms-of-product-xTHwZ2 {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 83px;
+}
+
+.performancereportluma .group-11-xTHwZ2 {
+  background-color: transparent;
+  height: 171px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.performancereportluma .group-9-copy-9bFrae {
+  background-color: transparent;
+  height: 171px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .rectangle-pl5uNr {
+  background-color: transparent;
+  height: 171px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .issuer-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 25px;
+}
+
+.performancereportluma .term-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.performancereportluma .underlying-ticker-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 65px;
+}
+
+.performancereportluma .underlying-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.performancereportluma .product-id-isin-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 72px;
+  white-space: nowrap;
+  width: 65px;
+}
+
+.performancereportluma .return-calculation-f-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 88px;
+  white-space: nowrap;
+  width: 99px;
+}
+
+.performancereportluma .description-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 104px;
+  white-space: nowrap;
+  width: 44px;
+}
+
+.performancereportluma .coupon-threshold-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 120px;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.performancereportluma .principal-threshold-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 136px;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.performancereportluma .coupon-pa-pl5uNr {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 152px;
+  white-space: nowrap;
+  width: 45px;
+}
+
+.performancereportluma .group-9-copy-KaZPl5 {
+  background-color: transparent;
+  height: 171px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .rectangle-bwwNzk {
+  background-color: var(--white);
+  height: 171px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .royal-bank-of-canada-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 81px;
+}
+
+.performancereportluma .x12-months-11-months-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 126px;
+}
+
+.performancereportluma .met-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 18px;
+}
+
+.performancereportluma .met-life-inc-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.performancereportluma .xs2497667712-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 72px;
+  white-space: nowrap;
+  width: 60px;
+}
+
+.performancereportluma .contingent-coupon-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 88px;
+  white-space: nowrap;
+  width: 71px;
+}
+
+.performancereportluma .contingent-income-au-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 104px;
+  white-space: nowrap;
+  width: 122px;
+}
+
+.performancereportluma .x6000-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 120px;
+  white-space: nowrap;
+  width: 31px;
+}
+
+.performancereportluma .x6000-9Ex7jh {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 136px;
+  white-space: nowrap;
+  width: 31px;
+}
+
+.performancereportluma .x800-200-quarter-bwwNzk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 152px;
+  white-space: nowrap;
+  width: 93px;
+}
+
+.performancereportluma .group-18-2sIPw5 {
+  background-color: transparent;
+  height: 97px;
+  left: 307px;
+  position: absolute;
+  top: 168px;
+  width: 280px;
+}
+
+.performancereportluma .dates-a9HNix {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 30px;
+}
+
+.performancereportluma .group-11-a9HNix {
+  background-color: transparent;
+  height: 76px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.performancereportluma .group-9-copy-FW6O5e {
+  background-color: transparent;
+  height: 76px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .rectangle-o4TEhe {
+  background-color: transparent;
+  height: 76px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .pricing-date-o4TEhe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 46px;
+}
+
+.performancereportluma .settlement-date-o4TEhe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 61px;
+}
+
+.performancereportluma .maturity-date-o4TEhe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 51px;
+}
+
+.performancereportluma .final-observation-da-o4TEhe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 84px;
+}
+
+.performancereportluma .group-9-copy-GWClJ6 {
+  background-color: transparent;
+  height: 76px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .rectangle-I9prIG {
+  background-color: var(--white);
+  height: 76px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .x07222022-I9prIG {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.performancereportluma .x07292022-I9prIG {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.performancereportluma .x07282023-I9prIG {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.performancereportluma .x07242023-I9prIG {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.performancereportluma .group-18-5zK2Ne {
+  background-color: transparent;
+  height: 83px;
+  left: 307px;
+  position: absolute;
+  top: 277px;
+  width: 280px;
+}
+
+.performancereportluma .analytics-OZXqeS {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 46px;
+}
+
+.performancereportluma .group-11-OZXqeS {
+  background-color: transparent;
+  height: 62px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.performancereportluma .group-9-copy-FmQmcj {
+  background-color: transparent;
+  height: 62px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .rectangle-ixKFhW {
+  background-color: transparent;
+  height: 62px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .intrinsic-value-ixKFhW {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 55px;
+}
+
+.performancereportluma .mark-to-market-ixKFhW {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 57px;
+}
+
+.performancereportluma .probability-of-barri-ixKFhW {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 110px;
+}
+
+.performancereportluma .group-9-copy-nkSjEb {
+  background-color: transparent;
+  height: 62px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .rectangle-BURZzV {
+  background-color: var(--white);
+  height: 62px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.performancereportluma .text_label-BURZzV {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 9px;
+}
+
+.performancereportluma .x10025-BURZzV {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.performancereportluma .x1728-BURZzV {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 31px;
+}
+
+.performancereportluma .group-18-U3vzx5 {
+  background-color: transparent;
+  height: 56px;
+  left: 25px;
+  position: absolute;
+  top: 385px;
+  width: 562px;
+}
+
+.performancereportluma .underlying-performan-CDgCwz {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 117px;
+}
+
+.performancereportluma .group-11-CDgCwz {
+  background-color: transparent;
+  height: 38px;
+  left: 0px;
+  position: absolute;
+  top: 18px;
+  width: 562px;
+}
+
+.performancereportluma .group-9-copy-QfoUV7 {
+  background-color: transparent;
+  height: 38px;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 562px;
+}
+
+.performancereportluma .group-BdWGn9 {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 20px;
+  width: 562px;
+}
+
+.performancereportluma .rectangle-xPzsxA {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.performancereportluma .rectangle-JLbxZK {
+  background-color: #26a0dc;
+  border-radius: 2.5px;
+  height: 12px;
+  left: 9px;
+  position: absolute;
+  top: 3px;
+  width: 5px;
+}
+
+.performancereportluma .met-xPzsxA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 22px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 14px;
+}
+
+.performancereportluma .x6085-xPzsxA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.performancereportluma .yes-xPzsxA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 517px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 13px;
+}
+
+.performancereportluma .x6766-xPzsxA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 370px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.performancereportluma .x1119-xPzsxA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 430px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 24px;
+}
+
+.performancereportluma .underlying-ticker-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 51px;
+}
+
+.performancereportluma .met-life-inc-BdWGn9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 81px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.performancereportluma .underlying-name-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 81px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.performancereportluma .starting-index-level-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 42px;
+}
+
+.performancereportluma .current-index-level-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 370px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 41px;
+}
+
+.performancereportluma .x3651-BdWGn9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 247px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.performancereportluma .coupon-barrier-level-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 247px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 44px;
+}
+
+.performancereportluma .x3651-jigxc1 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 302px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 25px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.performancereportluma .protection-barrier-l-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 302px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 52px;
+}
+
+.performancereportluma .ul-performance-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 430px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.performancereportluma .active-ul-BdWGn9 {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 517px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 28px;
+}
+
+.performancereportluma .group-18-nmJa5w {
+  background-color: transparent;
+  height: 105px;
+  left: 25px;
+  position: absolute;
+  top: 626px;
+  width: 562px;
+}
+
+.performancereportluma .observation-table-1ZLLRN {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 88px;
+}
+
+.performancereportluma .group-11-1ZLLRN {
+  background-color: transparent;
+  height: 84px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 562px;
+}
+
+.performancereportluma .group-9-copy-xeGmUw {
+  background-color: transparent;
+  height: 84px;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 562px;
+}
+
+.performancereportluma .group-MpNc2D {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 12px;
+  width: 562px;
+}
+
+.performancereportluma .rectangle-D1Ssb2 {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.performancereportluma .x10242022-D1Ssb2 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.performancereportluma .text_label-D1Ssb2 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 481px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .observation-date-MpNc2D {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.performancereportluma .coupon-MpNc2D {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 89px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 17px;
+  white-space: nowrap;
+  width: 23px;
+}
+
+.performancereportluma .text_label-MpNc2D {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 317px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 17px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .event-type-MpNc2D {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 89px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 33px;
+}
+
+.performancereportluma .strike-price-MpNc2D {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 317px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 34px;
+}
+
+.performancereportluma .text_label-MxP7sL {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 397px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 17px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .rectangle-MpNc2D {
+  background-color: var(--white);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 30px;
+  width: 562px;
+}
+
+.performancereportluma .x01232023-MpNc2D {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.performancereportluma .text_label-24wetq {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 481px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .coupon-MxP7sL {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 89px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  white-space: nowrap;
+  width: 23px;
+}
+
+.performancereportluma .text_label-x4AOxZ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 317px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .text_label-nIUXLb {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 397px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .rectangle-MxP7sL {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 48px;
+  width: 562px;
+}
+
+.performancereportluma .x04242023-MpNc2D {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.performancereportluma .text_label-teJ1wc {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 481px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .coupon-24wetq {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 89px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  white-space: nowrap;
+  width: 23px;
+}
+
+.performancereportluma .text_label-xR3BnH {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 317px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .text_label-Dun2OG {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 397px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .rectangle-24wetq {
+  background-color: var(--white);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 66px;
+  width: 562px;
+}
+
+.performancereportluma .x07242023-MpNc2D {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 23px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 71px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.performancereportluma .text_label-aUR3Bj {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 481px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 71px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .final-observation-da-MpNc2D {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 89px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 71px;
+  white-space: nowrap;
+  width: 64px;
+}
+
+.performancereportluma .text_label-x2lxxW {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 234px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 17px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .active-index-MpNc2D {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 234px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 37px;
+}
+
+.performancereportluma .text_label-Nzx5Lp {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 234px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .text_label-e9A635 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 234px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 53px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .text_label-pkj5gj {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 234px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 71px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .text_label-J4SROR {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 317px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 71px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .text_label-4hDYaj {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 397px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 71px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.performancereportluma .performance-MpNc2D {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 397px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 38px;
+}
+
+.performancereportluma .payout-MpNc2D {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 481px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 22px;
+}
+
+.performancereportluma .for-financial-profes-2Q09ib {
+  background-color: transparent;
+  font-weight: 400;
+  height: 16px;
+  left: 25px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 751px;
+  width: 73px;
+}
+
+.performancereportluma .page-1-of-8-081120-2Q09ib {
+  background-color: transparent;
+  font-weight: 400;
+  height: 16px;
+  left: 546px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: center;
+  top: 751px;
+  width: 36px;
+}
+
+.performancereportluma .rectangle-U3vzx5 {
+  background-color: transparent;
+  height: 56px;
+  left: 9px;
+  position: absolute;
+  top: 9px;
+  width: 16px;
+}
+
+.performancereportluma .contingent-income-au-2Q09ib {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 425px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: right;
+  top: 22px;
+  white-space: nowrap;
+  width: 162px;
+}
+
+.performancereportluma .as-of-08162022-2Q09ib {
+  background-color: transparent;
+  font-weight: 500;
+  height: 10px;
+  left: 519px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: right;
+  top: 41px;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.performancereportluma .assets-luma-logos-na-2Q09ib {
+  background-color: transparent;
+  height: 24px;
+  left: 41px;
+  position: absolute;
+  top: 25px;
+  width: 95px;
+}

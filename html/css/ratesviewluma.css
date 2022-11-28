@@ -1,0 +1,2671 @@
+/* screen - ratesviewluma */
+/* @page {
+  size: 612px 792px;
+  margin: auto;
+} */
+
+.ratesviewluma {
+  background-color: var(--white);
+  height: 100vh;
+  margin: 0px;
+  min-height: 792px;
+  min-width: 612px;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.ratesviewluma .rectangle-ECU7tB {
+  background-color: var(--white);
+  height: 774px;
+  left: 9px;
+  position: absolute;
+  top: 9px;
+  width: 594px;
+}
+
+.ratesviewluma .rectangle-w7OFxF {
+  background-color: var(--daintree);
+  border-radius: 0.5px;
+  height: 1px;
+  left: 25px;
+  position: absolute;
+  top: 340px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-tXjdKR {
+  background-color: var(--daintree);
+  border-radius: 0.5px;
+  height: 1px;
+  left: 25px;
+  position: absolute;
+  top: 460px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-K1xf2P {
+  background-color: var(--daintree);
+  border-radius: 0.5px;
+  height: 1px;
+  left: 25px;
+  position: absolute;
+  top: 541px;
+  width: 562px;
+}
+
+.ratesviewluma .group-18-ECU7tB {
+  background-color: transparent;
+  height: 239px;
+  left: 25px;
+  position: absolute;
+  top: 89px;
+  width: 280px;
+}
+
+.ratesviewluma .product-details-55vkZH {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 75px;
+}
+
+.ratesviewluma .group-11-55vkZH {
+  background-color: transparent;
+  height: 218px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.ratesviewluma .group-9-copy-hjAMRv {
+  background-color: transparent;
+  height: 218px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-mVMlGw {
+  background-color: transparent;
+  height: 218px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .carrier-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 27px;
+}
+
+.ratesviewluma .product-type-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.ratesviewluma .premium-type-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 55px;
+}
+
+.ratesviewluma .product-name-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 54px;
+}
+
+.ratesviewluma .account-type-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 72px;
+  white-space: nowrap;
+  width: 52px;
+}
+
+.ratesviewluma .mva-provision-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 88px;
+  white-space: nowrap;
+  width: 54px;
+}
+
+.ratesviewluma .return-of-premium-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 104px;
+  white-space: nowrap;
+  width: 70px;
+}
+
+.ratesviewluma .premium-bonus-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 120px;
+  white-space: nowrap;
+  width: 60px;
+}
+
+.ratesviewluma .interest-bonus-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 136px;
+  white-space: nowrap;
+  width: 56px;
+}
+
+.ratesviewluma .gmsv-initial-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 152px;
+  white-space: nowrap;
+  width: 47px;
+}
+
+.ratesviewluma .gmsv-rate-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 168px;
+  white-space: nowrap;
+  width: 43px;
+}
+
+.ratesviewluma .surrender-charge-mVMlGw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 184px;
+  white-space: nowrap;
+  width: 66px;
+}
+
+.ratesviewluma .group-9-copy-evrH69 {
+  background-color: transparent;
+  height: 218px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-NZuHcO {
+  background-color: var(--white);
+  height: 218px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .aig-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 16px;
+}
+
+.ratesviewluma .fia-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 15px;
+}
+
+.ratesviewluma .single-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 24px;
+}
+
+.ratesviewluma .power-protector-7-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.ratesviewluma .brokerage-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 72px;
+  white-space: nowrap;
+  width: 40px;
+}
+
+.ratesviewluma .yes-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 88px;
+  white-space: nowrap;
+  width: 16px;
+}
+
+.ratesviewluma .no-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 104px;
+  white-space: nowrap;
+  width: 13px;
+}
+
+.ratesviewluma .no-Ahg2Bh {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 120px;
+  white-space: nowrap;
+  width: 13px;
+}
+
+.ratesviewluma .no-pP1SAT {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 136px;
+  white-space: nowrap;
+  width: 13px;
+}
+
+.ratesviewluma .x8750-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 152px;
+  white-space: nowrap;
+  width: 31px;
+}
+
+.ratesviewluma .x100-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 168px;
+  white-space: nowrap;
+  width: 26px;
+}
+
+.ratesviewluma .x8-7-6-5-4-3-2-NZuHcO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 184px;
+  white-space: nowrap;
+  width: 60px;
+}
+
+.ratesviewluma .group-18-w7OFxF {
+  background-color: transparent;
+  height: 151px;
+  left: 307px;
+  position: absolute;
+  top: 89px;
+  width: 280px;
+}
+
+.ratesviewluma .ratings-premiums-LUsVf7 {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 98px;
+}
+
+.ratesviewluma .group-11-LUsVf7 {
+  background-color: transparent;
+  height: 130px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.ratesviewluma .group-9-copy-FLxS33 {
+  background-color: transparent;
+  height: 130px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-gxEnq0 {
+  background-color: transparent;
+  height: 130px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .am-best-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 37px;
+}
+
+.ratesviewluma .fitch-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .standard-poors-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 67px;
+}
+
+.ratesviewluma .minimum-premium-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 79px;
+  white-space: nowrap;
+  width: 71px;
+}
+
+.ratesviewluma .additional-premium-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 111px;
+  white-space: nowrap;
+  width: 74px;
+}
+
+.ratesviewluma .maximum-premium-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 95px;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.ratesviewluma .moodys-gxEnq0 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 33px;
+}
+
+.ratesviewluma .group-9-copy-EKmvmr {
+  background-color: transparent;
+  height: 130px;
+  left: 8px;
+  position: absolute;
+  top: 0px;
+  width: 272px;
+}
+
+.ratesviewluma .rectangle-XQTFF9 {
+  background-color: var(--white);
+  height: 130px;
+  left: 132px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-m6upnO {
+  background-color: #d8dfe2;
+  height: 1px;
+  left: 0px;
+  position: absolute;
+  top: 72px;
+  width: 264px;
+}
+
+.ratesviewluma .a-excellent-XQTFF9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.ratesviewluma .a-strong-XQTFF9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 40px;
+}
+
+.ratesviewluma .a-strong-m6upnO {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 42px;
+}
+
+.ratesviewluma .x250000-XQTFF9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 79px;
+  white-space: nowrap;
+  width: 38px;
+}
+
+.ratesviewluma .text_label-XQTFF9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 111px;
+  white-space: nowrap;
+  width: 9px;
+}
+
+.ratesviewluma .x1000000-XQTFF9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 95px;
+  white-space: nowrap;
+  width: 45px;
+}
+
+.ratesviewluma .a2-good-XQTFF9 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 140px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 35px;
+}
+
+.ratesviewluma .group-18-tXjdKR {
+  background-color: transparent;
+  height: 80px;
+  left: 307px;
+  position: absolute;
+  top: 248px;
+  width: 280px;
+}
+
+.ratesviewluma .age-restrictions-NUAinD {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 79px;
+}
+
+.ratesviewluma .group-11-NUAinD {
+  background-color: transparent;
+  height: 59px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.ratesviewluma .group-9-copy-wIxD1e {
+  background-color: transparent;
+  height: 59px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-xPGxtw {
+  background-color: transparent;
+  height: 59px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .minimum-issuer-age-xPGxtw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 76px;
+}
+
+.ratesviewluma .maximum-issue-age-xPGxtw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 75px;
+}
+
+.ratesviewluma .annuitization-age-xPGxtw {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 66px;
+}
+
+.ratesviewluma .group-9-copy-P3HLx9 {
+  background-color: transparent;
+  height: 59px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-tSne8n {
+  background-color: var(--white);
+  height: 59px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .x18-tSne8n {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 16px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 12px;
+}
+
+.ratesviewluma .x85-tSne8n {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 16px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 12px;
+}
+
+.ratesviewluma .x95-tSne8n {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 16px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 12px;
+}
+
+.ratesviewluma .group-18-K1xf2P {
+  background-color: transparent;
+  height: 95px;
+  left: 25px;
+  position: absolute;
+  top: 353px;
+  width: 280px;
+}
+
+.ratesviewluma .withdrawal-provision-8jZIhp {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 109px;
+}
+
+.ratesviewluma .group-11-8jZIhp {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.ratesviewluma .group-9-copy-eU3Q7A {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-FSdpxe {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .fee-withdrawl-FSdpxe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 54px;
+}
+
+.ratesviewluma .waivers-FSdpxe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 22px;
+  white-space: nowrap;
+  width: 31px;
+}
+
+.ratesviewluma .group-9-copy-Wu3xxx {
+  background-color: transparent;
+  height: 74px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-6wy6td {
+  background-color: var(--white);
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .x10-6wy6td {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .nursing-home-waiver-6wy6td {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 80px;
+}
+
+.ratesviewluma .rmd-waiver-6wy6td {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 40px;
+  white-space: nowrap;
+  width: 46px;
+}
+
+.ratesviewluma .terminal-illness-wai-6wy6td {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 56px;
+  white-space: nowrap;
+  width: 87px;
+}
+
+.ratesviewluma .group-18-570wxk {
+  background-color: transparent;
+  height: 56px;
+  left: 25px;
+  position: absolute;
+  top: 473px;
+  width: 562px;
+}
+
+.ratesviewluma .riders-r8kPwG {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 33px;
+}
+
+.ratesviewluma .group-11-r8kPwG {
+  background-color: transparent;
+  height: 32px;
+  left: 0px;
+  position: absolute;
+  top: 24px;
+  width: 562px;
+}
+
+.ratesviewluma .group-9-copy-aBFo30 {
+  background-color: transparent;
+  height: 32px;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-Px0GXA {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 14px;
+  width: 562px;
+}
+
+.ratesviewluma .name-Px0GXA {
+  background-color: transparent;
+  font-weight: 500;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 24px;
+}
+
+.ratesviewluma .standard-death-benef-Px0GXA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 18px;
+  white-space: nowrap;
+  width: 86px;
+}
+
+.ratesviewluma .cash-surrender-value-Px0GXA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 164px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 18px;
+  white-space: nowrap;
+  width: 80px;
+}
+
+.ratesviewluma .x000-Px0GXA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 316px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 18px;
+  white-space: nowrap;
+  width: 24px;
+}
+
+.ratesviewluma .mandatory-Px0GXA {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 427px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 18px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .type-Px0GXA {
+  background-color: transparent;
+  font-weight: 500;
+  height: 10px;
+  left: 164px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .rider-cost-Px0GXA {
+  background-color: transparent;
+  font-weight: 500;
+  height: 10px;
+  left: 316px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 40px;
+}
+
+.ratesviewluma .availability-Px0GXA {
+  background-color: transparent;
+  font-weight: 500;
+  height: 10px;
+  left: 427px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 43px;
+}
+
+.ratesviewluma .group-18-Go4GyF {
+  background-color: transparent;
+  height: 164px;
+  left: 25px;
+  position: absolute;
+  top: 554px;
+  width: 562px;
+}
+
+.ratesviewluma .current-rates-ydpHsT {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.ratesviewluma .group-11-ydpHsT {
+  background-color: transparent;
+  height: 146px;
+  left: 0px;
+  position: absolute;
+  top: 18px;
+  width: 562px;
+}
+
+.ratesviewluma .group-9-copy-86D8rl {
+  background-color: transparent;
+  height: 146px;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .group-8bT45v {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 20px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-oFVQQs {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .fixed-rate-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 31px;
+}
+
+.ratesviewluma .daily-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 16px;
+}
+
+.ratesviewluma .text_label-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x325-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .x2022-08-01-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x0-9999999-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 49px;
+}
+
+.ratesviewluma .text_label-27eKSz {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .fixed-oFVQQs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 17px;
+}
+
+.ratesviewluma .text_label-IJFUSj {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .text_label-57K22g {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .group-W4jqxB {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 38px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-p7cplQ {
+  background-color: var(--white);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .ml-strategic-balance-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.ratesviewluma .annual-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.ratesviewluma .text_label-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .text_label-hNcJu4 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x2022-08-01-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x0-9999999-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 49px;
+}
+
+.ratesviewluma .text_label-Nakmys {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .point-to-point-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .x90-p7cplQ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 15px;
+}
+
+.ratesviewluma .text_label-guzPfM {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .group-Z0qqJZ {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 56px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-OQoy95 {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .ml-strategic-balance-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.ratesviewluma .annual-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.ratesviewluma .text_label-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x325-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .x2022-08-01-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x100000-999999-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 81px;
+}
+
+.ratesviewluma .text_label-xxSmKs {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .point-to-point-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .x115-OQoy95 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.ratesviewluma .text_label-gyVxvf {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .group-M60Nco {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 74px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-FwqbBP {
+  background-color: var(--white);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .ml-strategic-balance-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.ratesviewluma .annual-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.ratesviewluma .text_label-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .text_label-dW2Zwp {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x2022-08-01-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x0-9999999-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 49px;
+}
+
+.ratesviewluma .text_label-Gywp2c {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .point-to-point-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .x90-FwqbBP {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 15px;
+}
+
+.ratesviewluma .text_label-lyxnvZ {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .group-9QMkAx {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 92px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-JyAZuk {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .ml-strategic-balance-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.ratesviewluma .annual-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.ratesviewluma .text_label-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x325-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .x2022-08-01-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x100000-999999-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 81px;
+}
+
+.ratesviewluma .text_label-uxgSFc {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .point-to-point-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .x115-JyAZuk {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.ratesviewluma .text_label-xjioII {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .group-Z3p9ky {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 110px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-FqN1h8 {
+  background-color: var(--white);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .ml-strategic-balance-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.ratesviewluma .annual-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.ratesviewluma .text_label-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .text_label-wDx4A8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x2022-08-01-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x0-9999999-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 49px;
+}
+
+.ratesviewluma .text_label-9wG4x4 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .point-to-point-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .x90-FqN1h8 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 15px;
+}
+
+.ratesviewluma .text_label-xfk1as {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .group-4qq98s {
+  background-color: transparent;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 128px;
+  width: 562px;
+}
+
+.ratesviewluma .rectangle-odZAnY {
+  background-color: var(--wild-sand);
+  border-radius: 8px;
+  height: 18px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 562px;
+}
+
+.ratesviewluma .ml-strategic-balance-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 62px;
+}
+
+.ratesviewluma .annual-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 21px;
+}
+
+.ratesviewluma .text_label-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 228px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .x325-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 20px;
+}
+
+.ratesviewluma .x2022-08-01-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 36px;
+}
+
+.ratesviewluma .x100000-999999-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 81px;
+}
+
+.ratesviewluma .text_label-xxCxNd {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .point-to-point-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 41px;
+}
+
+.ratesviewluma .x115-odZAnY {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.ratesviewluma .text_label-pdhQUe {
+  background-color: transparent;
+  font-weight: 400;
+  height: 8px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 5px;
+  white-space: nowrap;
+  width: 7px;
+}
+
+.ratesviewluma .index-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 9px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 19px;
+}
+
+.ratesviewluma .term-ga-term-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 96px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 28px;
+}
+
+.ratesviewluma .crediting-strategy-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 146px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 52px;
+}
+
+.ratesviewluma .cap-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 229px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 13px;
+}
+
+.ratesviewluma .par-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 263px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 12px;
+}
+
+.ratesviewluma .perf-trigger-credit-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 297px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 38px;
+}
+
+.ratesviewluma .fixed-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 348px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 18px;
+}
+
+.ratesviewluma .spread-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 385px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 22px;
+}
+
+.ratesviewluma .effective-date-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 16px;
+  left: 428px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  width: 27px;
+}
+
+.ratesviewluma .premium-band-8bT45v {
+  background-color: transparent;
+  font-weight: 500;
+  height: 8px;
+  left: 477px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 43px;
+}
+
+.ratesviewluma .group-18-7Dm1Li {
+  background-color: transparent;
+  height: 95px;
+  left: 307px;
+  position: absolute;
+  top: 353px;
+  width: 280px;
+}
+
+.ratesviewluma .state-availability-tfzyYc {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 0px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  white-space: nowrap;
+  width: 84px;
+}
+
+.ratesviewluma .group-11-tfzyYc {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 21px;
+  width: 280px;
+}
+
+.ratesviewluma .group-9-copy-fikqMH {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-xGikPa {
+  background-color: transparent;
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .state-exemptions-xGikPa {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 7px;
+  white-space: nowrap;
+  width: 66px;
+}
+
+.ratesviewluma .group-9-copy-1s7x53 {
+  background-color: transparent;
+  height: 74px;
+  left: 140px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .rectangle-xSN8p3 {
+  background-color: var(--white);
+  height: 74px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 140px;
+}
+
+.ratesviewluma .none-xSN8p3 {
+  background-color: transparent;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 8px;
+  white-space: nowrap;
+  width: 22px;
+}
+
+.ratesviewluma .available-in-all-50-xSN8p3 {
+  background-color: transparent;
+  color: var(--mine-shaft);
+  font-family: var(--font-family-ibmplexsans-italic);
+  font-size: var(--font-size-l);
+  font-style: italic;
+  font-weight: 400;
+  height: 10px;
+  left: 8px;
+  letter-spacing: 0.00px;
+  line-height: 10px;
+  position: absolute;
+  text-align: left;
+  top: 24px;
+  white-space: nowrap;
+  width: 90px;
+}
+
+.ratesviewluma .for-financial-profes-ECU7tB {
+  background-color: transparent;
+  font-weight: 400;
+  height: 16px;
+  left: 25px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: left;
+  top: 751px;
+  width: 73px;
+}
+
+.ratesviewluma .page-1-of-8-081120-ECU7tB {
+  background-color: transparent;
+  font-weight: 400;
+  height: 16px;
+  left: 546px;
+  letter-spacing: 0.00px;
+  line-height: 8px;
+  position: absolute;
+  text-align: center;
+  top: 751px;
+  width: 36px;
+}
+
+.ratesviewluma .rectangle-570wxk {
+  background-color: transparent;
+  height: 56px;
+  left: 9px;
+  position: absolute;
+  top: 9px;
+  width: 16px;
+}
+
+.ratesviewluma .fia-power-protector-ECU7tB {
+  background-color: transparent;
+  font-weight: 700;
+  height: 13px;
+  left: 476px;
+  letter-spacing: 0.00px;
+  line-height: 13px;
+  position: absolute;
+  text-align: center;
+  top: 45px;
+  white-space: nowrap;
+  width: 112px;
+}
+
+.ratesviewluma .assets-company-logos-carriersaig-ECU7tB {
+  background-color: transparent;
+  height: 16px;
+  left: 555px;
+  position: absolute;
+  top: 21px;
+  width: 32px;
+}
+
+.ratesviewluma .assets-luma-logos-na-ECU7tB {
+  background-color: transparent;
+  height: 24px;
+  left: 41px;
+  position: absolute;
+  top: 25px;
+  width: 95px;
+}

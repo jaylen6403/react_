@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<!-- <link rel="stylesheet" type="text/css" href="css/styleguide.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/globals.css" /> -->
+
+<head>
+  <style>
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    /* footer, */
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    @page :first {
+      size: a4;
+      margin: 0mm 0mm 25mm 0mm;
+      margin-top: 5px;
+
+      @bottom-left {
+        content: "For Financial Professional Use Only. Annuities are products of the insurance industry and are not (a) insured by the FDIC or any federal government agency, (b) deposits of or guaranteed by any bank or credit union, or (c) a provision or condition of any bank or credit union activity. Annuities contain features, fees, risks, exclusions and limitations that vary by state, and some annuities are subject to investment risk and may lose value. For a full explanation of an annuity, please refer to the Disclosure Statement or Prospectus (as applicable) produced by issuing insurance company. The information contained herein is not intended as, nor should it be construed as, legal, tax, or investment advice. Before deciding on an annuity, considerations should include income needs, risk tolerance and investment objectives. None of the information contained herein constitutes an offer by Luma Financial Technologies, LLC or its subsidiaries to sell any investment products in any jurisdiction.";
+        color: #2f3336;
+        font-family: "IBMPlexSans-Regular", Helvetica;
+        font-size: 6px;
+        font-style: normal;
+        font-weight: 400;
+        left: 30px;
+        padding-left: 30px;
+        width: 15%;
+        position: absolute;
+      }
+    }
+
+    @page {
+      size: a4;
+      margin: 11mm 0mm 25mm 0mm;
+      margin-top: 5px;
+
+      @bottom-left {
+        content: "For Financial Professional Use Only. Annuities are products of the insurance industry and are not (a) insured by the FDIC or any federal government agency, (b) deposits of or guaranteed by any bank or credit union, or (c) a provision or condition of any bank or credit union activity. Annuities contain features, fees, risks, exclusions and limitations that vary by state, and some annuities are subject to investment risk and may lose value. For a full explanation of an annuity, please refer to the Disclosure Statement or Prospectus (as applicable) produced by issuing insurance company. The information contained herein is not intended as, nor should it be construed as, legal, tax, or investment advice. Before deciding on an annuity, considerations should include income needs, risk tolerance and investment objectives. None of the information contained herein constitutes an offer by Luma Financial Technologies, LLC or its subsidiaries to sell any investment products in any jurisdiction.";
+        color: #2f3336;
+        font-family: "IBMPlexSans-Regular", Helvetica;
+        font-size: 6px;
+        font-style: normal;
+        font-weight: 400;
+        left: 30px;
+        padding-left: 30px;
+        width: 15%;
+        position: absolute;
+      }
+    }
+
+    .background {
+      background-color: #f2f4f5;
+      width: 50%;
+    }
+
+
+    @media print {
+      .page-break {
+        height: 1px;
+        clear: both;
+        page-break-after: always;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Regular";
+      font-weight: 1 1000;
+      src: url("../fonts/IBMPlexSans-Regular.ttf") format("truetype");
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Bold";
+      font-weight: 700;
+      src: url("../fonts/IBMPlexSans-Bold.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Medium";
+      font-weight: 500;
+      src: url("../fonts/IBMPlexSans-Medium.otf") format("opentype");
+    }
+
+    @font-face {
+      font-family: "IBMPlexSans-Italic";
+      font-style: italic;
+      font-weight: 400;
+      src: url("../fonts/IBMPlexSans-Italic.ttf") format("truetype");
+    }
+
+    .screen textarea:focus,
+    .screen input:focus {
+      outline: none;
+    }
+
+    .screen * {
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+    }
+
+    .screen div {
+      -webkit-text-size-adjust: none;
+    }
+
+    .screen a {
+      display: contents;
+      text-decoration: none;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .ibmplexsans-regular-normal-mine-shaft-8px-bold {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Regular", Helvetica;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .ibmplexsans-regular-normal-mine-shaft-6px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Regular", Helvetica;
+      font-size: 6px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .ibmplexsans-regular-normal-mine-shaft-8px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Regular", Helvetica;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .ibmplexsans-medium-mine-shaft-6px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Medium", Helvetica;
+      font-size: 6px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    .ibmplexsans-bold-mine-shaft-6px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Bold", Helvetica;
+      font-size: 6px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .ibmplexsans-bold-mine-shaft-10px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Bold", Helvetica;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .ibmplexsans-bold-mine-shaft-12px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Bold", Helvetica;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .ibmplexsans-bold-mine-shaft-16px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Bold", Helvetica;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .ibmplexsans-medium-mine-shaft-8px {
+      color: #2f3336;
+      font-family: "IBMPlexSans-Medium", Helvetica;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    header {
+      overflow: hidden;
+      padding-bottom: 20px;
+    }
+
+    .luma-block {
+      float: left;
+    }
+
+    .luma-logo {
+      padding: 15px;
+      margin-left: 10px;
+      display: block;
+      height: 60px;
+    }
+
+    .header-product {
+      margin-top: 15px;
+      text-align: right;
+    }
+
+    .header-date {
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    .left-header {
+      width: 50%;
+      float: left;
+      padding: 9px;
+    }
+
+    .right-header {
+      width: 50%;
+      float: right;
+      padding: 9px;
+    }
+
+    section {
+      padding-left: 16px;
+    }
+
+    .performance-summary-title {
+      padding-bottom: 10px;
+    }
+
+    .performance-item-details {
+      display: inline-block;
+      background-color: #f2f4f5;
+      border-radius: 5px;
+      padding: 4px 8px;
+      margin: 0px 5px 8px 0px;
+    }
+
+    .projection-graph-container {
+      text-align: center;
+    }
+
+    .test-graph {
+      border: 1px solid black;
+      width: 42%;
+      margin: 10px;
+    }
+
+    .test-pie-chart {
+      width: 100%;
+      border: 1px solid black;
+      margin-bottom: 20px;
+    }
+
+    .section-break {
+      border-top: solid black 1px;
+      border-radius: 0.121px;
+      height: 1px;
+      width: 95%;
+      margin: auto;
+      padding-bottom: 20px;
+    }
+
+    .product-left {
+      display: block;
+      position: relative;
+      float: left;
+      width: 45%;
+    }
+
+    .product-right {
+      display: block;
+      position: relative;
+      float: right;
+      width: 49%;
+      word-wrap: break-word;
+    }
+
+    .product-profile-column-container {
+      table-layout: fixed;
+      width: 98%;
+      border-spacing: 50px 20px;
+    }
+
+    .product-item-row {
+      display: inline-block;
+      width: 200%;
+    }
+
+    .product-item-row p {
+      margin-top: 5px;
+      margin-left: 10px;
+    }
+
+    .product-items {
+      page-break-inside: avoid;
+      break-inside: avoid;
+      page-break-after: auto;
+      break-after: auto;
+    }
+
+    .product-item-row:last-child {
+      padding-bottom: 10px;
+    }
+
+    .column-header {
+      height: 10px;
+      border-radius: 5px 5px 0px 0px;
+    }
+
+    .col1 {
+      background-color: #004570;
+    }
+
+    .col2 {
+      background-color: #26a0dc
+    }
+
+    .col3 {
+      background-color: #aac743
+    }
+
+    .col-divider {
+      height: 1px;
+      background-color: #d8dfe2;
+    }
+
+    .col-subtitle {
+      height: 16px;
+      padding: 4px 0px 4px 8px;
+      background-color: #d8dfe2;
+      width: 200%;
+    }
+
+    .pie-chart-key {
+      float: left;
+      width: 12px;
+      height: 8px;
+      margin: 0 4px 0 0;
+      border-radius: 2px;
+      background-color: #004570;
+    }
+
+    .pie-chart-product {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="left-header">
+      <img class="luma-block"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-rectangle-FED34FDF-C0C4-40CF-A713-38298D94A956.png" />
+      <img class="luma-logo"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-assetsluma-logosname--flamelighthorizontal-9021C587-0957-4894-A267-024F86B3A5B8@2x.png" />
+    </div>
+    <div class="right-header">
+      <div class="header-product ibmplexsans-bold-mine-shaft-10px">Product Comparison</div>
+      <div class="header-date ibmplexsans-medium-mine-shaft-8px">As of 08/16/2022</div>
+    </div>
+  </header>
+
+  <section class="performance-summary-group">
+    <div class="performance-summary-title ibmplexsans-bold-mine-shaft-10px">Details</div>
+    <div class="ibmplexsans-regular-normal-mine-shaft-8px">
+      <div class="performance-item-details">Premium: <span>Single</span></div>
+      <div class="performance-item-details">Primary Age: <span>60</span></div>
+      <div class="performance-item-details">Joint Age: <span>N/A</span></div>
+      <div class="performance-item-details">Income Rider: <span>Yes</span></div>
+      <div class="performance-item-details">Income Start: <span>70</span></div>
+    </div>
+  </section>
+
+  <div class="section-break"></div>
+
+  <section class="projection-container">
+    <div class="performance-summary-group">
+      <div class="performance-summary-title ibmplexsans-bold-mine-shaft-10px">Projections</div>
+      <div class="projection-graph-container">
+        <img class="test-graph"
+          src="https://thumbs.dreamstime.com/z/cat-boxing-dog-blue-helmet-gloves-beige-boxer-red-uniform-white-background-isolated-193968524.jpg">
+        <img class="test-graph"
+          src="https://thumbs.dreamstime.com/z/cat-boxing-dog-blue-helmet-gloves-beige-boxer-red-uniform-white-background-isolated-193968524.jpg">
+      </div>
+    </div>
+  </section>
+
+  <div class="section-break"></div>
+  <section>
+    <div class="performance-summary-title ibmplexsans-bold-mine-shaft-10px">Product Profiles</div>
+    <table class="product-profile-column-container ibmplexsans-regular-normal-mine-shaft-8px">
+      <tr>
+
+        <td>
+
+          <div class="column-header col1"></div>
+          <div class="product-contents">
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Carrier</p>
+                </div>
+                <div class="product-right">
+                  <p>AIG</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Product Name</p>
+                </div>
+                <div class="product-right">
+                  <p>Power 7 Protector Plus Income
+                  </p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Underlying</p>
+                </div>
+                <div class="product-right">
+                  <p>Lifetime Income Choice - Max Income
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-divider"></div>
+
+
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$100,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Value</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Starting Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Total Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">Carrier Financial Ratings</div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>A.M. Best</p>
+                </div>
+                <div class="product-right">
+                  <p>A Excellent</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Fitch</p>
+                </div>
+                <div class="product-right">
+                  <p>A+ Strong</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Moody's</p>
+                </div>
+                <div class="product-right">
+                  <p>A2 Good</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Standard & Poor's</p>
+                </div>
+                <div class="product-right">
+                  <p>A+ Strong</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">Core Product Specs</div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Type</p>
+                </div>
+                <div class="product-right">
+                  <p>Brokerage</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>CDSC Years</p>
+                </div>
+                <div class="product-right">
+                  <p>7</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>CDSC</p>
+                </div>
+                <div class="product-right">
+                  <p>1, 2, 3, 4, 5, 6, 7, 8, 9, 0</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Fee Withdrawal</p>
+                </div>
+                <div class="product-right">
+                  <p>100%</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Minimum Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$10,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Maximum Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$1,000,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Add Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$,2000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+
+        <td>
+          <div class="column-header col2"></div>
+          <div class="product-contents">
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Carrier</p>
+                </div>
+                <div class="product-right">
+                  <p>AIG</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Product Name</p>
+                </div>
+                <div class="product-right">
+                  <p>Power 7 Protector Plus Income
+                  </p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Underlying</p>
+                </div>
+                <div class="product-right">
+                  <p>Lifetime Income Choice - Max Income
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-divider"></div>
+
+
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$100,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Value</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Starting Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Total Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">Carrier Financial Ratings</div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>A.M. Best</p>
+                </div>
+                <div class="product-right">
+                  <p>A Excellent</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Fitch</p>
+                </div>
+                <div class="product-right">
+                  <p>A+ Strong</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Moody's</p>
+                </div>
+                <div class="product-right">
+                  <p>A2 Good</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Standard & Poor's</p>
+                </div>
+                <div class="product-right">
+                  <p>A+ Strong</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">Core Product Specs</div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Type</p>
+                </div>
+                <div class="product-right">
+                  <p>Brokerage</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>CDSC Years</p>
+                </div>
+                <div class="product-right">
+                  <p>7</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>CDSC</p>
+                </div>
+                <div class="product-right">
+                  <p>1, 2, 3, 4, 5, 6, 7, 8, 9, 0</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Fee Withdrawal</p>
+                </div>
+                <div class="product-right">
+                  <p>100%</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Minimum Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$10,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Maximum Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$1,000,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Add Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$,2000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+
+        <td>
+          <div class="column-header col3"></div>
+          <div class="product-contents">
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Carrier</p>
+                </div>
+                <div class="product-right">
+                  <p>AIG</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Product Name</p>
+                </div>
+                <div class="product-right">
+                  <p>Power 7 Protector Plus Income
+                  </p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Underlying</p>
+                </div>
+                <div class="product-right">
+                  <p>Lifetime Income Choice - Max Income
+                  </p>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col-divider"></div>
+
+
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$100,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Value</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Starting Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Total Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">Carrier Financial Ratings</div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>A.M. Best</p>
+                </div>
+                <div class="product-right">
+                  <p>A Excellent</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Fitch</p>
+                </div>
+                <div class="product-right">
+                  <p>A+ Strong</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Moody's</p>
+                </div>
+                <div class="product-right">
+                  <p>A2 Good</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Standard & Poor's</p>
+                </div>
+                <div class="product-right">
+                  <p>A+ Strong</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">Core Product Specs</div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Type</p>
+                </div>
+                <div class="product-right">
+                  <p>Brokerage</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>CDSC Years</p>
+                </div>
+                <div class="product-right">
+                  <p>7</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>CDSC</p>
+                </div>
+                <div class="product-right">
+                  <p>1, 2, 3, 4, 5, 6, 7, 8, 9, 0</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Fee Withdrawal</p>
+                </div>
+                <div class="product-right">
+                  <p>100%</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Minimum Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$10,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Maximum Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$1,000,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Add Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$,2000</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+  <div class="page-break"></div>
+
+  <header class="second-page-header">
+    <div class="left-header">
+      <img class="luma-block"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-rectangle-FED34FDF-C0C4-40CF-A713-38298D94A956.png" />
+      <img class="luma-logo"
+        src="https://anima-uploads.s3.amazonaws.com/projects/6304f96848232f777a45dd97/releases/6304fbed68f759b4fd1618ba/img/rates-view---luma-assetsluma-logosname--flamelighthorizontal-9021C587-0957-4894-A267-024F86B3A5B8@2x.png" />
+    </div>
+    <div class="right-header">
+      <div class="header-product ibmplexsans-bold-mine-shaft-10px">Product Comparison</div>
+      <div class="header-date ibmplexsans-medium-mine-shaft-8px">As of 08/16/2022</div>
+    </div>
+  </header>
+
+  <section class="performance-summary-group">
+    <div class="performance-summary-title ibmplexsans-bold-mine-shaft-10px">Details</div>
+    <div class="ibmplexsans-regular-normal-mine-shaft-8px">
+      <div class="performance-item-details">Premium: <span>Single</span></div>
+      <div class="performance-item-details">Primary Age: <span>60</span></div>
+      <div class="performance-item-details">Joint Age: <span>N/A</span></div>
+      <div class="performance-item-details">Income Rider: <span>Yes</span></div>
+      <div class="performance-item-details">Income Start: <span>70</span></div>
+    </div>
+  </section>
+
+  <div class="section-break"></div>
+
+  <section class="projection-container">
+    <div class="performance-summary-group">
+    </div>
+  </section>
+  <section>
+    <div class="performance-summary-title ibmplexsans-bold-mine-shaft-10px">Product Profiles</div>
+    <table class="product-profile-column-container ibmplexsans-regular-normal-mine-shaft-8px">
+      <tr>
+
+        <td>
+          <!-- COLUMN 1 -->
+          <img class="test-pie-chart"
+            src="https://images.squarespace-cdn.com/content/v1/58b4791ad2b857c893179e34/1537971642021-LHW76T7O8JG0M4GLTSTP/IMG_2818.jpg">
+
+          <div class="column-header col1"></div>
+          <div class="product-contents">
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Carrier</p>
+                </div>
+                <div class="product-right">
+                  <p>AIG</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Product Name</p>
+                </div>
+                <div class="product-right">
+                  <p>Power 7 Protector Plus Income
+                  </p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rider</p>
+                </div>
+                <div class="product-right">
+                  <p>Lifetime Income Choice - Max Income
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$100,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Value</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Starting Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Total Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <!-- COLUMN 2 -->
+        <td>
+          <img class="test-pie-chart"
+            src="https://images.squarespace-cdn.com/content/v1/58b4791ad2b857c893179e34/1537971642021-LHW76T7O8JG0M4GLTSTP/IMG_2818.jpg?format=500w">
+
+          <div class="column-header col2"></div>
+          <div class="product-contents">
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Carrier</p>
+                </div>
+                <div class="product-right">
+                  <p>AIG</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Product Name</p>
+                </div>
+                <div class="product-right">
+                  <p>Power 7 Protector Plus Income
+                  </p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rider</p>
+                </div>
+                <div class="product-right">
+                  <p>Lifetime Income Choice - Max Income
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$100,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Value</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Starting Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Total Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+        <!-- COLUMN 3 -->
+        <td>
+          <img class="test-pie-chart"
+            src="https://images.squarespace-cdn.com/content/v1/58b4791ad2b857c893179e34/1537971642021-LHW76T7O8JG0M4GLTSTP/IMG_2818.jpg">
+
+          <div class="column-header col3"></div>
+          <div class="product-contents">
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Carrier</p>
+                </div>
+                <div class="product-right">
+                  <p>AIG</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Product Name</p>
+                </div>
+                <div class="product-right">
+                  <p>Power 7 Protector Plus Income
+                  </p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rider</p>
+                </div>
+                <div class="product-right">
+                  <p>Lifetime Income Choice - Max Income
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-items background">
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Premium</p>
+                </div>
+                <div class="product-right">
+                  <p>$100,000</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Account Value</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Starting Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Total Income</p>
+                </div>
+                <div class="product-right">
+                  <p>$12,345,678.90</p>
+                </div>
+              </div>
+            </div>
+            <div class="product-items background">
+              <div class="col-subtitle ibmplexsans-bold-mine-shaft-6px">
+                <div class="pie-chart-key"> </div>
+                <div class="pie-chart-product">100% - S&P 500</div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Term</p>
+                </div>
+                <div class="product-right">
+                  <p>Annual / Annual</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Strategy</p>
+                </div>
+                <div class="product-right">
+                  <p>Point-to-Point</p>
+                </div>
+              </div>
+              <div class="product-item-row">
+                <div class="product-left">
+                  <p>Rates</p>
+                </div>
+                <div class="product-right">
+                  <p>5.50% Cap</p>
+                  <p>100.00% Par</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+</body>
+
+</html>
